@@ -1,14 +1,16 @@
 <div class="container">
+  <video #video width="0" height="100%" autoplay></video>
   <div class="row">
     <img src={{imageSource}} alt={{description}} width="88%">
+    <canvas #canvas style="display:none;"></canvas>
   </div>
 
-  <div class="row" *ngIf="!buttonsNotVisible" style="margin-top: 2%;">
-    <button type="button" class="btn btn-primary" style="margin-right: 2%">
+  <div class="row" style="margin-top: 2%;">
+    <button type="button" class="btn btn-primary" style="margin-right: 2%" (click)="onCapture()">
       <i class="fa fa-camera"></i>&nbsp; Webcam
     </button>
 
-    <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
+    <input style="display: none" type="file" (change)="onFileUpload($event)" #fileInput>
     <button type="button" class="btn btn-primary" (click)="fileInput.click()">
       <i class="fa fa-upload"></i>&nbsp; Upload
     </button>
