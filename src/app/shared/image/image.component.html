@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <img src={{imageSource}} alt={{description}} width="88%">
+  </div>
+
+  <div class="row" *ngIf="!buttonsNotVisible" style="margin-top: 2%;">
+    <button type="button" class="btn btn-primary" style="margin-right: 2%">
+      <i class="fa fa-camera"></i>&nbsp; Webcam
+    </button>
+
+    <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
+    <button type="button" class="btn btn-primary" (click)="fileInput.click()">
+      <i class="fa fa-upload"></i>&nbsp; Upload
+    </button>
+  </div>
+</div>
