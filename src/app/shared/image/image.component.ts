@@ -10,9 +10,11 @@ export class ImageComponent implements OnInit {
   @Input() imageSource: string;
   @Input() description: string;
   @Input() buttonsNotVisible: boolean;
+  @Input() isWebcamOn: boolean = false;
 
   @ViewChild("video") video: ElementRef;
   @ViewChild("canvas") canvas: ElementRef;
+  stream: MediaStream;
 
   constructor() { }
 
@@ -20,13 +22,21 @@ export class ImageComponent implements OnInit {
     this.imageSource = "assets/howdidwegetsodark.jpg";
   }
 
-  public ngAfterViewInit() {
-    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  ngAfterViewInit() {
+    if (this.isWebcamOn && navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
+        this.stream = stream;
         this.video.nativeElement.srcObject = stream;
         this.video.nativeElement.play();
+        console.log("Webcam ON");
       });
     }
+  }
+
+  ngOnDestroy() {
+    this.video.nativeElement.pause();
+    this.stream.getTracks()[0].stop();
+    console.log("Webcam OFF");
   }
 
   onFileUpload(event) {
@@ -41,8 +51,8 @@ export class ImageComponent implements OnInit {
   }
 
   onCapture() {
-   this.canvas.nativeElement.getContext('2d').drawImage(this.video.nativeElement, 0, 0);
-   this.imageSource = this.canvas.nativeElement.toDataURL('image/png');
+    this.canvas.nativeElement.getContext('2d').drawImage(this.video.nativeElement, 0, 0);
+    this.imageSource = this.canvas.nativeElement.toDataURL('image/png');
   }
 
 }

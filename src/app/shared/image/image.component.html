@@ -1,16 +1,16 @@
 <div class="container">
-  <video #video width="0" height="100%" autoplay></video>
   <div class="row">
-    <img src={{imageSource}} alt={{description}} width="88%">
+    <video *ngIf="isWebcamOn" #video width="88%" height="250px" autoplay style="border-radius: 50%;"></video>
     <canvas #canvas style="display:none;"></canvas>
+    <img *ngIf="!isWebcamOn" src={{imageSource}} alt={{description}} width="88%" style="border-radius: 50%;">
   </div>
 
-  <div class="row" style="margin-top: 2%;">
-    <button type="button" class="btn btn-primary" style="margin-right: 2%" (click)="onCapture()">
-      <i class="fa fa-camera"></i>&nbsp; Webcam
+  <div *ngIf="!buttonsNotVisible" class="row" style="margin-top: 2%;">
+    <button type="button" class="btn btn-primary" style="margin-right: 2%;" (click)="onCapture()">
+      <i class="fa fa-camera container-fa"></i>&nbsp; Webcam
     </button>
 
-    <input style="display: none" type="file" (change)="onFileUpload($event)" #fileInput>
+    <input #fileInput type="file" (change)="onFileUpload($event)" style="display: none">
     <button type="button" class="btn btn-primary" (click)="fileInput.click()">
       <i class="fa fa-upload"></i>&nbsp; Upload
     </button>

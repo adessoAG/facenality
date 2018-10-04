@@ -1,11 +1,32 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<!-- <button type="button" class="btn btn-primary" style="margin-right: 2%;" (click)="onCapture()">
+    <i class="fa fa-camera container-fa">
+        <i class="fa fa-ban nested-fa"></i>
+    </i>
+</button> -->
 
+<legend class="row-margin"><i class="fa fa-camera"></i>&nbsp; Webcam:</legend>
+<div class="form-group row" ngbRadioGroup name="radioBasic" [(ngModel)]="model">
+    <div class="custom-control custom-radio">
+        <label ngbButtonLabel>
+            <input ngbButton type="radio" [value]="1"> ON
+        </label>
+    </div>
+    <div class="custom-control custom-radio">
+        <label ngbButtonLabel>
+            <input ngbButton type="radio" [value]="0"> OFF
+        </label>
+    </div>
 
-<div style="text-align:center">
-    <p>Landing Page</p>
 </div>
 
-<div class="row" style="margin: 2% 2%">
+<div *ngIf="model" class="bottom-floating-container">
+    <div class="col-3 bottom-floating-right">
+        <shared-image [description]="'Face with neutral expression.'" [buttonsNotVisible]="'true'" 
+        [isWebcamOn]="'true'"></shared-image>
+    </div>
+</div>
+
+<div class="row" style="margin-left: 2%">
     <div class="col-3">
         <shared-image [description]="'Face with neutral expression.'"></shared-image>
     </div>
@@ -19,3 +40,18 @@
         <shared-image [description]="'Face with random expression.'"></shared-image>
     </div>
 </div>
+
+<div class="row" style="margin-left: 2%">
+        <div class="col-3">
+            <shared-image [description]="'Face with neutral expression.'"></shared-image>
+        </div>
+        <div class="col-3">
+            <shared-image [description]="'Face with happy expression.'"></shared-image>
+        </div>
+        <div class="col-3">
+            <shared-image [description]="'Face with sad expression.'"></shared-image>
+        </div>
+        <div class="col-3">
+            <shared-image [description]="'Face with random expression.'"></shared-image>
+        </div>
+    </div>

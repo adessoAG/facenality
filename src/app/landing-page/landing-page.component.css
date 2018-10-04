@@ -1,0 +1,43 @@
+.bottom-floating-container
+{
+    pointer-events: none;
+    bottom: 0;
+    right: 0px;
+    margin-bottom: 1em;
+    position: fixed;
+    width: 100%;
+    height: 80%;
+    z-index: 2;
+}
+
+.bottom-floating-right
+{
+    width: 20%;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+.bottom-floating-left
+{
+    left: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+.row-margin 
+{
+    margin: 2% 2%
+}
+
+.container-fa {
+    position: relative
+}
+  
+.nested-fa {
+    position: absolute;
+    top: -10px;
+    left: -7px;
+    font-size: 250%;
+    color: rgba(217, 83, 79, 0.7);
+}
