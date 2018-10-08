@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { WebcamService } from '../webcam/webcam.service';
 
 @Component({
   selector: 'shared-image',
@@ -11,10 +12,17 @@ export class ImageComponent implements OnInit {
   @Input() description: string;
   @Input() buttonsNotVisible: boolean;
 
-  constructor() { }
+  constructor(private webcamService: WebcamService) { }
 
   ngOnInit() {
     this.imageSource = "assets/howdidwegetsodark.jpg";
+    this.webcamService.photoSubject.subscribe((src) => {
+      this.imageSource = src;
+    });
+  }
+
+  ngOnDestroy(){
+    this.webcamService.photoSubject.unsubscribe();
   }
 
   onFileUpload(event) {
@@ -29,8 +37,7 @@ export class ImageComponent implements OnInit {
   }
 
   onCapture() {
-    /* this.canvas.nativeElement.getContext('2d').drawImage(this.video.nativeElement, 0, 0);
-    this.imageSource = this.canvas.nativeElement.toDataURL('image/png'); */
+    this.webcamService.requestPhotoEmitter.emit(this);
   }
 
 }
