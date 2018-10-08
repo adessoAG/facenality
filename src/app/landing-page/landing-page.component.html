@@ -17,7 +17,7 @@
     <!-- Webcam instance/preview in right corner-->
     <div *ngIf="webcamPermission" class="bottom-floating-container">
         <div class="col-3 bottom-floating-right">
-            <shared-image [description]="'Face with neutral expression.'" [buttonsNotVisible]="'true'" [isWebcamOn]="'true'"></shared-image>
+            <shared-webcam></shared-webcam>
         </div>
     </div>
 
