@@ -1,10 +1,12 @@
 <div class="container">
+  <!-- The actual image to be displayed. -->
   <div class="row">
     <video *ngIf="isWebcamOn" #video width="88%" height="250px" autoplay style="border-radius: 50%;"></video>
     <canvas #canvas style="display:none;"></canvas>
     <img *ngIf="!isWebcamOn" src={{imageSource}} alt={{description}} width="88%" style="border-radius: 50%;">
   </div>
 
+  <!-- Buttons visible depending on input parameter -->
   <div *ngIf="!buttonsNotVisible" class="row" style="margin-top: 2%;">
     <button type="button" class="btn btn-primary" style="margin-right: 2%;" (click)="onCapture()">
       <i class="fa fa-camera container-fa"></i>&nbsp; Webcam

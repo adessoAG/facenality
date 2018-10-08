@@ -1,3 +1,7 @@
+.landing-page-wrapper {
+    margin: 2% 2%;
+}
+
 .bottom-floating-container
 {
     pointer-events: none;
@@ -25,8 +29,7 @@
     position: absolute;
 }
 
-.row-margin 
-{
+.row-margin {
     margin: 2% 2%
 }
 
