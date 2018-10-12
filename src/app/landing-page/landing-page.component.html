@@ -1,7 +1,20 @@
 <div class="landing-page-wrapper">
+    <div style="margin: 5% 2% 5% 3%"> 
+        <h1 class="display-3">Facenality</h1>
+        <p class="lead">Welcome! Just take a quick photo and let the system predict your personality.
+            <br>
+            Afterwards fill out the questionaire yourself to compare results. What's your <span class="font-weight-bold">facenality?</span>
+        </p>
+        <!-- <hr class="my-4"> -->
+    </div>
+
+    <hr class="my-4" style="margin-left: 3%; margin-right: 4%;">
+
     <!-- Webcam switch -->
-    <legend class="row-margin"><i class="fa fa-camera"></i>&nbsp; Webcam:</legend>
     <div class="form-group row" ngbRadioGroup name="radioBasic" [(ngModel)]="webcamPermission">
+        <div class="custom-control" style="margin-left: 3%;">
+            <legend><i class="fa fa-camera"></i>&nbsp; Webcam:</legend>
+        </div>
         <div class="custom-control custom-radio">
             <label ngbButtonLabel>
                 <input ngbButton type="radio" [value]="1"> ON
@@ -21,7 +34,7 @@
         </div>
     </div>
 
-    <div class="row" style="margin-left: 2%">
+    <div class="row" style="margin-left: 2%; margin-right: 3%; margin-bottom: 4%">
         <div class="col-3">
             <shared-image [description]="'Face with neutral expression.'"></shared-image>
         </div>
@@ -36,19 +49,10 @@
         </div>
     </div>
 
-    <div class="row" style="margin-left: 2%">
-        <div class="col-3">
-            <shared-image [description]="'Face with neutral expression.'"></shared-image>
-        </div>
-        <div class="col-3">
-            <shared-image [description]="'Face with happy expression.'"></shared-image>
-        </div>
-        <div class="col-3">
-            <shared-image [description]="'Face with sad expression.'"></shared-image>
-        </div>
-        <div class="col-3">
-            <shared-image [description]="'Face with random expression.'"></shared-image>
-        </div>
+    <hr class="my-4" style="margin-left: 3%; margin-right: 4%;">
+
+    <div class="general-info-form-wrapper">
+        <landing-page-general-info-form></landing-page-general-info-form>
     </div>
     <!-- End of LandingPageWrapper-->
 </div>

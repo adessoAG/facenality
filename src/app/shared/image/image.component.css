@@ -23,3 +23,7 @@
   .close:after {
     transform: rotate(-45deg);
   }
+
+  .img {
+    border-radius:50%;
+  }
