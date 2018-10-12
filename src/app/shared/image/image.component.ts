@@ -15,25 +15,27 @@ export class ImageComponent implements OnInit {
   constructor(private webcamService: WebcamService) { }
 
   ngOnInit() {
-    this.imageSource = "assets/howdidwegetsodark.jpg";
+    if (this.imageSource === undefined || this.imageSource === null) {
+      this.imageSource = 'assets/howdidwegetsodark.jpg';
+    }
     this.webcamService.photoSubject.subscribe((src) => {
       this.imageSource = src;
     });
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.webcamService.photoSubject.unsubscribe();
   }
 
   onFileUpload(event) {
-    this.imageSource = event.target.files[0]
-    let reader = new FileReader();
+    this.imageSource = event.target.files[0];
+    const reader = new FileReader();
 
     reader.readAsDataURL(event.target.files[0]);
 
     reader.onload = (e: any) => {
       this.imageSource = e.target.result;
-    }
+    };
   }
 
   onCapture() {

@@ -10,9 +10,9 @@ import { WebcamComponent } from './webcam/webcam.component';
 @NgModule({
   declarations: [HeaderComponent, ImageComponent, WebcamComponent],
   imports: [CommonModule, FormsModule, NgbModule,
-    AngularFontAwesomeModule,],
+    AngularFontAwesomeModule],
   exports: [HeaderComponent, ImageComponent, WebcamComponent,
     CommonModule, FormsModule, NgbModule,
-    AngularFontAwesomeModule,]
+    AngularFontAwesomeModule]
 })
 export class SharedModule { }

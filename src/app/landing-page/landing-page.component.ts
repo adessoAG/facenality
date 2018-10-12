@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPageComponent implements OnInit {
 
-  isCamAllowed: boolean = true;
+  isCamAllowed = true;
   webcamPermission = 0;
 
   constructor() { }
