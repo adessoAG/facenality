@@ -1,0 +1,9 @@
+{
+    "WELCOME_TEXT": "Willkommen! Nimm ein Foto auf und lass das System Deine Persönlichkeit vorhersagen.\nFülle anschließend den Fragebogen selbst aus, um die Ergebnisse zu vergleichen. Was ist deine Facenality?",
+    "WEBCAM_ON" : "An",
+    "WEBCAM_OFF" : "Aus",
+    "DESCRIPTION_NEUTRAL_FACE" : "Neutraler Gesichtsausdruck.",
+    "DESCRIPTION_HAPPY_FACE" : "Fröhlicher Gesichtsausdruck.",
+    "DESCRIPTION_SAD_FACE" : "Trauriger Gesichtsausdruck.",
+    "DESCRIPTION_RANDOM_FACE" : "Beliebiger Gesichtsausdruck."
+}

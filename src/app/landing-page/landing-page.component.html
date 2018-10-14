@@ -1,15 +1,17 @@
 <div class="landing-page-wrapper">
+
+    <p>{{ 'WELCOME_TEXT' | translate }}</p>
     <!-- Webcam switch -->
     <legend class="row-margin"><i class="fa fa-camera"></i>&nbsp; Webcam:</legend>
     <div class="form-group row" ngbRadioGroup name="radioBasic" [(ngModel)]="webcamPermission">
         <div class="custom-control custom-radio">
             <label ngbButtonLabel>
-                <input ngbButton type="radio" [value]="1"> ON
+                <input ngbButton type="radio" [value]="1"> {{ "WEBCAM_ON" | translate }}
             </label>
         </div>
         <div class="custom-control custom-radio">
             <label ngbButtonLabel>
-                <input ngbButton type="radio" [value]="0"> OFF
+                <input ngbButton type="radio" [value]="0"> {{ "WEBCAM_OFF" | translate }}
             </label>
         </div>
     </div>
@@ -23,16 +25,16 @@
 
     <div class="row" style="margin-left: 2%">
         <div class="col-3">
-            <shared-image [description]="'Face with neutral expression.'"></shared-image>
+            <shared-image [description]="'DESCRIPTION_NEUTRAL_FACE' | translate"></shared-image>
         </div>
         <div class="col-3">
-            <shared-image [description]="'Face with happy expression.'"></shared-image>
+            <shared-image [description]="'DESCRIPTION_HAPPY_FACE' | translate"></shared-image>
         </div>
         <div class="col-3">
-            <shared-image [description]="'Face with sad expression.'"></shared-image>
+            <shared-image [description]="'DESCRIPTION_SAD_FACE' | translate"></shared-image>
         </div>
         <div class="col-3">
-            <shared-image [description]="'Face with random expression.'"></shared-image>
+            <shared-image [description]="'DESCRIPTION_RANDOM_FACE' | translate"></shared-image>
         </div>
     </div>
 
