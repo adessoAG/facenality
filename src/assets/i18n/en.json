@@ -1,3 +1,10 @@
 {
-    "WELCOME_TEXT": "Welcome! Just take a quick photo and let the system predict your personality. \nAfterwards fill out the questionaire yourself to compare results. What's your facenality?"
+    "WELCOME_TEXT" : "Welcome! Just take a quick photo and let the system predict your personality. \nAfterwards fill out the questionaire yourself to compare results. What's your facenality?",
+    "WEBCAM_ON" : "On",
+    "WEBCAM_OFF" : "Off",
+    "DESCRIPTION_NEUTRAL_FACE" : "Neutral expression.",
+    "DESCRIPTION_HAPPY_FACE" : "Happy expression.",
+    "DESCRIPTION_SAD_FACE" : "Sad expression.",
+    "DESCRIPTION_RANDOM_FACE" : "Random expression."
+
 }
