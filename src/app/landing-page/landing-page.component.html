@@ -1,14 +1,13 @@
 <div class="landing-page-wrapper">
-    <div style="margin: 5% 2% 5% 3%"> 
+    <div class="global-body-wrapper"> 
         <h1 class="display-3">Facenality</h1>
         <p class="lead">{{"WELCOME_TEXT_1" | translate}}
             <br>
             {{"WELCOME_TEXT_2" | translate}}<span class="font-weight-bold">facenality?</span>
         </p>
-        <!-- <hr class="my-4"> -->
     </div>
 
-    <hr class="my-4" style="margin-left: 3%; margin-right: 4%;">
+    <hr class="my-4">
 
     <!-- Webcam switch -->
     <div class="form-group row" ngbRadioGroup name="radioBasic" [(ngModel)]="webcamPermission">
@@ -49,7 +48,7 @@
         </div>
     </div>
 
-    <hr class="my-4" style="margin-left: 3%; margin-right: 4%;">
+    <hr class="my-4">
 
     <div class="general-info-form-wrapper">
         <landing-page-general-info-form></landing-page-general-info-form>

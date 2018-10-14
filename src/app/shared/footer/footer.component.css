@@ -1,0 +1,9 @@
+.footer-wrapper {
+    margin-top: 5%;
+    margin-bottom: -5%;
+    height: 125px;
+}
+
+.footer-wrapper .container {
+    margin-top: 10%;
+}

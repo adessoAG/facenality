@@ -1,5 +1,25 @@
 .landing-page-wrapper {
     margin: 2% 2%;
+}   
+
+.row-margin {
+    margin: 2% 2%
+}
+
+.container-fa {
+    position: relative
+}
+  
+.nested-fa {
+    position: absolute;
+    top: -10px;
+    left: -7px;
+    font-size: 250%;
+    color: rgba(217, 83, 79, 0.7);
+}
+
+.general-info-form-wrapper {
+    margin: 2% 4% 3% 3%;
 }
 
 .bottom-floating-container
@@ -27,24 +47,4 @@
     left: 0;
     bottom: 0;
     position: absolute;
-}
-
-.row-margin {
-    margin: 2% 2%
-}
-
-.container-fa {
-    position: relative
-}
-  
-.nested-fa {
-    position: absolute;
-    top: -10px;
-    left: -7px;
-    font-size: 250%;
-    color: rgba(217, 83, 79, 0.7);
-}
-
-.general-info-form-wrapper {
-    margin: 2% 4% 3% 3%;
 }
