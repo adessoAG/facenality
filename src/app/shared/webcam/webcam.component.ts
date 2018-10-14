@@ -9,8 +9,8 @@ import { ImageComponent } from '../image/image.component';
 })
 export class WebcamComponent implements OnInit {
 
-  @ViewChild("video") video: ElementRef;
-  @ViewChild("canvas") canvas: ElementRef;
+  @ViewChild('video') video: ElementRef;
+  @ViewChild('canvas') canvas: ElementRef;
   stream: MediaStream;
 
   constructor(private webcamService: WebcamService) { }
@@ -18,7 +18,7 @@ export class WebcamComponent implements OnInit {
   ngOnInit() { }
 
   ngAfterViewInit() {
-    /** 
+    /**
      * Turns on the camera after checking for permission
      */
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -30,16 +30,16 @@ export class WebcamComponent implements OnInit {
         /**
          * Subscribes to photo requests and receives reference of calling component,
          * which is used to return the snapshot. Might not be the "angular way".
-         * 
+         *
          * Problem using photoSubject.emit() is that instead of the calling instance,
-         * ALL ImageComponents receive the snapshot.  
+         * ALL ImageComponents receive the snapshot.
          */
         this.webcamService.requestPhotoEmitter.subscribe((imgCmp: ImageComponent) => {
           this.canvas.nativeElement.getContext('2d').drawImage(this.video.nativeElement, 0, 0);
           imgCmp.imageSource = this.canvas.nativeElement.toDataURL('image/png');
           /* this.webcamService.photoSubject.emit(this.canvas.nativeElement.toDataURL('image/png')); */
         });
-        console.log("Webcam ON");
+        console.log('Webcam ON');
       });
     }
   }
@@ -49,6 +49,6 @@ export class WebcamComponent implements OnInit {
     this.stream.getTracks()[0].stop();
     this.webcamService.requestPhotoEmitter.unsubscribe();
 
-    console.log("Webcam OFF");
+    console.log('Webcam OFF');
   }
 }

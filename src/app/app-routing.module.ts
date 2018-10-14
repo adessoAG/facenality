@@ -6,7 +6,7 @@ const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'result', loadChildren: './prediction-result/prediction-result.module#PredictionResultModule' }
 ];
- 
+
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
   exports: [ RouterModule ]

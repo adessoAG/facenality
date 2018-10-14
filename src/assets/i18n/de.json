@@ -1,9 +1,18 @@
 {
-    "WELCOME_TEXT": "Willkommen! Nimm ein Foto auf und lass das System Deine Persönlichkeit vorhersagen.\nFülle anschließend den Fragebogen selbst aus, um die Ergebnisse zu vergleichen. Was ist deine Facenality?",
+    "WELCOME_TEXT_1": "Willkommen! Nimm ein Foto auf und lass das System Deine Persönlichkeit vorhersagen.",
+    "WELCOME_TEXT_2": "Fülle anschließend den Fragebogen selbst aus, um die Ergebnisse zu vergleichen. Was ist deine ",
     "WEBCAM_ON" : "An",
     "WEBCAM_OFF" : "Aus",
     "DESCRIPTION_NEUTRAL_FACE" : "Neutraler Gesichtsausdruck.",
     "DESCRIPTION_HAPPY_FACE" : "Fröhlicher Gesichtsausdruck.",
     "DESCRIPTION_SAD_FACE" : "Trauriger Gesichtsausdruck.",
-    "DESCRIPTION_RANDOM_FACE" : "Beliebiger Gesichtsausdruck."
+    "DESCRIPTION_RANDOM_FACE" : "Beliebiger Gesichtsausdruck.",
+    "GENERAL_INFO_FORM_AGE" : "Alter",
+    "GENERAL_INFO_FORM_GENDER" : "Geschlecht",
+    "GENERAL_INFO_FORM_GENDER_MALE" : "Männlich",
+    "GENERAL_INFO_FORM_GENDER_FEMALE" : "Weiblich",
+    "GENERAL_INFO_FORM_GENDER_OTHER" : "Andere",
+    "GENERAL_INFO_FORM_EMAIL_HINT" : "Freiwillige Angabe, um Ergebnisse per Email zu erhalten.",
+    "GENERAL_INFO_FORM_TERMS_PRIVACY" : "Ich habe die AGB gelesen und bin mit den Datenschutzbestimmungen einverstanden.",
+    "GENERAL_INFO_FORM_SUBMIT" : "Einreichen"
 }

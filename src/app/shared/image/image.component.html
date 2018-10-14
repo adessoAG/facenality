@@ -1,17 +1,18 @@
 <div class="container">
-  <!-- The actual image to be displayed. -->
-  <div class="row">
-    <img src={{imageSource}} alt={{description}} width="88%" style="border-radius: 50%;">
+  <img class="img" src={{imageSource}} alt={{description}}>    
+
+  <div class="container" style="text-align: center; margin-top: 4%;">
+    <label class="col">{{description}}</label>
   </div>
 
   <!-- Buttons visible depending on input parameter -->
   <div *ngIf="!buttonsNotVisible" class="row" style="margin-top: 2%;">
-    <button type="button" class="btn btn-primary" style="margin-right: 2%;" (click)="onCapture()">
+    <button type="button" class="btn btn-primary col mr-2" (click)="onCapture()">
       <i class="fa fa-camera container-fa"></i>&nbsp; Webcam
     </button>
 
     <input #fileInput type="file" (change)="onFileUpload($event)" style="display: none">
-    <button type="button" class="btn btn-primary" (click)="fileInput.click()">
+    <button type="button" class="btn btn-primary col" (click)="fileInput.click()">
       <i class="fa fa-upload"></i>&nbsp; Upload
     </button>
   </div>

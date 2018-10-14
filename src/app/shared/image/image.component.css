@@ -23,3 +23,9 @@
   .close:after {
     transform: rotate(-45deg);
   }
+
+  .img {
+    width: 90%;
+    border-radius:50%;
+    object-fit: cover;
+  }

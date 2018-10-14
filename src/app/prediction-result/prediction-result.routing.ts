@@ -5,5 +5,5 @@ import { ModuleWithProviders } from '@angular/core';
 const routes: Routes = [
   { path: '', component: ResultPageComponent }
 ];
- 
+
 export const routing: ModuleWithProviders = RouterModule.forChild(routes);

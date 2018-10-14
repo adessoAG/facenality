@@ -1,10 +1,18 @@
 {
-    "WELCOME_TEXT" : "Welcome! Just take a quick photo and let the system predict your personality. \nAfterwards fill out the questionaire yourself to compare results. What's your facenality?",
+    "WELCOME_TEXT_1" : "Welcome! Just take a quick photo and let the system predict your personality.",
+    "WELCOME_TEXT_2" : "Afterwards fill out the questionaire yourself to compare results. What's your ",
     "WEBCAM_ON" : "On",
     "WEBCAM_OFF" : "Off",
     "DESCRIPTION_NEUTRAL_FACE" : "Neutral expression.",
     "DESCRIPTION_HAPPY_FACE" : "Happy expression.",
     "DESCRIPTION_SAD_FACE" : "Sad expression.",
-    "DESCRIPTION_RANDOM_FACE" : "Random expression."
-
+    "DESCRIPTION_RANDOM_FACE" : "Random expression.",
+    "GENERAL_INFO_FORM_AGE" : "Age",
+    "GENERAL_INFO_FORM_GENDER" : "Gender",
+    "GENERAL_INFO_FORM_GENDER_MALE" : "Male",
+    "GENERAL_INFO_FORM_GENDER_FEMALE" : "Female",
+    "GENERAL_INFO_FORM_GENDER_OTHER" : "Other",
+    "GENERAL_INFO_FORM_EMAIL_HINT" : "Voluntary submission to receive results by mail.",
+    "GENERAL_INFO_FORM_TERMS_PRIVACY" : "I have read and understood the Terms & Conditions and agree with the Privacy Policy.",
+    "GENERAL_INFO_FORM_SUBMIT" : "Submit"
 }
