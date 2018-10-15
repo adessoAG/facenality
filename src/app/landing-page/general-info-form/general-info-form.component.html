@@ -1,13 +1,13 @@
-<form>
+<form [formGroup]="generalInfoForm" (ngSubmit)="onSubmit(generalInfoForm.value)">
   <fieldset>
     <div class="form-group">
       <label for="inputAge">{{"GENERAL_INFO_FORM_AGE" | translate}}</label>
-      <input class="form-control" id="inputAge" aria-describedby="ageHelp" placeholder="" type="email">
+      <input type="number" class="form-control" id="inputAge" aria-describedby="ageHelp" placeholder="" [formControl]="generalInfoForm.controls['age']">
     </div>
 
     <div class="form-group">
       <label for="genderSelect">{{"GENERAL_INFO_FORM_GENDER" | translate}}</label>
-      <select class="form-control" id="genderSelect">
+      <select class="form-control" id="genderSelect" [formControl]="generalInfoForm.controls['gender']">
         <option>{{"GENERAL_INFO_FORM_GENDER_MALE" | translate}}</option>
         <option>{{"GENERAL_INFO_FORM_GENDER_FEMALE" | translate}}</option>
         <option>{{"GENERAL_INFO_FORM_GENDER_OTHER" | translate}}</option>
@@ -16,17 +16,17 @@
 
     <div class="form-group">
       <label for="exampleInputEmail1">Email (optional)</label>
-      <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" type="email">
+      <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" type="email" [formControl]="generalInfoForm.controls['email']">
       <small id="emailHelp" class="form-text text-muted">{{"GENERAL_INFO_FORM_EMAIL_HINT" | translate}}</small>
     </div>
 
     <fieldset class="form-group">
       <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" value="" type="checkbox">
+          <input class="form-check-input" value="" type="checkbox" [formControl]="generalInfoForm.controls['agreedToTerms']">
           {{"GENERAL_INFO_FORM_TERMS_PRIVACY" | translate}}
         </label>
-      </div>      
+      </div>
     </fieldset>
 
     <button type="submit" class="btn btn-primary">{{"GENERAL_INFO_FORM_SUBMIT" | translate}}</button>
