@@ -3,17 +3,41 @@
 
   <div [ngSwitch]="question.controlType">
 
+    <!-- Input -->
     <input class="form-control" *ngSwitchCase="'textbox'" [formControlName]="question.key" [id]="question.key" [type]="question.type">
 
+    <!-- Select -->
     <select class="form-control" [id]="question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key">
       <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
     </select>
 
+    <!-- Radio -->
     <div *ngSwitchCase="'radio'" [id]="question.key">
       <label *ngFor="let opt of question.options">
         <input [value]="opt.key" type="radio" [formControlName]="question.key">
         {{opt.value}}
       </label>
+
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Strongly Agree</th>
+            <th scope="col">Agree</th>
+            <th scope="col">Neither</th>
+            <th scope="col">Disagree</th>
+            <th scope="col">Strongly Disagree</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let opt of question.options">
+            <th scope="row">{{opt.label}}</th>
+            <td><input [value]="opt.key" type="radio" [formControlName]="question.key"></td>
+
+          </tr>
+        </tbody>
+      </table>
     </div>
 
   </div>

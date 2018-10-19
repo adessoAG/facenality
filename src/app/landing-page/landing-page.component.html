@@ -48,7 +48,7 @@
     No permission! Please turn on Webcam and try again.
 </ngb-alert>
 
-    <!-- TODO: Adapt to *ngFor? -->
+<!-- TODO: Adapt to *ngFor? -->
 <div class="row" style="margin-left: 2%; margin-right: 3%; margin-bottom: 4%">
     <div class="col-3">
         <shared-image [description]="'DESCRIPTION_NEUTRAL_FACE' | translate" (webcamRequested)="checkWebcamPermission()"></shared-image>
@@ -66,21 +66,15 @@
 
 <hr class="my-4">
 
-    <div class="component-body-wrapper">
-        <!-- <landing-page-questionnaire></landing-page-questionnaire> -->
-        <form (ngSubmit)="onSubmit()" [formGroup]="form">
-            <div *ngFor="let question of questions" class="form-row">
-                <landing-page-question [question]="question" [form]="form"></landing-page-question>
-            </div>
-
-            <div class="form-row">
-                <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Save</button>
-            </div>
-        </form>
-    </div>
-
-<hr class="my-4">
-
 <div class="component-body-wrapper">
-    <landing-page-general-info-form></landing-page-general-info-form>
+    <!-- <landing-page-questionnaire></landing-page-questionnaire> -->
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+        <div *ngFor="let question of questions" class="form-row">
+            <landing-page-question [question]="question" [form]="form"></landing-page-question>
+        </div>
+
+        <div class="form-row">
+            <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Save</button>
+        </div>
+    </form>
 </div>

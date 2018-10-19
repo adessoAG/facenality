@@ -19,11 +19,10 @@ export class LandingPageComponent implements OnInit {
   form: FormGroup;
   payLoad = '';
 
-  ngOnInit() { }
-
   onPermissionDenied() {
     this.webcamUserPermission = 0;
     this.showPermissionAlert = true;
+  }
   constructor(private qcs: QuestionControlService, private qs: QuestionService) {  }
 
   ngOnInit() {
@@ -41,6 +40,7 @@ export class LandingPageComponent implements OnInit {
   closeAlert() {
     this.showPermissionAlert = false;
   }
+  
   onSubmit() {
     this.payLoad = JSON.stringify(this.form.value);
     console.log("questionnaire results: " + this.payLoad);

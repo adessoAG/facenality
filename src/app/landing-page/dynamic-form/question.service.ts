@@ -10,6 +10,26 @@ import { TextboxQuestion } from './types/question-textbox';
 })
 export class QuestionService {
 
+  radioOptions = [
+    { key: '1', value: 'Solidxx' },
+    { key: '2', value: 'Great' },
+    { key: '3', value: 'Good' },
+    { key: '4', value: 'Unproven' },
+    { key: '5', value: 'Very Good' }
+  ]
+
+  radioQuestions: RadioQuestion[] = [
+    new RadioQuestion({
+      controlType: 'radio',
+      value: '',
+      key: 'A1',
+      required: true,
+      order: 1,
+      label: 'I know how to comfort others',
+      options: this.radioOptions
+    })
+  ];
+
   getQuestions() {
 
     let questions: QuestionBase<any>[] = [
@@ -18,10 +38,10 @@ export class QuestionService {
         key: 'brave',
         label: 'Bravery Rating',
         options: [
-          {key: 'solid',  value: 'Solidxx'},
-          {key: 'great',  value: 'Great'},
-          {key: 'good',   value: 'Good'},
-          {key: 'unproven', value: 'Unproven'}
+          { key: 'solid', value: 'Solidxx' },
+          { key: 'great', value: 'Great' },
+          { key: 'good', value: 'Good' },
+          { key: 'unproven', value: 'Unproven' }
         ],
         order: 3
       }),
@@ -30,15 +50,19 @@ export class QuestionService {
         key: 'radio',
         label: 'Radio',
         type: 'radio',
-        options: [
-          {key: '1',  value: 'Solidxx'},
-          {key: '2',  value: 'Great'},
-          {key: '3',   value: 'Good'},
-          {key: '4', value: 'Unproven'}
-        ],
+        options: this.radioOptions,
         order: 3
       }),
 
+      new RadioQuestion({
+        key: 'radio',
+        label: 'I like trains.',
+        type: 'radio',
+        options: this.radioOptions,
+        order: 3
+      }),
+
+      this.radioQuestions,
 
       new TextboxQuestion({
         key: 'firstName',
@@ -55,7 +79,7 @@ export class QuestionService {
         order: 2
       }),
 
-       new TextboxQuestion({
+      new TextboxQuestion({
         key: 'emailAddress2',
         label: 'Email2',
         type: 'email',
@@ -65,4 +89,6 @@ export class QuestionService {
 
     return questions.sort((a, b) => a.order - b.order);
   }
+
+
 }
