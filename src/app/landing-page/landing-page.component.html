@@ -1,62 +1,60 @@
-<div class="landing-page-wrapper">
-    <div class="global-body-wrapper">
-        <h1 class="display-3">Facenality</h1>
-        <p class="lead">{{"WELCOME_TEXT_1" | translate}}
-            <br>
-            {{"WELCOME_TEXT_2" | translate}}<span class="font-weight-bold">facenality?</span>
-        </p>
+<div class="global-body-wrapper">
+    <h1 class="display-3">Facenality</h1>
+    <p class="lead">{{"WELCOME_TEXT_1" | translate}}
+        <br>
+        {{"WELCOME_TEXT_2" | translate}}<span class="font-weight-bold">facenality?</span>
+    </p>
+</div>
+
+<hr class="my-4">
+
+<!-- Webcam switch -->
+<div class="form-group row" ngbRadioGroup name="radioBasic" [(ngModel)]="webcamPermission">
+    <div class="custom-control" style="margin-left: 3%;">
+        <legend><i class="fa fa-camera"></i>&nbsp; Webcam:</legend>
     </div>
-
-    <hr class="my-4">
-
-    <!-- Webcam switch -->
-    <div class="form-group row" ngbRadioGroup name="radioBasic" [(ngModel)]="webcamPermission">
-        <div class="custom-control" style="margin-left: 3%;">
-            <legend><i class="fa fa-camera"></i>&nbsp; Webcam:</legend>
-        </div>
-        <div class="custom-control custom-radio">
-            <label ngbButtonLabel>
-                <input ngbButton type="radio" [value]="1"> {{"WEBCAM_ON" | translate}}
-            </label>
-        </div>
-        <div class="custom-control custom-radio">
-            <label ngbButtonLabel>
-                <input ngbButton type="radio" [value]="0"> {{"WEBCAM_OFF" | translate}}
-            </label>
-        </div>
+    <div class="custom-control custom-radio">
+        <label ngbButtonLabel>
+            <input ngbButton type="radio" [value]="1"> {{"WEBCAM_ON" | translate}}
+        </label>
     </div>
-
-    <!-- Webcam instance/preview in right corner-->
-    <div *ngIf="webcamPermission" class="bottom-floating-container">
-        <div class="col-3 bottom-floating-right">
-            <shared-webcam></shared-webcam>
-        </div>
+    <div class="custom-control custom-radio">
+        <label ngbButtonLabel>
+            <input ngbButton type="radio" [value]="0"> {{"WEBCAM_OFF" | translate}}
+        </label>
     </div>
+</div>
 
-    <div class="row" style="margin-left: 2%; margin-right: 3%; margin-bottom: 4%">
-        <div class="col-3">
-            <shared-image [description]="'DESCRIPTION_NEUTRAL_FACE' | translate"></shared-image>
-        </div>
-        <div class="col-3">
-            <shared-image [description]="'DESCRIPTION_HAPPY_FACE' | translate"></shared-image>
-        </div>
-        <div class="col-3">
-            <shared-image [description]="'DESCRIPTION_SAD_FACE' | translate"></shared-image>
-        </div>
-        <div class="col-3">
-            <shared-image [description]="'DESCRIPTION_RANDOM_FACE' | translate"></shared-image>
-        </div>
+<!-- Webcam instance/preview in right corner-->
+<div *ngIf="webcamPermission" class="bottom-floating-container">
+    <div class="col-3 bottom-floating-right">
+        <shared-webcam></shared-webcam>
     </div>
+</div>
 
-    <hr class="my-4">
-
-    <div class="component-body-wrapper">
-        <landing-page-questionnaire></landing-page-questionnaire>
+<div class="row" style="margin-left: 2%; margin-right: 3%; margin-bottom: 4%">
+    <div class="col-3">
+        <shared-image [description]="'DESCRIPTION_NEUTRAL_FACE' | translate"></shared-image>
     </div>
-
-    <hr class="my-4">
-
-    <div class="component-body-wrapper">
-        <landing-page-general-info-form></landing-page-general-info-form>
+    <div class="col-3">
+        <shared-image [description]="'DESCRIPTION_HAPPY_FACE' | translate"></shared-image>
     </div>
+    <div class="col-3">
+        <shared-image [description]="'DESCRIPTION_SAD_FACE' | translate"></shared-image>
+    </div>
+    <div class="col-3">
+        <shared-image [description]="'DESCRIPTION_RANDOM_FACE' | translate"></shared-image>
+    </div>
+</div>
+
+<hr class="my-4">
+
+<div class="component-body-wrapper">
+    <landing-page-questionnaire></landing-page-questionnaire>
+</div>
+
+<hr class="my-4">
+
+<div class="component-body-wrapper">
+    <landing-page-general-info-form></landing-page-general-info-form>
 </div>

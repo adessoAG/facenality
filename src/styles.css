@@ -5,6 +5,11 @@
     margin: 5% 2% 5% 3%;
 }
 
+.page-wrapper {
+    margin-left: 5%;
+    margin-right: 5%;
+}   
+
 .my-4 {
     margin-left: 3%; margin-right: 4%;
 }
