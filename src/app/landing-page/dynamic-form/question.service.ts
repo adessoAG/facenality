@@ -5,18 +5,22 @@ import { DropdownQuestion } from './types/question-dropdown';
 import { RadioQuestion } from './types/question-radio';
 import { TextboxQuestion } from './types/question-textbox';
 
+// import * as questions_json from './questions-cattells-16.json';
+
 @Injectable({
   providedIn: 'root'
 })
 export class QuestionService {
 
   radioOptions = [
-    { key: '1', value: 'Solidxx' },
-    { key: '2', value: 'Great' },
-    { key: '3', value: 'Good' },
-    { key: '4', value: 'Unproven' },
-    { key: '5', value: 'Very Good' }
+    { key: '1', value: 'strongly disagree' },
+    { key: '2', value: 'disagree' },
+    { key: '3', value: 'neither' },
+    { key: '4', value: 'agree' },
+    { key: '5', value: 'strongly agree' }
   ]
+
+  questionnairCattells16: RadioQuestion[] = [];
 
   radioQuestions: RadioQuestion[] = [
     new RadioQuestion({
@@ -31,6 +35,7 @@ export class QuestionService {
   ];
 
   getQuestions() {
+    //this.questionnairCattells16 = questions_json;
 
     let questions: QuestionBase<any>[] = [
       new RadioQuestion({
