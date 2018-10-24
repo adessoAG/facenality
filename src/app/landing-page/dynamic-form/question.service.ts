@@ -33,59 +33,26 @@ export class QuestionService {
   getQuestions() {
 
     let questions: QuestionBase<any>[] = [
-
-      new DropdownQuestion({
-        key: 'brave',
-        label: 'Bravery Rating',
-        options: [
-          { key: 'solid', value: 'Solidxx' },
-          { key: 'great', value: 'Great' },
-          { key: 'good', value: 'Good' },
-          { key: 'unproven', value: 'Unproven' }
-        ],
-        order: 3
-      }),
-
       new RadioQuestion({
-        key: 'radio',
-        label: 'Radio',
-        type: 'radio',
-        options: this.radioOptions,
-        order: 3
-      }),
-
-      new RadioQuestion({
-        key: 'radio',
-        label: 'I like trains.',
-        type: 'radio',
-        options: this.radioOptions,
-        order: 3
-      }),
-
-      this.radioQuestions,
-
-      new TextboxQuestion({
-        key: 'firstName',
-        label: 'First name',
-        value: 'Bombasto',
+        controlType: 'radio',
+        value: '',
+        key: 'A1',
         required: true,
-        order: 1
+        order: 1,
+        label: 'I know how to comfort others',
+        options: this.radioOptions
       }),
-
-      new TextboxQuestion({
-        key: 'emailAddress',
-        label: 'Email',
-        type: 'email',
-        order: 2
-      }),
-
-      new TextboxQuestion({
-        key: 'emailAddress2',
-        label: 'Email2',
-        type: 'email',
-        order: 2
+      new RadioQuestion({
+        controlType: 'radio',
+        value: '',
+        key: 'A2',
+        required: true,
+        order: 1,
+        label: 'I know how to comfort others',
+        options: this.radioOptions
       })
     ];
+
 
     return questions.sort((a, b) => a.order - b.order);
   }
