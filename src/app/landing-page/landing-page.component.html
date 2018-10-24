@@ -9,7 +9,7 @@
 <hr class="my-4">
 
 <!-- Webcam switch -->
-<div class="form-group row" ngbRadioGroup name="radioBasic" [(ngModel)]="webcamPermission">
+<div class="form-group row" ngbRadioGroup name="radioBasic" [(ngModel)]="webcamUserPermission">
     <div class="custom-control" style="margin-left: 3%;">
         <legend><i class="fa fa-camera"></i>&nbsp; Webcam:</legend>
     </div>
@@ -26,24 +26,40 @@
 </div>
 
 <!-- Webcam instance/preview in right corner-->
-<div *ngIf="webcamPermission" class="bottom-floating-container">
+<div *ngIf="webcamUserPermission" class="bottom-floating-container">
     <div class="col-3 bottom-floating-right">
-        <shared-webcam></shared-webcam>
+        <shared-webcam (permissionDenied)="onPermissionDenied($event)"></shared-webcam>
     </div>
 </div>
 
+<!-- Webcam no hardware permission alert -->
+<ngb-alert *ngIf="showPermissionAlert" id="webcam-permission-alert" class="global-body-wrapper" [type]="'danger'"
+    (close)="closeAlert()">
+    It seems your Webcam is deactivated. Please click on the camera symbol next to the adressbar to check, then reload
+    the page.<br>
+    If you still need help, please refer to <a href="https://support.ring.md/hc/en-us/articles/115008801608-Browser-settings-for-enabling-webcam-and-microphone-Mozilla-Firefox-"
+        target="_blank">this guide for Firefox</a>, or <a href="https://support.google.com/chrome/answer/2693767?hl=en"
+        target="_blank">this guide for Chrome</a>.
+</ngb-alert>
+
+<!-- Webcam no user permission warning -->
+<ngb-alert *ngIf="showPermissionWarning && !webcamUserPermission" id="webcam-permission-alert" class="global-body-wrapper"
+    [type]="'warning'" [dismissible]="false" (close)="showPermissionWarning = false">
+    No permission! Please turn on Webcam and try again.
+</ngb-alert>
+
 <div class="row" style="margin-left: 2%; margin-right: 3%; margin-bottom: 4%">
     <div class="col-3">
-        <shared-image [description]="'DESCRIPTION_NEUTRAL_FACE' | translate"></shared-image>
+        <shared-image [description]="'DESCRIPTION_NEUTRAL_FACE' | translate" (webcamRequested)="checkWebcamPermission()"></shared-image>
     </div>
     <div class="col-3">
-        <shared-image [description]="'DESCRIPTION_HAPPY_FACE' | translate"></shared-image>
+        <shared-image [description]="'DESCRIPTION_HAPPY_FACE' | translate" (webcamRequested)="checkWebcamPermission()"></shared-image>
     </div>
     <div class="col-3">
-        <shared-image [description]="'DESCRIPTION_SAD_FACE' | translate"></shared-image>
+        <shared-image [description]="'DESCRIPTION_SAD_FACE' | translate" (webcamRequested)="checkWebcamPermission()"></shared-image>
     </div>
     <div class="col-3">
-        <shared-image [description]="'DESCRIPTION_RANDOM_FACE' | translate"></shared-image>
+        <shared-image [description]="'DESCRIPTION_RANDOM_FACE' | translate" (webcamRequested)="checkWebcamPermission()"></shared-image>
     </div>
 </div>
 

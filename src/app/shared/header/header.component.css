@@ -6,6 +6,10 @@
     font-size: 17px;
 }
 
+a .link-font {
+    font-size: 25px;
+}
+
 img {
     border-radius: 50%;
     object-fit: cover;

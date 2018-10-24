@@ -7,12 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPageComponent implements OnInit {
 
-  isCamAllowed = true;
-  webcamPermission = 0;
+  webcamUserPermission = 0;
+  showPermissionAlert = false;
+  showPermissionWarning = false;
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  onPermissionDenied() {
+    this.webcamUserPermission = 0;
+    this.showPermissionAlert = true;
   }
 
+  checkWebcamPermission() {
+    if(this.webcamUserPermission === 0) {
+      this.showPermissionWarning = true;
+      setTimeout(() => this.showPermissionWarning = false, 5000);
+    }
+  }
+
+  closeAlert() {
+    this.showPermissionAlert = false;
+  }
 }

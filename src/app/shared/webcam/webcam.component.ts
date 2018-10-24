@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 import { WebcamService } from './webcam.service';
 import { ImageComponent } from '../image/image.component';
 
@@ -9,9 +9,13 @@ import { ImageComponent } from '../image/image.component';
 })
 export class WebcamComponent implements OnInit {
 
+  @Output() permissionDenied = new EventEmitter<boolean>();
+
   @ViewChild('video') video: ElementRef;
   @ViewChild('canvas') canvas: ElementRef;
-  stream: MediaStream;
+
+  stream: MediaStream = null;
+  webcamServiceSubject = null;
 
   constructor(private webcamService: WebcamService) { }
 
@@ -34,21 +38,26 @@ export class WebcamComponent implements OnInit {
          * Problem using photoSubject.emit() is that instead of the calling instance,
          * ALL ImageComponents receive the snapshot.
          */
-        this.webcamService.requestPhotoEmitter.subscribe((imgCmp: ImageComponent) => {
+        this.webcamServiceSubject = this.webcamService.requestPhotoEmitter.subscribe((imgCmp: ImageComponent) => {
           this.canvas.nativeElement.getContext('2d').drawImage(this.video.nativeElement, 0, 0);
           imgCmp.imageSource = this.canvas.nativeElement.toDataURL('image/png');
           /* this.webcamService.photoSubject.emit(this.canvas.nativeElement.toDataURL('image/png')); */
         });
         console.log('Webcam ON');
+      }).catch(reason => {
+        this.permissionDenied.emit(true);
+        console.log(reason);
       });
     }
   }
 
   ngOnDestroy() {
-    this.video.nativeElement.pause();
-    this.stream.getTracks()[0].stop();
-    this.webcamService.requestPhotoEmitter.unsubscribe();
+    if (this.stream !== null) {
+      this.video.nativeElement.pause();
+      this.stream.getTracks()[0].stop();
 
-    console.log('Webcam OFF');
+      if (this.webcamServiceSubject !== null) { this.webcamServiceSubject.unsubscribe() };
+      console.log('Webcam OFF');
+    }
   }
 }

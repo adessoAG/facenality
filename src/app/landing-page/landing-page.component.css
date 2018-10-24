@@ -18,6 +18,11 @@
     margin: 2% 4% 3% 3%;
 }
 
+#webcam-permission-alert {
+    margin-top: 1%;
+    margin-bottom: 3%;
+}
+
 .bottom-floating-container
 {
     pointer-events: none;

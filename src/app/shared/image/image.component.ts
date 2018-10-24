@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { WebcamService } from '../webcam/webcam.service';
 
 @Component({
@@ -12,19 +12,26 @@ export class ImageComponent implements OnInit {
   @Input() description: string;
   @Input() buttonsNotVisible: boolean;
 
+  @Output() webcamRequested = new EventEmitter<boolean>();
+
+  webcamServiceSubject = null;
+
   constructor(private webcamService: WebcamService) { }
 
   ngOnInit() {
     if (this.imageSource === undefined || this.imageSource === null) {
       this.imageSource = 'assets/howdidwegetsodark.jpg';
     }
-    this.webcamService.photoSubject.subscribe((src) => {
+  }
+
+  ngAfterViewInit() {
+    this.webcamServiceSubject = this.webcamService.photoSubject.subscribe((src) => {
       this.imageSource = src;
     });
   }
 
   ngOnDestroy() {
-    this.webcamService.photoSubject.unsubscribe();
+    if (this.webcamServiceSubject !== null) { this.webcamServiceSubject.unsubscribe() };
   }
 
   onFileUpload(event) {
@@ -40,6 +47,6 @@ export class ImageComponent implements OnInit {
 
   onCapture() {
     this.webcamService.requestPhotoEmitter.emit(this);
+    this.webcamRequested.emit(true);
   }
-
 }
