@@ -7,11 +7,8 @@ import { AboutComponent } from './about/about.component';
 import { CentralRenderComponent } from './central-render.component';
 
 @NgModule({
-  imports: [
-    routing,
-    SharedModule
-  ],
   declarations: [CentralRenderComponent, LegalAndPrivacyComponent, AboutComponent],
+  imports: [routing, SharedModule],
   entryComponents: [LegalAndPrivacyComponent, AboutComponent]
 })
 export class LegalAndFurtherModule { }

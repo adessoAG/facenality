@@ -5,7 +5,7 @@ import { LegalAndPrivacyComponent } from './legal-and-privacy/legal-and-privacy.
 import { AboutComponent } from './about/about.component';
 
 @Component({
-    selector: 'app-central',
+    selector: 'legal-central-render',
     template: `<ng-container *ngComponentOutlet="currentComponent"></ng-container>`
   })
   export class CentralRenderComponent implements OnInit {
