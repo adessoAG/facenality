@@ -1,0 +1,12 @@
+.link-home {
+    padding-left: 6.5%;
+}
+
+.link-font {
+    font-size: 17px;
+}
+
+img {
+    border-radius: 50%;
+    object-fit: cover;
+}
