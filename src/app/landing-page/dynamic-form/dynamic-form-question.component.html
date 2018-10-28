@@ -1,11 +1,15 @@
 <div [formGroup]="form">
 
   <div class="row">
-    <div class="col-12" *ngFor="let question of questions">
+
+    <h2 class="display-4 col-12" style="text-align: center;">Questionnaire</h2>
+    <ngb-progressbar class="col" type="success" [value]="page-1" [max]="maxPages+1" [striped]="true" style="margin: 3.5% 15%;"></ngb-progressbar>
+
+    <div class="col-12" *ngFor="let question of pagedItems">
       <p class="badge-primary" style="text-align: center; margin: 0 15%;">{{question.label}}</p>
 
       <div class="row" style="margin: 3.5% 15%;">
-        <span class="col badge-success" style="white-space: nowrap;">Strongly Agree</span>
+        <span class="col badge-info" style="white-space: nowrap;">Strongly Agree</span>
 
         <input id="radio-1" class="col" [value]="1" type="radio" [formControlName]="question.key">
         <input id="radio-2" class="col" [value]="2" type="radio" [formControlName]="question.key">
@@ -16,6 +20,16 @@
         <span class="col badge-warning" style="white-space: nowrap;">Strongly Disagree</span>
       </div>
     </div>
-  </div>
 
+    <!-- Next page -->
+    <button *ngIf="!showResultButton" class="btn btn-success col" [disabled]="!form.valid" style="margin: 0 15%; width: 100%;"
+      (click)="nextPage()">Next page
+    </button>
+
+    <!-- Submit -->
+    <button *ngIf="showResultButton" class="btn btn-success col" type="submit" [disabled]="!form.valid" style="margin: 0 15%; width: 100%;"
+      (click)="submitResults()">Submit
+    </button>
+
+  </div>
 </div>

@@ -38,6 +38,54 @@ export class QuestionService {
     {
       "key": "A4",
       "label": "I take an interest in other people's lives"
+    },
+    {
+      "key": "A5",
+      "label": "I know how to comfort others"
+    },
+    {
+      "key": "A6",
+      "label": "I enjoy bringing people together"
+    },
+    {
+      "key": "A7",
+      "label": "I feel others' emotions"
+    },
+    {
+      "key": "A8",
+      "label": "I take an interest in other people's lives"
+    },
+    {
+      "key": "A9",
+      "label": "I know how to comfort others"
+    },
+    {
+      "key": "A10",
+      "label": "I enjoy bringing people together"
+    },
+    {
+      "key": "A3",
+      "label": "I feel others' emotions"
+    },
+    {
+      "key": "A4",
+      "label": "I take an interest in other people's lives"
+    },
+    {
+      "key": "A5",
+      "label": "I know how to comfort others"
+    },
+    {
+      "key": "A6",
+      "label": "I enjoy bringing people together"
+    },
+    {
+      "key": "A7",
+      "label": "I feel others' emotions"
+    },
+    {
+      "key": "A8",
+      "label": "I take an interest in other people's lives"
     }
   ];
 

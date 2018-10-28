@@ -65,12 +65,8 @@
 </div>
 
 <div class="component-body-wrapper">
-   
-    <form (ngSubmit)="onSubmit()" [formGroup]="form">
-        <landing-page-dynamic-form [form]="form" [questions]="questions"></landing-page-dynamic-form>
 
-        <div class="form-row">
-            <button class="btn btn-primary" type="submit" [disabled]="!form.valid">{{"GENERAL_INFO_FORM_SUBMIT" | translate}}</button>
-        </div>
+    <form [formGroup]="form">
+        <landing-page-dynamic-form [form]="form" [questions]="questions" (formResults)="onSubmit()"></landing-page-dynamic-form>
     </form>
 </div>
