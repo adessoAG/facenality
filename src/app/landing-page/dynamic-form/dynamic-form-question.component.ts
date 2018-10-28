@@ -23,9 +23,7 @@ export class DynamicFormQuestionComponent {
 
   ngOnInit() {
     this.maxPages = Math.round(this.questions.length / this.itemsPerPage) + 1;
-    console.log("Amount of questions: " + this.questions.length);
-    console.log(this.maxPages + " pages " + "with " + this.itemsPerPage + " per page");
-
+    // Initialize first page of questionnaire
     this.nextPage();
   }
 
@@ -34,12 +32,19 @@ export class DynamicFormQuestionComponent {
     const end = this.page * this.itemsPerPage;
     this.pagedItems = this.questions.slice(start, end);
 
+    window.scroll({
+      top: 2200,
+      behavior: "smooth"
+    });
+
     this.page++;
     if (this.page > this.maxPages) { this.showResultButton = true; }
   }
 
+  /**
+   * Display 100% progress and emit results to parent component 
+   */
   submitResults() {
-    console.log("submit results")
     this.page++;
     this.formResults.emit();
   }

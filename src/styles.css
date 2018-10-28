@@ -2,7 +2,7 @@
 @import "https://bootswatch.com/4/lux/bootstrap.css";
 
 .global-body-wrapper {
-    margin: 5% 2% 5% 3%;
+    margin: 5% 15% 5% 15%;
 }
 
 .global-page-wrapper {
@@ -11,5 +11,9 @@
 }   
 
 .my-4 {
-    margin-left: 3%; margin-right: 4%;
+    margin: 0 15%;
+}
+
+.global-font {
+    font-size: 17px;
 }

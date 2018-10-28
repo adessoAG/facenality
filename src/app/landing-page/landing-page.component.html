@@ -8,24 +8,68 @@
 
 <hr class="my-4">
 
-<!-- Webcam switch -->
-<div class="form-group row" ngbRadioGroup name="radioBasic" [(ngModel)]="webcamUserPermission">
-    <div class="custom-control" style="margin-left: 3%;">
-        <legend><i class="fa fa-camera"></i>&nbsp; Webcam:</legend>
+<h2 class="display-4 col-12" style="text-align: center;">I. Pictures</h2>
+
+<div class="card border-primary mb-3" style="margin: 2% 15%;">
+    <!-- Webcam switch -->
+    <div class="card-header">
+        <div class="form-group row" ngbRadioGroup name="radioBasic" [(ngModel)]="webcamUserPermission" style="margin-bottom: -2%;"> 
+            <div class="custom-control text-primary">
+                <legend><i class="fa fa-camera"></i>&nbsp; Webcam:</legend>
+            </div>
+            <div class="custom-control custom-radio">
+                <label ngbButtonLabel>
+                    <input ngbButton type="radio" [value]="1"> {{"WEBCAM_ON" | translate}}
+                </label>
+            </div>
+            <div class="custom-control custom-radio">
+                <label ngbButtonLabel>
+                    <input ngbButton type="radio" [value]="0"> {{"WEBCAM_OFF" | translate}}
+                </label>
+            </div>
+        </div>
     </div>
-    <div class="custom-control custom-radio">
-        <label ngbButtonLabel>
-            <input ngbButton type="radio" [value]="1"> {{"WEBCAM_ON" | translate}}
-        </label>
-    </div>
-    <div class="custom-control custom-radio">
-        <label ngbButtonLabel>
-            <input ngbButton type="radio" [value]="0"> {{"WEBCAM_OFF" | translate}}
-        </label>
+    <!-- Info icons and instructions -->
+    <div class="card-body">
+        <div class="row" style=" white-space: nowrap;">
+            <p class="col text-primary" style="white-space: nowrap;">
+                <i class="fa fa-3x fa-user-circle" style="vertical-align: middle;"></i>&nbsp; Instruction 1
+            </p>
+            <p class="col text-primary" style="white-space: nowrap;">
+                <i class="fa fa-3x fa-arrows-h" style=" vertical-align: middle;"></i>&nbsp; Instruction 2
+            </p>
+            <p class="col text-primary">
+                <i class="fa fa-3x fa-lock" style=" vertical-align: middle;"></i>&nbsp; Your data is protected.
+            </p>
+        </div>
     </div>
 </div>
 
-<!-- Webcam instance/preview in right corner-->
+<!-- TODO: Adapt to *ngFor? -->
+<div class="row" style="margin-left: 15%; margin-right: 15%; margin-bottom: 8%">
+    <div class="col">
+        <shared-image [description]="'DESCRIPTION_NEUTRAL_FACE' | translate" (webcamRequested)="checkWebcamPermission()"></shared-image>
+    </div>
+    <div class="col">
+        <shared-image [description]="'DESCRIPTION_HAPPY_FACE' | translate" (webcamRequested)="checkWebcamPermission()"></shared-image>
+    </div>
+    <div class="w-100"></div>
+    <div class="col">
+        <shared-image [description]="'DESCRIPTION_SAD_FACE' | translate" (webcamRequested)="checkWebcamPermission()"></shared-image>
+    </div>
+    <div class="col">
+        <shared-image [description]="'DESCRIPTION_RANDOM_FACE' | translate" (webcamRequested)="checkWebcamPermission()"></shared-image>
+    </div>
+</div>
+
+<div class="component-body-wrapper">
+    <form [formGroup]="form">
+        <landing-page-dynamic-form [form]="form" [questions]="questions" (formResults)="onSubmit()"></landing-page-dynamic-form>
+    </form>
+</div>
+
+
+<!-- Webcam instance/preview in right corner -->
 <div *ngIf="webcamUserPermission" class="bottom-floating-container">
     <div class="col-3 bottom-floating-right">
         <shared-webcam (permissionDenied)="onPermissionDenied($event)"></shared-webcam>
@@ -47,26 +91,3 @@
     [type]="'warning'" [dismissible]="false" (close)="showPermissionWarning = false">
     No permission! Please turn on Webcam and try again.
 </ngb-alert>
-
-<!-- TODO: Adapt to *ngFor? -->
-<div class="row" style="margin-left: 2%; margin-right: 3%; margin-bottom: 8%">
-    <div class="col-3">
-        <shared-image [description]="'DESCRIPTION_NEUTRAL_FACE' | translate" (webcamRequested)="checkWebcamPermission()"></shared-image>
-    </div>
-    <div class="col-3">
-        <shared-image [description]="'DESCRIPTION_HAPPY_FACE' | translate" (webcamRequested)="checkWebcamPermission()"></shared-image>
-    </div>
-    <div class="col-3">
-        <shared-image [description]="'DESCRIPTION_SAD_FACE' | translate" (webcamRequested)="checkWebcamPermission()"></shared-image>
-    </div>
-    <div class="col-3">
-        <shared-image [description]="'DESCRIPTION_RANDOM_FACE' | translate" (webcamRequested)="checkWebcamPermission()"></shared-image>
-    </div>
-</div>
-
-<div class="component-body-wrapper">
-
-    <form [formGroup]="form">
-        <landing-page-dynamic-form [form]="form" [questions]="questions" (formResults)="onSubmit()"></landing-page-dynamic-form>
-    </form>
-</div>
