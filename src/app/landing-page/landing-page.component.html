@@ -48,7 +48,8 @@
     No permission! Please turn on Webcam and try again.
 </ngb-alert>
 
-<div class="row" style="margin-left: 2%; margin-right: 3%; margin-bottom: 4%">
+<!-- TODO: Adapt to *ngFor? -->
+<div class="row" style="margin-left: 2%; margin-right: 3%; margin-bottom: 8%">
     <div class="col-3">
         <shared-image [description]="'DESCRIPTION_NEUTRAL_FACE' | translate" (webcamRequested)="checkWebcamPermission()"></shared-image>
     </div>
@@ -63,14 +64,13 @@
     </div>
 </div>
 
-<hr class="my-4">
-
 <div class="component-body-wrapper">
-    <landing-page-questionnaire></landing-page-questionnaire>
-</div>
+   
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+        <landing-page-dynamic-form [form]="form" [questions]="questions"></landing-page-dynamic-form>
 
-<hr class="my-4">
-
-<div class="component-body-wrapper">
-    <landing-page-general-info-form></landing-page-general-info-form>
+        <div class="form-row">
+            <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+        </div>
+    </form>
 </div>

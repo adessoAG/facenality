@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -16,12 +16,12 @@ import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, ImageComponent, WebcamComponent],
   imports: [
-    CommonModule, FormsModule, RouterModule, NgbModule, TranslateModule.forChild(),
+    CommonModule, FormsModule, ReactiveFormsModule, RouterModule, NgbModule, TranslateModule.forChild(),
     AngularFontAwesomeModule
   ],
   exports: [
     HeaderComponent, FooterComponent, ImageComponent, WebcamComponent,
-    CommonModule, FormsModule, RouterModule,
+    CommonModule, FormsModule, ReactiveFormsModule, RouterModule,
     NgbModule, TranslateModule, AngularFontAwesomeModule
   ]
 })

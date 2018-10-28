@@ -1,0 +1,27 @@
+<div [formGroup]="form">
+
+  <table class="table table-hover">
+    <!-- Table header -->
+    <thead>
+      <tr class="table-dark">
+        <th scope="col"></th>
+        <th scope="col">Strongly Agree</th>
+        <th scope="col">Agree</th>
+        <th scope="col">Neither</th>
+        <th scope="col">Disagree</th>
+        <th scope="col">Strongly Disagree</th>
+      </tr>
+    </thead>
+
+    <!-- Table body -->
+    <tbody>
+      <tr *ngFor="let question of questions">
+        <td>{{question.label}}</td>
+        <td *ngFor="let opt of question.options">
+          <input class="col" [value]="opt.key" type="radio" [formControlName]="question.key">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
