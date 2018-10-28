@@ -12,7 +12,9 @@ import { TextboxQuestion } from './types/question-textbox';
 })
 export class QuestionService {
 
-  radioOptions = [
+  questionnair: QuestionBase<any>[] = [];
+
+  radioAnswerOptions = [
     { key: '1', value: 'strongly disagree' },
     { key: '2', value: 'disagree' },
     { key: '3', value: 'neither' },
@@ -20,47 +22,40 @@ export class QuestionService {
     { key: '5', value: 'strongly agree' }
   ]
 
-  questionnairCattells16: RadioQuestion[] = [];
-
-  radioQuestions: RadioQuestion[] = [
-    new RadioQuestion({
-      controlType: 'radio',
-      value: '',
-      key: 'A1',
-      required: true,
-      order: 1,
-      label: 'I know how to comfort others',
-      options: this.radioOptions
-    })
+  questionnairCattells16 = [
+    {
+      "key": "A1",
+      "label": "I know how to comfort others"
+    },
+    {
+      "key": "A2",
+      "label": "I enjoy bringing people together"
+    },
+    {
+      "key": "A3",
+      "label": "I feel others' emotions"
+    },
+    {
+      "key": "A4",
+      "label": "I take an interest in other people's lives"
+    }
   ];
 
   getQuestions() {
-    //this.questionnairCattells16 = questions_json;
-
-    let questions: QuestionBase<any>[] = [
-      new RadioQuestion({
-        controlType: 'radio',
-        value: '0',
-        key: 'A1',
-        required: true,
-        order: 1,
-        label: 'I know how to comfort others',
-        options: this.radioOptions
-      }),
-      new RadioQuestion({
-        controlType: 'radio',
-        value: '0',
-        key: 'A2',
-        required: true,
-        order: 1,
-        label: 'I am a warm person',
-        options: this.radioOptions
-      })
-    ];
-
-
-    return questions.sort((a, b) => a.order - b.order);
+    for (const i of this.questionnairCattells16) {
+      this.questionnair.push(
+        new RadioQuestion({
+          key: i.key,
+          label: i.label,
+          options: this.radioAnswerOptions,
+          value: '0',
+          order: 1,
+          required: true,
+          controlType: 'radio',
+        })
+      )
+    }
+    return this.questionnair.sort((a, b) => a.order - b.order);
   }
-
 
 }

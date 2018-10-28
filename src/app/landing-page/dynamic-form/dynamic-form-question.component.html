@@ -1,27 +1,21 @@
 <div [formGroup]="form">
 
-  <table class="table table-hover">
-    <!-- Table header -->
-    <thead>
-      <tr class="table-dark">
-        <th scope="col"></th>
-        <th scope="col">Strongly Agree</th>
-        <th scope="col">Agree</th>
-        <th scope="col">Neither</th>
-        <th scope="col">Disagree</th>
-        <th scope="col">Strongly Disagree</th>
-      </tr>
-    </thead>
+  <div class="row">
+    <div class="col-12" *ngFor="let question of questions">
+      <p class="badge-primary" style="text-align: center; margin: 0 15%;">{{question.label}}</p>
 
-    <!-- Table body -->
-    <tbody>
-      <tr *ngFor="let question of questions">
-        <td>{{question.label}}</td>
-        <td *ngFor="let opt of question.options">
-          <input class="col" [value]="opt.key" type="radio" [formControlName]="question.key">
-        </td>
-      </tr>
-    </tbody>
-  </table>
+      <div class="row" style="margin: 3.5% 15%;">
+        <span class="col badge-success" style="white-space: nowrap;">Strongly Agree</span>
+
+        <input id="radio-1" class="col" [value]="1" type="radio" [formControlName]="question.key">
+        <input id="radio-2" class="col" [value]="2" type="radio" [formControlName]="question.key">
+        <input id="radio-3" class="col" [value]="3" type="radio" [formControlName]="question.key">
+        <input id="radio-4" class="col" [value]="4" type="radio" [formControlName]="question.key">
+        <input id="radio-5" class="col" [value]="5" type="radio" [formControlName]="question.key">
+
+        <span class="col badge-warning" style="white-space: nowrap;">Strongly Disagree</span>
+      </div>
+    </div>
+  </div>
 
 </div>
