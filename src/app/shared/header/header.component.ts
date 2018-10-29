@@ -8,14 +8,17 @@ import { TranslateService } from '@ngstack/translate';
 })
 export class HeaderComponent implements OnInit {
 
+  activeLanguage;
+
   constructor(private translate: TranslateService) { }
 
   ngOnInit() {
+    this.activeLanguage = this.translate.activeLang;
   }
 
   setLang(lang: string) {
     this.translate.activeLang = lang;
-    console.log("Switching to language: " + lang);
+    this.activeLanguage = lang;
   }
 
 }

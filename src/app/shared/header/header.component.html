@@ -16,10 +16,10 @@
   <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <button type="button" class="btn btn-link nav-link link-font" (click)="setLang('de')">DE</button>
+        <button type="button" class="btn btn-link nav-link link-font" (click)="setLang('de')" [ngClass]="{'active': activeLanguage === 'de'}">DE</button>
       </li>
       <li class="nav-item">
-        <button type="button" class="btn btn-link nav-link link-font" (click)="setLang('en')">EN</button>
+        <button type="button" class="btn btn-link nav-link link-font" (click)="setLang('en')" [ngClass]="{'active': activeLanguage === 'en'}">EN</button>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#"><i class="fa fa-2x fa-question-circle"></i></a>
