@@ -17,7 +17,7 @@
         </p>
       </div>
       <hr class="my-4">
-      <p class="col-12 badge-secondary" style="margin: 4% 0 -1% -1%;">Progress:
+      <p #questionnaireStart class="col-12 badge-secondary" style="margin: 4% 0 -1% -1%;">Progress:
         <ngb-progressbar class="col" type="success" showValue="true" [value]="page-1" [max]="maxPages+1" [striped]="true"></ngb-progressbar>
       </p>
     </div>
@@ -41,7 +41,7 @@
     </div>
 
     <!-- Next page -->
-    <button *ngIf="!showResultButton" class="btn btn-success col" style="margin: 0 15%; width: 100%;" (click)="nextPage()">Next
+    <button *ngIf="!showResultButton" class="btn btn-success col" style="margin: 0 15%; width: 100%;" (click)="nextPage(questionnaireStart)">Next
       page
     </button>
 

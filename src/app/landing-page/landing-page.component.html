@@ -13,7 +13,7 @@
 <div class="card border-primary mb-3" style="margin: 2% 15%;">
     <!-- Webcam switch -->
     <div class="card-header">
-        <div class="form-group row" ngbRadioGroup name="radioBasic" [(ngModel)]="webcamUserPermission" style="margin-bottom: -2%;"> 
+        <div class="form-group row" ngbRadioGroup name="radioBasic" [(ngModel)]="webcamUserPermission" style="margin-bottom: -2%;">
             <div class="custom-control text-primary">
                 <legend><i class="fa fa-camera"></i>&nbsp; Webcam:</legend>
             </div>
@@ -45,20 +45,40 @@
     </div>
 </div>
 
+<!-- Webcam no hardware permission alert -->
+<ngb-alert *ngIf="showPermissionAlert" id="webcam-permission-alert" class="global-body-wrapper" [type]="'danger'"
+    (close)="closeAlert()">
+    It seems your Webcam is deactivated. Please click on the camera symbol next to the adressbar to check, then reload
+    the page.<br>
+    If you still need help, please refer to <a href="https://support.ring.md/hc/en-us/articles/115008801608-Browser-settings-for-enabling-webcam-and-microphone-Mozilla-Firefox-"
+        target="_blank">this guide for Firefox</a>, or <a href="https://support.google.com/chrome/answer/2693767?hl=en"
+        target="_blank">this guide for Chrome</a>.
+</ngb-alert>
+
+<!-- Webcam no user permission warning -->
+<ngb-alert *ngIf="showPermissionWarning && !webcamUserPermission" id="webcam-permission-alert" class="global-body-wrapper"
+    [type]="'warning'" [dismissible]="false" (close)="showPermissionWarning = false">
+    No permission! Please turn on Webcam and try again.
+</ngb-alert>
+
 <!-- TODO: Adapt to *ngFor? -->
 <div class="row" style="margin-left: 15%; margin-right: 15%; margin-bottom: 8%">
     <div class="col">
-        <shared-image [description]="'DESCRIPTION_NEUTRAL_FACE' | translate" (webcamRequested)="checkWebcamPermission()"></shared-image>
+        <shared-image [imageSource]="'assets/face-neutral.svg'" [description]="'DESCRIPTION_NEUTRAL_FACE' | translate"
+            (webcamRequested)="checkWebcamPermission()"></shared-image>
     </div>
     <div class="col">
-        <shared-image [description]="'DESCRIPTION_HAPPY_FACE' | translate" (webcamRequested)="checkWebcamPermission()"></shared-image>
+        <shared-image [imageSource]="'assets/face-happy.svg'" [description]="'DESCRIPTION_HAPPY_FACE' | translate"
+            (webcamRequested)="checkWebcamPermission()"></shared-image>
     </div>
     <div class="w-100"></div>
     <div class="col">
-        <shared-image [description]="'DESCRIPTION_SAD_FACE' | translate" (webcamRequested)="checkWebcamPermission()"></shared-image>
+        <shared-image [imageSource]="'assets/face-sad.svg'" [description]="'DESCRIPTION_SAD_FACE' | translate"
+            (webcamRequested)="checkWebcamPermission()"></shared-image>
     </div>
     <div class="col">
-        <shared-image [description]="'DESCRIPTION_RANDOM_FACE' | translate" (webcamRequested)="checkWebcamPermission()"></shared-image>
+        <shared-image [imageSource]="'assets/face-random2.svg'" [description]="'DESCRIPTION_RANDOM_FACE' | translate"
+            (webcamRequested)="checkWebcamPermission()"></shared-image>
     </div>
 </div>
 
@@ -75,19 +95,3 @@
         <shared-webcam (permissionDenied)="onPermissionDenied($event)"></shared-webcam>
     </div>
 </div>
-
-<!-- Webcam no hardware permission alert -->
-<ngb-alert *ngIf="showPermissionAlert" id="webcam-permission-alert" class="global-body-wrapper" [type]="'danger'"
-    (close)="closeAlert()">
-    It seems your Webcam is deactivated. Please click on the camera symbol next to the adressbar to check, then reload
-    the page.<br>
-    If you still need help, please refer to <a href="https://support.ring.md/hc/en-us/articles/115008801608-Browser-settings-for-enabling-webcam-and-microphone-Mozilla-Firefox-"
-        target="_blank">this guide for Firefox</a>, or <a href="https://support.google.com/chrome/answer/2693767?hl=en"
-        target="_blank">this guide for Chrome</a>.
-</ngb-alert>
-
-<!-- Webcam no user permission warning -->
-<ngb-alert *ngIf="showPermissionWarning && !webcamUserPermission" id="webcam-permission-alert" class="global-body-wrapper"
-    [type]="'warning'" [dismissible]="false" (close)="showPermissionWarning = false">
-    No permission! Please turn on Webcam and try again.
-</ngb-alert>

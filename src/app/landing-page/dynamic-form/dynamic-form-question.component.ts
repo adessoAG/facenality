@@ -27,15 +27,16 @@ export class DynamicFormQuestionComponent {
     this.nextPage();
   }
 
-  nextPage() {
+  nextPage(scrollTarget?) {
     const start = (this.page - 1) * this.itemsPerPage;
     const end = this.page * this.itemsPerPage;
     this.pagedItems = this.questions.slice(start, end);
 
-    window.scroll({
-      top: 2200,
-      behavior: "smooth"
-    });
+    if (scrollTarget !== undefined) {
+      scrollTarget.scrollIntoView({
+        behavior: "smooth"
+      });
+    }
 
     this.page++;
     if (this.page > this.maxPages) { this.showResultButton = true; }
