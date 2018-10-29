@@ -1,6 +1,9 @@
 <shared-header></shared-header>
 
 <div class="global-page-wrapper">
+    <ng-container *ngIf="loading">
+        <div class="loading">Loading&#8230;</div>
+    </ng-container>
     <router-outlet></router-outlet>
 </div>
 
