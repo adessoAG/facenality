@@ -62,7 +62,7 @@
 </ngb-alert>
 
 <!-- TODO: Adapt to *ngFor? -->
-<div class="row" style="margin-left: 15%; margin-right: 15%; margin-bottom: 8%">
+<div class="row" style="margin-left: 15%; margin-right: 17%; margin-bottom: 8%;">
     <div class="col">
         <shared-image [imageSource]="'assets/face-neutral.svg'" [description]="'DESCRIPTION_NEUTRAL_FACE' | translate"
             (webcamRequested)="checkWebcamPermission()"></shared-image>
@@ -71,7 +71,7 @@
         <shared-image [imageSource]="'assets/face-happy.svg'" [description]="'DESCRIPTION_HAPPY_FACE' | translate"
             (webcamRequested)="checkWebcamPermission()"></shared-image>
     </div>
-    <div class="w-100"></div>
+    <div class="w-100" style="margin-bottom: 2%;"></div>
     <div class="col">
         <shared-image [imageSource]="'assets/face-sad.svg'" [description]="'DESCRIPTION_SAD_FACE' | translate"
             (webcamRequested)="checkWebcamPermission()"></shared-image>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { WebcamService } from '../webcam/webcam.service';
 
 @Component({
@@ -11,10 +11,11 @@ export class ImageComponent implements OnInit {
   @Input() imageSource: string;
   @Input() description: string;
   @Input() buttonsNotVisible: boolean;
-
   @Output() webcamRequested = new EventEmitter<boolean>();
+  @ViewChild('image') image: ElementRef;
 
   webcamServiceSubject = null;
+  resizeImage = false;
 
   constructor(private webcamService: WebcamService) { }
 
@@ -27,6 +28,7 @@ export class ImageComponent implements OnInit {
   ngAfterViewInit() {
     this.webcamServiceSubject = this.webcamService.photoSubject.subscribe((src) => {
       this.imageSource = src;
+      this.resizeImage = true;
     });
   }
 

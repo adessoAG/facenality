@@ -16,39 +16,39 @@ export class WebcamComponent implements OnInit {
 
   stream: MediaStream = null;
   webcamServiceSubject = null;
+  resolution: {
+    video: { width: { exact: number }, height: { exact: number } },
+    name: string
+  };
 
   constructor(private webcamService: WebcamService) { }
 
   ngOnInit() { }
 
   ngAfterViewInit() {
-    /**
-     * Turns on the camera after checking for permission
-     */
-    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-      navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
-        this.stream = stream;
-        this.video.nativeElement.srcObject = stream;
-        this.video.nativeElement.play();
+    const vgaConstraints = {
+      video: { width: { exact: 640 }, height: { exact: 480 } }, name: "VGA"
+    };
+    const hdConstraints = {
+      video: { width: { exact: 1280 }, height: { exact: 720 } }, name: "HD"
+    };
 
-        /**
-         * Subscribes to photo requests and receives reference of calling component,
-         * which is used to return the snapshot. Might not be the "angular way".
-         *
-         * Problem using photoSubject.emit() is that instead of the calling instance,
-         * ALL ImageComponents receive the snapshot.
-         */
-        this.webcamServiceSubject = this.webcamService.requestPhotoEmitter.subscribe((imgCmp: ImageComponent) => {
-          this.canvas.nativeElement.getContext('2d').drawImage(this.video.nativeElement, 0, 0);
-          imgCmp.imageSource = this.canvas.nativeElement.toDataURL('image/png');
-          /* this.webcamService.photoSubject.emit(this.canvas.nativeElement.toDataURL('image/png')); */
-        });
-        console.log('Webcam ON');
-      }).catch(reason => {
+    // Try using HD resolution befor falling back to VGA 
+    if (navigator.mediaDevices.getUserMedia(hdConstraints)) {
+      this.resolution = hdConstraints;
+    }
+    else {
+      this.resolution = vgaConstraints;
+    }
+
+    navigator.mediaDevices.getUserMedia(this.resolution)
+      .then(stream => {
+        this.startStream(stream);
+      })
+      .catch(reason => {
         this.permissionDenied.emit(true);
         console.log(reason);
       });
-    }
   }
 
   ngOnDestroy() {
@@ -58,6 +58,30 @@ export class WebcamComponent implements OnInit {
 
       if (this.webcamServiceSubject !== null) { this.webcamServiceSubject.unsubscribe() };
       console.log('Webcam OFF');
+    }
+  }
+
+  startStream(stream: MediaStream) {
+    this.stream = stream;
+    this.video.nativeElement.srcObject = stream;
+    this.video.nativeElement.play();
+    this.setWebcamSize();
+
+    this.webcamServiceSubject = this.webcamService.requestPhotoEmitter.subscribe((imgCmp: ImageComponent) => {
+      this.canvas.nativeElement.getContext('2d').drawImage(this.video.nativeElement, 0, 0);
+      imgCmp.imageSource = this.canvas.nativeElement.toDataURL('image/png');
+
+    });
+    console.log('Webcam ON');
+  }
+
+  setWebcamSize() {
+    if (this.resolution.name === "HD") {
+      this.video.nativeElement.width = 300;
+      this.video.nativeElement.height = 300;
+    }
+    else {
+
     }
   }
 }
