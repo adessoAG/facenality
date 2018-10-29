@@ -20,6 +20,7 @@ export class WebcamComponent implements OnInit {
     video: { width: { exact: number }, height: { exact: number } },
     name: string
   };
+  cameraAccess = true;
 
   constructor(private webcamService: WebcamService) { }
 
@@ -33,22 +34,34 @@ export class WebcamComponent implements OnInit {
       video: { width: { exact: 1280 }, height: { exact: 720 } }, name: "HD"
     };
 
-    // Try using HD resolution befor falling back to VGA 
-    if (navigator.mediaDevices.getUserMedia(hdConstraints)) {
+    // TODO: To be refactored and simplified. Too much code repetition
+    if (this.hasGetUserMedia()) {
+      // Try using HD resolution befor falling back to VGA
       this.resolution = hdConstraints;
-    }
-    else {
-      this.resolution = vgaConstraints;
-    }
+      navigator.mediaDevices.getUserMedia(this.resolution)
+        .then(stream => {
+          this.startStream(stream);
+        })
+        .catch(reason => {
+          this.permissionDenied.emit(true);
+          console.log(reason);
+        });
 
-    navigator.mediaDevices.getUserMedia(this.resolution)
-      .then(stream => {
-        this.startStream(stream);
-      })
-      .catch(reason => {
-        this.permissionDenied.emit(true);
-        console.log(reason);
-      });
+      if (!this.cameraAccess) {
+        this.resolution = vgaConstraints;
+        navigator.mediaDevices.getUserMedia(this.resolution)
+          .then(stream => {
+            this.startStream(stream);
+          })
+          .catch(reason => {
+            this.permissionDenied.emit(true);
+            console.log(reason);
+          });
+      }
+
+    } else {
+      console.log('Webcam access via getUserMedia() is not supported by your browser. Please update existing or install Firefox.');
+    }
   }
 
   ngOnDestroy() {
@@ -75,13 +88,16 @@ export class WebcamComponent implements OnInit {
     console.log('Webcam ON');
   }
 
+  // TODO: responsive
   setWebcamSize() {
-    if (this.resolution.name === "HD") {
-      this.video.nativeElement.width = 300;
-      this.video.nativeElement.height = 300;
-    }
-    else {
-
-    }
+    const size = 250;
+    this.video.nativeElement.height = size;
+    this.video.nativeElement.width = size;
   }
+
+  hasGetUserMedia() {
+    return !!(navigator.mediaDevices &&
+      navigator.mediaDevices.getUserMedia);
+  }
+
 }

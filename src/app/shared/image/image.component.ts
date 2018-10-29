@@ -15,7 +15,6 @@ export class ImageComponent implements OnInit {
   @ViewChild('image') image: ElementRef;
 
   webcamServiceSubject = null;
-  resizeImage = false;
 
   constructor(private webcamService: WebcamService) { }
 
@@ -23,12 +22,16 @@ export class ImageComponent implements OnInit {
     if (this.imageSource === undefined || this.imageSource === null) {
       this.imageSource = 'assets/howdidwegetsodark.jpg';
     }
+
+    window.addEventListener('resize', (() => {
+      this.setImageSize();
+    }));
   }
 
   ngAfterViewInit() {
     this.webcamServiceSubject = this.webcamService.photoSubject.subscribe((src) => {
       this.imageSource = src;
-      this.resizeImage = true;
+      console.log("change")
     });
   }
 
@@ -50,5 +53,12 @@ export class ImageComponent implements OnInit {
   onCapture() {
     this.webcamService.requestPhotoEmitter.emit(this);
     this.webcamRequested.emit(true);
+
+    this.setImageSize();
+  }
+
+  setImageSize() {
+    this.image.nativeElement.height = window.innerHeight * 0.10;
+    this.image.nativeElement.height = this.image.nativeElement.width;
   }
 }
