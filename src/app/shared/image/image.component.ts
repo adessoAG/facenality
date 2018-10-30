@@ -20,7 +20,7 @@ export class ImageComponent implements OnInit {
 
   ngOnInit() {
     if (this.imageSource === undefined || this.imageSource === null) {
-      this.imageSource = 'assets/howdidwegetsodark.jpg';
+      this.imageSource = 'assets/images/howdidwegetsodark.jpg';
     }
 
     window.addEventListener('resize', (() => {
