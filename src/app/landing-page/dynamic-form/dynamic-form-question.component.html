@@ -25,7 +25,7 @@
 
   <div class="row">
     <div class="col-12" *ngFor="let question of pagedItems">
-      <p class="badge-primary global-font" style="text-align: center; margin: 0 15%;">{{question.label}}</p>
+      <p class="badge-primary global-font" style="text-align: center; margin: 0 15%;">{{question.key | translate}}</p>
 
       <div class="row" style="margin: 3.5% 15%;">
         <span class="col badge-info global-font" style="white-space: nowrap;">Strongly Agree</span>
