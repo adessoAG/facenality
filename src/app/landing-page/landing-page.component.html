@@ -8,7 +8,7 @@
 
 <hr class="my-4">
 
-<h2 class="display-4 col-12" style="text-align: center;">I. Pictures</h2>
+<h2 class="display-4 col-12" style="text-align: center;">I. {{"CAPTION_PICTURES" | translate}}</h2>
 
 <div class="card border-primary mb-3" style="margin: 2% 15%;">
     <!-- Webcam switch -->
@@ -33,13 +33,13 @@
     <div class="card-body">
         <div class="row" style=" white-space: nowrap;">
             <p class="col text-primary" style="white-space: nowrap;">
-                <i class="fa fa-3x fa-user-circle" style="vertical-align: middle;"></i>&nbsp; Instruction 1
+                <i class="fa fa-3x fa-user-circle" style="vertical-align: middle;"></i>&nbsp; {{"WEBCAM_INSTRUCTION_1" | translate}}
             </p>
             <p class="col text-primary" style="white-space: nowrap;">
-                <i class="fa fa-3x fa-arrows-h" style=" vertical-align: middle;"></i>&nbsp; Instruction 2
+                <i class="fa fa-3x fa-arrows-h" style=" vertical-align: middle;"></i>&nbsp; {{"WEBCAM_INSTRUCTION_2" | translate}}
             </p>
             <p class="col text-primary">
-                <i class="fa fa-3x fa-lock" style=" vertical-align: middle;"></i>&nbsp; Your data is protected.
+                <i class="fa fa-3x fa-lock" style=" vertical-align: middle;"></i>&nbsp; {{"WEBCAM_INSTRUCTION_3" | translate}}
             </p>
         </div>
     </div>
@@ -58,7 +58,7 @@
 <!-- Webcam no user permission warning -->
 <ngb-alert *ngIf="showPermissionWarning && !webcamUserPermission" id="webcam-permission-alert" class="global-body-wrapper"
     [type]="'warning'" [dismissible]="false" (close)="showPermissionWarning = false">
-    No permission! Please turn on Webcam and try again.
+    {{"WEBCAM_PERMISSION_WARNING" | translate}}
 </ngb-alert>
 
 <!-- TODO: Adapt to *ngFor? -->

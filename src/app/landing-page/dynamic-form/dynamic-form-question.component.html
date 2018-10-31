@@ -1,23 +1,26 @@
 <div [formGroup]="form">
 
-  <h2 class="display-4 col-12" style="text-align: center;">II. Questionnaire</h2>
+  <h2 class="display-4 col-12" style="text-align: center;">II. {{"CAPTION_QUESTIONNAIRE" | translate}}</h2>
 
   <div class="card border-primary mb-3" style="margin: 2% 15%;">
     <!-- Info icons and instructions -->
     <div class="card-body">
       <div class="row" style=" white-space: nowrap;">
         <p class="col text-primary" style="white-space: nowrap;">
-          <i class="fa fa-3x fa-hourglass-half" style="vertical-align: middle;"></i>&nbsp; Takes less than 12 Min.
+          <i class="fa fa-3x fa-hourglass-half" style="vertical-align: middle;"></i>&nbsp;
+          {{"QUESTIONNAIRE_INSTRUCTION_1" | translate}}
         </p>
         <p class="col text-primary" style="white-space: nowrap;">
-          <i class="fa fa-3x fa-check" style="vertical-align: middle;"></i>&nbsp; Try to answer quick and honestly.
+          <i class="fa fa-3x fa-check" style="vertical-align: middle;"></i>&nbsp;
+          {{"QUESTIONNAIRE_INSTRUCTION_2" | translate}}
         </p>
         <p class="col text-primary">
-          <i class="fa fa-3x fa-pencil-square-o" style=" vertical-align: middle;"></i>&nbsp; Avoid neutral answers.
+          <i class="fa fa-3x fa-pencil-square-o" style=" vertical-align: middle;"></i>&nbsp;
+          {{"QUESTIONNAIRE_INSTRUCTION_3" | translate}}
         </p>
       </div>
       <hr class="my-4">
-      <p #questionnaireStart class="col-12 badge-secondary" style="margin: 4% 0 -1% -1%;">Progress:
+      <p #questionnaireStart class="col-12 badge-secondary" style="margin: 4% 0 -1% -1%;">{{"PROGRESS" | translate}}:
         <ngb-progressbar class="col" type="success" showValue="true" [value]="page-1" [max]="maxPages+1" [striped]="true"></ngb-progressbar>
       </p>
     </div>
@@ -28,7 +31,7 @@
       <p class="badge-primary global-font" style="text-align: center; margin: 0 15%;">{{question.key | translate}}</p>
 
       <div class="row" style="margin: 3.5% 15%;">
-        <span class="col badge-info global-font" style="white-space: nowrap;">Strongly Agree</span>
+        <span class="col badge-info global-font" style="white-space: nowrap;">{{"STRONGLY_AGREE" | translate}}</span>
 
         <input id="radio-1" class="col" [value]="1" type="radio" [formControlName]="question.key">
         <input id="radio-2" class="col" [value]="2" type="radio" [formControlName]="question.key">
@@ -36,18 +39,18 @@
         <input id="radio-4" class="col" [value]="4" type="radio" [formControlName]="question.key">
         <input id="radio-5" class="col" [value]="5" type="radio" [formControlName]="question.key">
 
-        <span class="col badge-warning global-font" style="white-space: nowrap;">Strongly Disagree</span>
+        <span class="col badge-warning global-font" style="white-space: nowrap;">{{"STRONGLY_DISAGREE" | translate}}</span>
       </div>
     </div>
 
     <!-- Next page -->
-    <button *ngIf="!showResultButton" class="btn btn-success col" style="margin: 0 15%; width: 100%;" (click)="nextPage(questionnaireStart)">Next
-      page
+    <button *ngIf="!showResultButton" class="btn btn-success col" style="margin: 0 15%; width: 100%;" (click)="nextPage(questionnaireStart)">
+      {{"BTN_NEXT_PAGE" | translate}}
     </button>
 
     <!-- Submit -->
     <button *ngIf="showResultButton" class="btn btn-success col" type="submit" style="margin: 0 15%; width: 100%;"
-      (click)="submitResults()">Submit
+      (click)="submitResults()">{{"BTN_SUBMIT" | translate}}
     </button>
 
   </div>

@@ -42,7 +42,7 @@ export class QuestionService {
    * E.g. : A1 - A10, B1 - B10, ... , Q4-1 - Q4-10
    */
   generateQuestionKeys() {
-    const questionKeyLetters = ["A", "B", "C", "E", "F", "G", "H", "I", "L", "M", "N", "O", "Q1-", "Q2-", "Q3-", "Q4-"];
+    const questionKeyLetters = ["A", "B", "C", "E", "F", "G", "H", "I", "L", "M", "N", "O", "Q1_", "Q2_", "Q3_", "Q4_"];
     let finalQuestionKeys: string[] = [];
 
     for (let letter of questionKeyLetters) {
