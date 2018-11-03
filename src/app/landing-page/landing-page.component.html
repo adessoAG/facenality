@@ -8,6 +8,11 @@
 
 <hr class="my-4">
 
+<button class="btn btn-success col" style="margin: 0 15%; width: 100%;" (click)="onSubmit()">
+    Submit!
+</button>
+<p *ngIf="questionnaireComplete !== null">!Debug! Received ID: {{questionnaireComplete.id}}</p>
+
 <h2 class="display-4 col-12" style="text-align: center;">I. {{"CAPTION_PICTURES" | translate}}</h2>
 
 <div class="card border-primary mb-3" style="margin: 2% 15%;">
@@ -47,7 +52,7 @@
 
 <!-- Webcam no hardware permission alert -->
 <ngb-alert *ngIf="showPermissionAlert" id="webcam-permission-alert" class="global-body-wrapper" [type]="'danger'"
-    (close)="closeAlert()">
+    (close)="closeWebcamPermissionAlert()">
     It seems your Webcam is deactivated. Please click on the camera symbol next to the adressbar to check, then reload
     the page.<br>
     If you still need help, please refer to <a href="https://support.ring.md/hc/en-us/articles/115008801608-Browser-settings-for-enabling-webcam-and-microphone-Mozilla-Firefox-"
@@ -83,8 +88,8 @@
 </div>
 
 <div class="component-body-wrapper">
-    <form [formGroup]="form">
-        <landing-page-dynamic-form [form]="form" [questions]="questions" (formResults)="onSubmit()"></landing-page-dynamic-form>
+    <form [formGroup]="cattells16QuestionsForm">
+        <landing-page-dynamic-form [form]="cattells16QuestionsForm" [questions]="cattells16Questions" (formResults)="onSubmit()"></landing-page-dynamic-form>
     </form>
 </div>
 
@@ -92,6 +97,6 @@
 <!-- Webcam instance/preview in right corner -->
 <div *ngIf="webcamUserPermission" class="bottom-floating-container">
     <div class="col-3 bottom-floating-right">
-        <shared-webcam (permissionDenied)="onPermissionDenied($event)"></shared-webcam>
+        <shared-webcam (permissionDenied)="onWebcamPermissionDenied($event)"></shared-webcam>
     </div>
 </div>

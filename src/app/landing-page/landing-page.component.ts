@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { QuestionControlService } from './dynamic-form/question-control.service';
 import { QuestionService } from './dynamic-form/question.service';
+import { HttpService } from '../shared/http.service';
 import { QuestionBase } from './dynamic-form/types/question-base';
+import { Questionnaire } from './dynamic-form/types/questionnaire';
 
 @Component({
   selector: 'landing-page',
@@ -11,38 +13,68 @@ import { QuestionBase } from './dynamic-form/types/question-base';
 })
 export class LandingPageComponent implements OnInit {
 
+  /**
+   * @property webcamUserPermission : Underlying modell for webcam permission
+   * @property showPermissionWarning : Displays warning alert if user didn't set @webcamUserPermission to true 
+   * @property showPermissionAlert : Displays critical alert if webcam permission is blocked by device
+   */
   webcamUserPermission = 0;
-  showPermissionAlert = false;
   showPermissionWarning = false;
+  showPermissionAlert = false;
 
-  questions: QuestionBase<any>[] = [];
-  form: FormGroup;
-  payLoad = '';
+  /**
+   * @property cattells16Questions : Array containing questions for Cattells' 16 personality test
+   * @property cattells16QuestionsForm : Form containing @cattells16Questions   
+   * @property completeQuestionnaire : Questionnaire object to be send and stored in backend  
+   */
+  cattells16Questions: QuestionBase<any>[] = [];
+  cattells16QuestionsForm: FormGroup;
+  questionnaireComplete: Questionnaire = null;
 
-  onPermissionDenied() {
-    this.webcamUserPermission = 0;
-    this.showPermissionAlert = true;
-  }
-  constructor(private qcs: QuestionControlService, private qs: QuestionService) {  }
+  userStartTime: number;
+
+  constructor(private qcs: QuestionControlService, private qs: QuestionService, private httpService: HttpService) { }
 
   ngOnInit() {
-    this.questions = this.qs.getQuestions();
-    this.form = this.qcs.toFormGroup(this.questions);
+    this.cattells16Questions = this.qs.getQuestions();
+    this.cattells16QuestionsForm = this.qcs.toFormGroup(this.cattells16Questions);
+
+    this.userStartTime = new Date().getSeconds();
   }
 
+  /**
+   * Constructs a new @completeQuestionnaire object and uses @httpService to send it to the backend.
+   * Backend replies with an ID and
+   * TODO: predicted results for @cattells16QuestionsForm 
+   * TODO: Data is passed as parameter while user is being routed to ResultComponent
+   * TODO: Restrict data being send multiple times
+   */
+  onSubmit() {
+    const timeElapsedInSeconds = new Date().getSeconds() - this.userStartTime;
+    this.questionnaireComplete = new Questionnaire("sergej@grilborzer.de", null, JSON.stringify(this.cattells16QuestionsForm.value), 23, 0, timeElapsedInSeconds);
+    let questionnaireJSON = JSON.stringify(this.questionnaireComplete);
+
+    console.log(`Questionnaire: ${questionnaireJSON} took ${timeElapsedInSeconds} seconds`);
+
+    this.httpService.sendQuestionnaire(questionnaireJSON).subscribe(id => {
+      this.questionnaireComplete.id = id;
+    });
+  }
+
+  // **************** Webcam functions ****************
   checkWebcamPermission() {
-    if(this.webcamUserPermission === 0) {
+    if (this.webcamUserPermission === 0) {
       this.showPermissionWarning = true;
       setTimeout(() => this.showPermissionWarning = false, 5000);
     }
   }
 
-  closeAlert() {
-    this.showPermissionAlert = false;
+  onWebcamPermissionDenied() {
+    this.webcamUserPermission = 0;
+    this.showPermissionAlert = true;
   }
-  
-  onSubmit() {
-    this.payLoad = JSON.stringify(this.form.value);
-    console.log("questionnaire results: " + this.payLoad);
+
+  closeWebcamPermissionAlert() {
+    this.showPermissionAlert = false;
   }
 }

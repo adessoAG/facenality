@@ -12,7 +12,7 @@ export class HttpService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
-  serverUrl = "localhost:8080";
+  serverUrl = "http://localhost:8080";
 
   constructor(private http: HttpClient) { }
 
