@@ -7,9 +7,6 @@ import { ImageComponent } from '../image/image.component';
 })
 export class WebcamService {
 
-  /** Currently not in use. Check documentation in WebcamComponent */
-  photoSubject = new Subject<string>();
   requestPhotoEmitter = new EventEmitter<ImageComponent>();
 
-  constructor() { }
 }

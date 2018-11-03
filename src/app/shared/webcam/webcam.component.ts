@@ -15,7 +15,6 @@ export class WebcamComponent implements OnInit {
   @ViewChild('canvas') canvas: ElementRef;
 
   stream: MediaStream = null;
-  webcamServiceSubject = null;
   resolution: {
     video: { width: { exact: number }, height: { exact: number } },
     name: string
@@ -68,9 +67,6 @@ export class WebcamComponent implements OnInit {
     if (this.stream !== null) {
       this.video.nativeElement.pause();
       this.stream.getTracks()[0].stop();
-
-      if (this.webcamServiceSubject !== null) { this.webcamServiceSubject.unsubscribe() };
-      console.log('Webcam OFF');
     }
   }
 
@@ -80,24 +76,26 @@ export class WebcamComponent implements OnInit {
     this.video.nativeElement.play();
     this.setWebcamSize();
 
-    this.webcamServiceSubject = this.webcamService.requestPhotoEmitter.subscribe((imgCmp: ImageComponent) => {
+    this.webcamService.requestPhotoEmitter.subscribe((imgCmp: ImageComponent) => {
       this.canvas.nativeElement.getContext('2d').drawImage(this.video.nativeElement, 0, 0);
       imgCmp.imageSource = this.canvas.nativeElement.toDataURL('image/png');
-
     });
-    console.log('Webcam ON');
   }
 
-  // TODO: responsive
+  /**
+   * Dynamicaly updates webcam height to match width and keep the shape perfectly circular.
+   * Necessary to avoid rectangular shaped elipses caused by 4:3 format of the webcam.
+   * TODO: Make responsive
+   */
   setWebcamSize() {
     const size = 250;
     this.video.nativeElement.height = size;
     this.video.nativeElement.width = size;
   }
 
+  /** Check if browser supports webcam access */
   hasGetUserMedia() {
-    return !!(navigator.mediaDevices &&
-      navigator.mediaDevices.getUserMedia);
+    return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
   }
 
 }

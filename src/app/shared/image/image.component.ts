@@ -8,57 +8,63 @@ import { WebcamService } from '../webcam/webcam.service';
 })
 export class ImageComponent implements OnInit {
 
+  /**
+   * @property imageSource : Input parameter for setting the image to be displayed
+   * @property description : Input parameter for the description to be displayed below the image
+   * @property buttonsNotVisible : Boolean input parameter. Hides buttons below the image if set to true. 
+   */
   @Input() imageSource: string;
-  @Input() description: string;
+  @Input() imageDescription: string;
   @Input() buttonsNotVisible: boolean;
-  @Output() webcamRequested = new EventEmitter<boolean>();
-  @ViewChild('image') image: ElementRef;
 
-  webcamServiceSubject = null;
+  /**
+   * @property webcamRequested : Boolean output property that notifies parent component if a webcam capture has been requested
+   */
+  @Output() webcamRequested = new EventEmitter<boolean>();
+
+  /**
+   * @property imageElement : ViewChild that references the used <img> element in the template  
+   */
+  @ViewChild('image') imageElement: ElementRef<HTMLImageElement>;
+
 
   constructor(private webcamService: WebcamService) { }
 
+  /**
+   * Calls @function updateImageSizeResponsively on window resizing.
+   */
   ngOnInit() {
-    if (this.imageSource === undefined || this.imageSource === null) {
-      this.imageSource = 'assets/images/howdidwegetsodark.jpg';
-    }
-
-    window.addEventListener('resize', (() => {
-      this.setImageSize();
-    }));
+    window.addEventListener('resize', (() => { this.updateImageSizeResponsively(); }));
   }
 
-  ngAfterViewInit() {
-    this.webcamServiceSubject = this.webcamService.photoSubject.subscribe((src) => {
-      this.imageSource = src;
-      console.log("change")
-    });
-  }
-
-  ngOnDestroy() {
-    if (this.webcamServiceSubject !== null) { this.webcamServiceSubject.unsubscribe() };
-  }
-
-  onFileUpload(event) {
-    this.imageSource = event.target.files[0];
+  /**
+   * Asynchronously loads and displays selected image via FileReader. @property imageSource is set to a base64 string. 
+   * @param selectedImage Selected image to be uploaded.
+   */
+  onImageUpload(selectedImage) {
     const reader = new FileReader();
+    reader.readAsDataURL(selectedImage.target.files[0]);
 
-    reader.readAsDataURL(event.target.files[0]);
-
-    reader.onload = (e: any) => {
-      this.imageSource = e.target.result;
+    reader.onload = (resource: any) => {
+      this.imageSource = resource.target.result; // base64 format
     };
   }
 
-  onCapture() {
+  /**
+   * Calls @property webcamService to emit a capture request and notifies parent component about it
+   */
+  onRequestWebcamCapture() {
     this.webcamService.requestPhotoEmitter.emit(this);
     this.webcamRequested.emit(true);
 
-    this.setImageSize();
+    this.updateImageSizeResponsively();
   }
 
-  setImageSize() {
-    this.image.nativeElement.height = window.innerHeight * 0.10;
-    this.image.nativeElement.height = this.image.nativeElement.width;
+  /**
+   * Dynamicaly updates image height to match width and keeps the shape perfectly circular.
+   * Necessary to avoid rectangular shaped elipses caused by 4:3 format of the webcam.
+   */
+  updateImageSizeResponsively() {
+    this.imageElement.nativeElement.height = this.imageElement.nativeElement.width;
   }
 }
