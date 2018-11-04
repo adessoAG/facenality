@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { WebcamService } from '../webcam/webcam.service';
+import { Subscription, Subject } from 'rxjs';
 
 @Component({
   selector: 'shared-image',
@@ -27,6 +28,9 @@ export class ImageComponent implements OnInit {
    */
   @ViewChild('image') imageElement: ElementRef<HTMLImageElement>;
 
+  webcamServiceSubscription: Subscription;
+  webcamServiceSubject: Subject<string>;
+  webcamServiceEmitter: EventEmitter<Subject<string>>;
 
   constructor(private webcamService: WebcamService) { }
 
@@ -35,6 +39,18 @@ export class ImageComponent implements OnInit {
    */
   ngOnInit() {
     window.addEventListener('resize', (() => { this.updateImageSizeResponsively(); }));
+
+    this.webcamServiceSubject = this.webcamService.createRequestSubject();
+
+    this.webcamServiceEmitter = this.webcamService.createRequestEmitter();
+
+    this.webcamServiceSubscription = this.webcamServiceSubject.subscribe((imgSrc) => {
+      this.imageSource = imgSrc;
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.webcamServiceSubscription !== undefined) { this.webcamServiceSubscription.unsubscribe() };
   }
 
   /**
@@ -54,7 +70,7 @@ export class ImageComponent implements OnInit {
    * Calls @property webcamService to emit a capture request and notifies parent component about it
    */
   onRequestWebcamCapture() {
-    this.webcamService.requestPhotoEmitter.emit(this);
+    this.webcamServiceEmitter.emit(this.webcamServiceSubject);
     this.webcamRequested.emit(true);
 
     this.updateImageSizeResponsively();

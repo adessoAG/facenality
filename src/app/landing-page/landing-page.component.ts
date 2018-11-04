@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { QuestionControlService } from './dynamic-form/question-control.service';
 import { QuestionService } from './dynamic-form/question.service';
 import { HttpService } from '../shared/http.service';
 import { QuestionBase } from './dynamic-form/types/question-base';
 import { Questionnaire } from './dynamic-form/types/questionnaire';
+import { ImageComponent } from '../shared/image/image.component';
 
 @Component({
   selector: 'landing-page',
@@ -33,6 +34,8 @@ export class LandingPageComponent implements OnInit {
 
   userStartTime: number;
 
+  @ViewChildren(ImageComponent) images: QueryList<ImageComponent>
+
   constructor(private qcs: QuestionControlService, private qs: QuestionService, private httpService: HttpService) { }
 
   ngOnInit() {
@@ -51,7 +54,10 @@ export class LandingPageComponent implements OnInit {
    */
   onSubmit() {
     const timeElapsedInSeconds = new Date().getSeconds() - this.userStartTime;
-    this.questionnaireComplete = new Questionnaire("sergej@grilborzer.de", null, JSON.stringify(this.cattells16QuestionsForm.value), 23, 0, timeElapsedInSeconds);
+    let images: string[] = [];
+    this.images.forEach(img => { images.push(img.imageSource) });
+
+    this.questionnaireComplete = new Questionnaire("sergej@grilborzer.de", images, JSON.stringify(this.cattells16QuestionsForm.value), 23, 0, timeElapsedInSeconds);
     let questionnaireJSON = JSON.stringify(this.questionnaireComplete);
 
     console.log(`Questionnaire: ${questionnaireJSON} took ${timeElapsedInSeconds} seconds`);

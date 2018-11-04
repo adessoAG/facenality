@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 import { WebcamService } from './webcam.service';
 import { ImageComponent } from '../image/image.component';
+import { Subscription, Subject } from 'rxjs';
 
 @Component({
   selector: 'shared-webcam',
@@ -11,8 +12,8 @@ export class WebcamComponent implements OnInit {
 
   @Output() permissionDenied = new EventEmitter<boolean>();
 
-  @ViewChild('video') video: ElementRef;
-  @ViewChild('canvas') canvas: ElementRef;
+  @ViewChild('video') video: ElementRef<HTMLVideoElement>;
+  @ViewChild('canvas') canvas: ElementRef<HTMLCanvasElement>;
 
   stream: MediaStream = null;
   resolution: {
@@ -20,6 +21,10 @@ export class WebcamComponent implements OnInit {
     name: string
   };
   cameraAccess = true;
+
+  webcamServiceSubscriptions: Subscription[];
+  webcamServiceSubjects: Subject<string>[];
+  webcamServiceEmitters: EventEmitter<Subject<string>>[] = [];
 
   constructor(private webcamService: WebcamService) { }
 
@@ -67,6 +72,10 @@ export class WebcamComponent implements OnInit {
     if (this.stream !== null) {
       this.video.nativeElement.pause();
       this.stream.getTracks()[0].stop();
+
+      this.webcamServiceEmitters.forEach((emitter) => {
+        emitter.unsubscribe();
+      });
     }
   }
 
@@ -76,10 +85,18 @@ export class WebcamComponent implements OnInit {
     this.video.nativeElement.play();
     this.setWebcamSize();
 
-    this.webcamService.requestPhotoEmitter.subscribe((imgCmp: ImageComponent) => {
-      this.canvas.nativeElement.getContext('2d').drawImage(this.video.nativeElement, 0, 0);
-      imgCmp.imageSource = this.canvas.nativeElement.toDataURL('image/png');
-    });
+    this.webcamServiceEmitters = this.webcamService.getRequestEmitters();
+
+    this.webcamServiceEmitters.forEach((emitter) => {
+      emitter.subscribe((subject: Subject<string>) => {
+        // Set canvas size according to given resolution
+        this.canvas.nativeElement.width = this.resolution.video.width.exact;
+        this.canvas.nativeElement.height = this.resolution.video.height.exact;
+
+        this.canvas.nativeElement.getContext('2d').drawImage(this.video.nativeElement, 0, 0);
+        subject.next(this.canvas.nativeElement.toDataURL('image/png'));
+      })
+    })
   }
 
   /**
