@@ -94,7 +94,7 @@ export class WebcamComponent implements OnInit {
         this.canvas.nativeElement.height = this.resolution.video.height.exact;
 
         this.canvas.nativeElement.getContext('2d').drawImage(this.video.nativeElement, 0, 0);
-        subject.next(this.canvas.nativeElement.toDataURL('image/png'));
+        subject.next(this.canvas.nativeElement.toDataURL('image/jpeg'));
       })
     })
   }

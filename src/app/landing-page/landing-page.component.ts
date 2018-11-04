@@ -54,10 +54,10 @@ export class LandingPageComponent implements OnInit {
    */
   onSubmit() {
     const timeElapsedInSeconds = new Date().getSeconds() - this.userStartTime;
-    let images: string[] = [];
-    this.images.forEach(img => { images.push(img.imageSource) });
+    let photos :string[] = [];
+    this.images.forEach(img => { photos.push(img.imageSource) });
 
-    this.questionnaireComplete = new Questionnaire("sergej@grilborzer.de", images, JSON.stringify(this.cattells16QuestionsForm.value), 23, 0, timeElapsedInSeconds);
+    this.questionnaireComplete = new Questionnaire("sergej@grilborzer.de", photos, JSON.stringify(this.cattells16QuestionsForm.value), 23, 0, timeElapsedInSeconds);
     let questionnaireJSON = JSON.stringify(this.questionnaireComplete);
 
     console.log(`Questionnaire: ${questionnaireJSON} took ${timeElapsedInSeconds} seconds`);
