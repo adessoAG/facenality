@@ -15,7 +15,7 @@ export class DynamicFormQuestionComponent {
   @Output() formResults = new EventEmitter<any>();
 
   page = 1;
-  itemsPerPage = 5;
+  itemsPerPage = 11;
   maxPages;
   pagedItems: any[];
 
@@ -24,10 +24,10 @@ export class DynamicFormQuestionComponent {
   ngOnInit() {
     this.maxPages = Math.round(this.questions.length / this.itemsPerPage) + 1;
     // Initialize first page of questionnaire
-    this.nextPage();
+    this.loadNextPage();
   }
 
-  nextPage(scrollTarget?) {
+  loadNextPage(scrollTarget?) {
     const start = (this.page - 1) * this.itemsPerPage;
     const end = this.page * this.itemsPerPage;
     this.pagedItems = this.questions.slice(start, end);
@@ -42,12 +42,25 @@ export class DynamicFormQuestionComponent {
     if (this.page > this.maxPages) { this.showResultButton = true; }
   }
 
+  loadLastPage(scrollTarget) {
+    this.pagedItems = this.questions.slice(this.maxPages-1, this.maxPages);
+
+    if (scrollTarget !== undefined) {
+      scrollTarget.scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+
+    this.page = this.maxPages + 1;
+    this.submitResults();
+  }
+
   /**
    * Display 100% progress and emit results to parent component 
    */
   submitResults() {
     this.page++;
-    this.formResults.emit();
+    this.formResults.emit(this.form);
   }
 
   get isValid() { return this.form.valid; }

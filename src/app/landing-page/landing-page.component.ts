@@ -29,8 +29,10 @@ export class LandingPageComponent implements OnInit {
    * @property completeQuestionnaire : Questionnaire object to be send and stored in backend  
    */
   cattells16Questions: QuestionBase<any>[] = [];
-  cattells16QuestionsForm: FormGroup;
-  questionnaireComplete: Questionnaire = null;
+  cattells16Form: FormGroup;
+  generalInfoForm: FormGroup;
+  isCattells16FormComplete: boolean;
+  finalQuestionnaire: Questionnaire = null;
 
   userStartTime: number;
 
@@ -40,9 +42,27 @@ export class LandingPageComponent implements OnInit {
 
   ngOnInit() {
     this.cattells16Questions = this.qs.getQuestions();
-    this.cattells16QuestionsForm = this.qcs.toFormGroup(this.cattells16Questions);
+    this.cattells16Form = this.qcs.toFormGroup(this.cattells16Questions);
 
     this.userStartTime = new Date().getSeconds();
+  }
+
+  onCattells16FormComplete() {
+    this.isCattells16FormComplete = true;
+  }
+
+  createfinalQuestionnaire() : Questionnaire {
+    const timeElapsedInSeconds = new Date().getSeconds() - this.userStartTime;
+    let photos :string[] = [];
+    this.images.forEach(img => { photos.push(img.imageSource) });
+
+    this.finalQuestionnaire = new Questionnaire(JSON.stringify(this.generalInfoForm.value["email"]), photos, 
+    JSON.stringify(this.cattells16Form.value), this.generalInfoForm.value["age"], 
+    this.generalInfoForm.value["gender"], timeElapsedInSeconds);
+
+    console.log(`Questionnaire: ${this.finalQuestionnaire} took ${timeElapsedInSeconds} seconds`);
+
+    return this.finalQuestionnaire;
   }
 
   /**
@@ -52,18 +72,13 @@ export class LandingPageComponent implements OnInit {
    * TODO: Data is passed as parameter while user is being routed to ResultComponent
    * TODO: Restrict data being send multiple times
    */
-  onSubmit() {
-    const timeElapsedInSeconds = new Date().getSeconds() - this.userStartTime;
-    let photos :string[] = [];
-    this.images.forEach(img => { photos.push(img.imageSource) });
+  submitQuestionnaire(generalInfoForm: FormGroup) {  
+    this.generalInfoForm = generalInfoForm;
 
-    this.questionnaireComplete = new Questionnaire("sergej@grilborzer.de", photos, JSON.stringify(this.cattells16QuestionsForm.value), 23, 0, timeElapsedInSeconds);
-    let questionnaireJSON = JSON.stringify(this.questionnaireComplete);
-
-    console.log(`Questionnaire: ${questionnaireJSON} took ${timeElapsedInSeconds} seconds`);
+    let questionnaireJSON = JSON.stringify(this.createfinalQuestionnaire());
 
     this.httpService.sendQuestionnaire(questionnaireJSON).subscribe(id => {
-      this.questionnaireComplete.id = id;
+      this.finalQuestionnaire.id = id;
     });
   }
 

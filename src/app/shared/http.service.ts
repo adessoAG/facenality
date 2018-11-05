@@ -2,23 +2,24 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
 
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
-  serverUrl = "http://localhost:8080";
+  httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+  apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
   /** POST: Send filled out form to the backend */
   sendQuestionnaire(questionnaire): Observable<number> {
-    return this.http.post<number>(this.serverUrl + "/save-questionnaire", questionnaire, this.httpOptions).pipe(
+    console.log(environment.apiUrl + " " + environment.production);
+    
+    return this.http.post<number>(this.apiUrl + "/save-questionnaire", questionnaire, this.httpOptions).pipe(
       tap((id) => console.log(`Your data was saved with following id: ${id}`)),
       catchError(this.handleError<number>('sendQuestionnaire'))
     );

@@ -1,7 +1,4 @@
 <div [formGroup]="form">
-
-  <h2 class="display-4 col-12" style="text-align: center;">II. {{"CAPTION_QUESTIONNAIRE" | translate}}</h2>
-
   <div class="card border-primary mb-3" style="margin: 2% 15%;">
     <!-- Info icons and instructions -->
     <div class="card-body">
@@ -26,7 +23,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div *ngIf="page < maxPages" class="row">
     <div class="col-12" *ngFor="let question of pagedItems">
       <p class="badge-primary global-font" style="text-align: center; margin: 0 15%;">{{question.key | translate}}</p>
 
@@ -43,8 +40,12 @@
       </div>
     </div>
 
+    <button class="btn btn-success col" style="margin: 0 15%; width: 100%;" (click)="loadLastPage(questionnaireStart)">
+      !Debug! Last page
+    </button>
+
     <!-- Next page -->
-    <button *ngIf="!showResultButton" class="btn btn-success col" style="margin: 0 15%; width: 100%;" (click)="nextPage(questionnaireStart)">
+    <button *ngIf="!showResultButton" class="btn btn-success col" style="margin: 0 15%; width: 100%;" (click)="loadNextPage(questionnaireStart)">
       {{"BTN_NEXT_PAGE" | translate}}
     </button>
 

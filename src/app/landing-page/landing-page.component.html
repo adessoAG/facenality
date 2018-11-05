@@ -8,10 +8,7 @@
 
 <hr class="my-4">
 
-<button class="btn btn-success col" style="margin: 0 15%; width: 100%;" (click)="onSubmit()">
-    Submit!
-</button>
-<p *ngIf="questionnaireComplete !== null">!Debug! Received ID: {{questionnaireComplete.id}}</p>
+
 
 <h2 class="display-4 col-12" style="text-align: center;">I. {{"CAPTION_PICTURES" | translate}}</h2>
 
@@ -38,13 +35,16 @@
     <div class="card-body">
         <div class="row" style=" white-space: nowrap;">
             <p class="col text-primary" style="white-space: nowrap;">
-                <i class="fa fa-3x fa-user-circle" style="vertical-align: middle;"></i>&nbsp; {{"WEBCAM_INSTRUCTION_1" | translate}}
+                <i class="fa fa-3x fa-user-circle" style="vertical-align: middle;"></i>&nbsp; {{"WEBCAM_INSTRUCTION_1"
+                | translate}}
             </p>
             <p class="col text-primary" style="white-space: nowrap;">
-                <i class="fa fa-3x fa-arrows-h" style=" vertical-align: middle;"></i>&nbsp; {{"WEBCAM_INSTRUCTION_2" | translate}}
+                <i class="fa fa-3x fa-arrows-h" style=" vertical-align: middle;"></i>&nbsp; {{"WEBCAM_INSTRUCTION_2" |
+                translate}}
             </p>
             <p class="col text-primary">
-                <i class="fa fa-3x fa-lock" style=" vertical-align: middle;"></i>&nbsp; {{"WEBCAM_INSTRUCTION_3" | translate}}
+                <i class="fa fa-3x fa-lock" style=" vertical-align: middle;"></i>&nbsp; {{"WEBCAM_INSTRUCTION_3" |
+                translate}}
             </p>
         </div>
     </div>
@@ -87,12 +87,19 @@
     </div>
 </div>
 
+<h2 class="display-4 col-12" style="text-align: center;">II. {{"CAPTION_QUESTIONNAIRE" | translate}}</h2>
+
 <div class="component-body-wrapper">
-    <form [formGroup]="cattells16QuestionsForm">
-        <landing-page-dynamic-form [form]="cattells16QuestionsForm" [questions]="cattells16Questions" (formResults)="onSubmit()"></landing-page-dynamic-form>
+    <form [formGroup]="cattells16Form">
+        <landing-page-dynamic-form *ngIf="false" [form]="cattells16Form" [questions]="cattells16Questions"
+            (formResults)="onCattells16FormComplete()"></landing-page-dynamic-form>
     </form>
 </div>
 
+<div class="global-body-wrapper">
+    <!-- isCattells16FormComplete -->
+    <landing-page-general-info-form *ngIf="true" (formResults)="submitQuestionnaire($event)"></landing-page-general-info-form>
+</div>
 
 <!-- Webcam instance/preview in right corner -->
 <div *ngIf="webcamUserPermission" class="bottom-floating-container">

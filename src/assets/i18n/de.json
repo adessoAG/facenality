@@ -25,7 +25,7 @@
     "GENERAL_INFO_FORM_GENDER_MALE": "Männlich",
     "GENERAL_INFO_FORM_GENDER_FEMALE": "Weiblich",
     "GENERAL_INFO_FORM_GENDER_OTHER": "Andere",
-    "GENERAL_INFO_FORM_EMAIL_HINT": "Freiwillige Angabe, um Ergebnisse per Email zu erhalten",
+    "GENERAL_INFO_FORM_HINT_VALUE_OPTIONAL": "Freiwillige Angabe, um Ergebnisse per Email zu erhalten",
     "GENERAL_INFO_FORM_TERMS_PRIVACY": "Ich habe die AGB gelesen und bin mit den Datenschutzbestimmungen einverstanden",
     "LEGAL_AND_PRIVACY": "Impressum & Datenschutz",
     "LEGAL": "Impressum",

@@ -25,7 +25,7 @@
     "GENERAL_INFO_FORM_GENDER_MALE": "Male",
     "GENERAL_INFO_FORM_GENDER_FEMALE": "Female",
     "GENERAL_INFO_FORM_GENDER_OTHER": "Other",
-    "GENERAL_INFO_FORM_EMAIL_HINT": "Voluntary submission to receive results by mail.",
+    "GENERAL_INFO_FORM_HINT_VALUE_OPTIONAL": "Voluntary submission to receive results by mail.",
     "GENERAL_INFO_FORM_TERMS_PRIVACY": "I have read and understood the Terms & Conditions and agree with the Privacy Policy.",
     "LEGAL_AND_PRIVACY": "Legal & Privacy",
     "LEGAL": "Legal",
