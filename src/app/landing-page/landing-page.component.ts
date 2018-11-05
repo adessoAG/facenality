@@ -83,19 +83,26 @@ export class LandingPageComponent implements OnInit {
   }
 
   // **************** Webcam functions ****************
-  checkWebcamPermission() {
+  checkWebcamPermission(scrollTarget) {
     if (this.webcamUserPermission === 0) {
       this.showPermissionWarning = true;
-      setTimeout(() => this.showPermissionWarning = false, 5000);
+      if (scrollTarget !== undefined) {
+        scrollTarget.scrollIntoView({
+          behavior: "smooth"
+        });
+      }
+      
     }
   }
 
-  onWebcamPermissionDenied() {
+  onWebcamPermissionDenied(scrollTarget) {
     this.webcamUserPermission = 0;
     this.showPermissionAlert = true;
-  }
 
-  closeWebcamPermissionAlert() {
-    this.showPermissionAlert = false;
+    if (scrollTarget !== undefined) {
+      scrollTarget.scrollIntoView({
+        behavior: "smooth"
+      });
+    }
   }
 }

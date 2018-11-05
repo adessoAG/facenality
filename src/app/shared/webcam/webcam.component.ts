@@ -10,7 +10,7 @@ import { Subscription, Subject } from 'rxjs';
 })
 export class WebcamComponent implements OnInit {
 
-  @Output() permissionDenied = new EventEmitter<boolean>();
+  @Output() permissionDenied = new EventEmitter<void>();
 
   @ViewChild('video') video: ElementRef<HTMLVideoElement>;
   @ViewChild('canvas') canvas: ElementRef<HTMLCanvasElement>;
@@ -47,7 +47,7 @@ export class WebcamComponent implements OnInit {
           this.startStream(stream);
         })
         .catch(reason => {
-          this.permissionDenied.emit(true);
+          this.permissionDenied.emit();
           console.log(reason);
         });
 
@@ -58,7 +58,7 @@ export class WebcamComponent implements OnInit {
             this.startStream(stream);
           })
           .catch(reason => {
-            this.permissionDenied.emit(true);
+            this.permissionDenied.emit();
             console.log(reason);
           });
       }

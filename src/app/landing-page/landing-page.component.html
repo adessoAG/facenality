@@ -8,15 +8,13 @@
 
 <hr class="my-4">
 
-
-
 <h2 class="display-4 col-12" style="text-align: center;">I. {{"CAPTION_PICTURES" | translate}}</h2>
 
-<div class="card border-primary mb-3" style="margin: 2% 15%;">
+<div #webcam class="card border-primary mb-3" style="margin: 2% 15%;">
     <!-- Webcam switch -->
-    <div class="card-header">
+    <div class="card-header text-white bg-info">
         <div class="form-group row" ngbRadioGroup name="radioBasic" [(ngModel)]="webcamUserPermission" style="margin-bottom: -2%;">
-            <div class="custom-control text-primary">
+            <div class="custom-control my-auto">
                 <legend><i class="fa fa-camera"></i>&nbsp; Webcam:</legend>
             </div>
             <div class="custom-control custom-radio">
@@ -51,8 +49,8 @@
 </div>
 
 <!-- Webcam no hardware permission alert -->
-<ngb-alert *ngIf="showPermissionAlert" id="webcam-permission-alert" class="global-body-wrapper" [type]="'danger'"
-    (close)="closeWebcamPermissionAlert()">
+<ngb-alert #permissionAlert *ngIf="showPermissionAlert" id="webcam-permission-alert" class="global-body-wrapper" [type]="'danger'"
+    (close)="showPermissionAlert = false">
     It seems your Webcam is deactivated. Please click on the camera symbol next to the adressbar to check, then reload
     the page.<br>
     If you still need help, please refer to <a href="https://support.ring.md/hc/en-us/articles/115008801608-Browser-settings-for-enabling-webcam-and-microphone-Mozilla-Firefox-"
@@ -61,8 +59,8 @@
 </ngb-alert>
 
 <!-- Webcam no user permission warning -->
-<ngb-alert *ngIf="showPermissionWarning && !webcamUserPermission" id="webcam-permission-alert" class="global-body-wrapper"
-    [type]="'warning'" [dismissible]="false" (close)="showPermissionWarning = false">
+<ngb-alert #permissionWarning *ngIf="showPermissionWarning && !webcamUserPermission" id="webcam-permission-alert" class="global-body-wrapper"
+    [type]="'warning'" (close)="showPermissionWarning = false">
     {{"WEBCAM_PERMISSION_WARNING" | translate}}
 </ngb-alert>
 
@@ -70,20 +68,20 @@
 <div class="row" style="margin-left: 15%; margin-right: 17%; margin-bottom: 8%;">
     <div class="col">
         <shared-image [imageSource]="'assets/images/face-neutral.svg'" [imageDescription]="'DESCRIPTION_NEUTRAL_FACE' | translate"
-            (webcamRequested)="checkWebcamPermission()"></shared-image>
+            (webcamRequested)="checkWebcamPermission(webcam)"></shared-image>
     </div>
     <div class="col">
         <shared-image [imageSource]="'assets/images/face-happy.svg'" [imageDescription]="'DESCRIPTION_HAPPY_FACE' | translate"
-            (webcamRequested)="checkWebcamPermission()"></shared-image>
+            (webcamRequested)="checkWebcamPermission(webcam)"></shared-image>
     </div>
     <div class="w-100" style="margin-bottom: 2%;"></div>
     <div class="col">
         <shared-image [imageSource]="'assets/images/face-sad.svg'" [imageDescription]="'DESCRIPTION_SAD_FACE' | translate"
-            (webcamRequested)="checkWebcamPermission()"></shared-image>
+            (webcamRequested)="checkWebcamPermission(webcam)"></shared-image>
     </div>
     <div class="col">
         <shared-image [imageSource]="'assets/images/face-random2.svg'" [imageDescription]="'DESCRIPTION_RANDOM_FACE' | translate"
-            (webcamRequested)="checkWebcamPermission()"></shared-image>
+            (webcamRequested)="checkWebcamPermission(webcam)"></shared-image>
     </div>
 </div>
 
@@ -104,6 +102,6 @@
 <!-- Webcam instance/preview in right corner -->
 <div *ngIf="webcamUserPermission" class="bottom-floating-container">
     <div class="col-3 bottom-floating-right">
-        <shared-webcam (permissionDenied)="onWebcamPermissionDenied($event)"></shared-webcam>
+        <shared-webcam (permissionDenied)="onWebcamPermissionDenied(webcam)"></shared-webcam>
     </div>
 </div>
