@@ -39,13 +39,15 @@
     <div class="col text-center text-primary">
       <label class="form-check-label">
         <input #termsAcceptedCheckbox class="form-check-input" value="0" type="checkbox" [formControl]="form.controls['agreedToTerms']">
-        {{"GENERAL_INFO_FORM_TERMS_PRIVACY" | translate}}
+        {{"GENERAL_INFO_FORM_PRIVACY_1" | translate}}
+        <a class="text-info" routerLink='/legal-and-privacy' target='_blank'>{{"PRIVACY_POLICY" | translate}}</a>
+        {{"GENERAL_INFO_FORM_PRIVACY_2" | translate}}
       </label>
     </div>
 
     <div class="w-100" style="margin-bottom: 2%;"></div>
 
-    <button type="submit" class="btn btn-success" style="width: 100%;" (click)="onSubmit()" [disabled]="!form.valid">{{"BTN_SUBMIT" |
-      translate}}</button>
+    <button type="submit" class="btn btn-success" style="width: 100%;" (click)="onSubmit()" [disabled]="!form.valid">
+      {{"BTN_SUBMIT" | translate}}</button>
   </fieldset>
 </form>

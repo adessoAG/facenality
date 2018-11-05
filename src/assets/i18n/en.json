@@ -26,12 +26,14 @@
     "GENERAL_INFO_FORM_GENDER_FEMALE": "Female",
     "GENERAL_INFO_FORM_GENDER_OTHER": "Other",
     "GENERAL_INFO_FORM_HINT_VALUE_OPTIONAL": "Voluntary submission to receive results by mail.",
-    "GENERAL_INFO_FORM_TERMS_PRIVACY": "I have read and understood the Terms & Conditions and agree with the Privacy Policy.",
-    "LEGAL_AND_PRIVACY": "Legal & Privacy",
+    "GENERAL_INFO_FORM_PRIVACY_1": "I've read the ",
+    "GENERAL_INFO_FORM_PRIVACY_2": " and agree.",
+    "LEGAL_AND_PRIVACY": "Legal and Privacy",
     "LEGAL": "Legal",
     "PRIVACY": "Privacy",
+    "PRIVACY_POLICY": "privacy policy",
     "ABOUT_FACENALITY": "About Facenality",
-    "BTN_NEXT_PAGE": "Nächste Seite",
+    "BTN_NEXT_PAGE": "Next page",
     "BTN_SUBMIT": "Submit",
     "A1": "I know how to comfort others",
     "A2": "I enjoy bringing people together",
@@ -191,5 +193,8 @@
     "Q4_6": "I can't stand being contradicted",
     "Q4_7": "I judge people by their appearance",
     "Q4_8": "I am not easily annoyed",
-    "Q4_9": "I try to forgive and forget"
+    "Q4_9": "I try to forgive and forget",
+    "404_SUBTITLE" : "The requested page could not be found.",
+    "404_BTN_HOME": "Take Me Home", 
+    "404_BTN_CONTACT": "Get in touch"
 }
