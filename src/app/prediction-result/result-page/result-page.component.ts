@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataExchangeService } from 'src/app/shared/data-exchange.service';
+import { Questionnaire } from 'src/app/landing-page/dynamic-form/types/questionnaire';
 
 @Component({
   selector: 'app-result-page',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultPageComponent implements OnInit {
 
-  constructor() { }
+  questionnaire: Questionnaire;
 
+  constructor(private dataExchangeService: DataExchangeService) { }
+
+  /** TODO: Get and display predicted results for @cattells16QuestionsForm */ 
   ngOnInit() {
+    this.dataExchangeService.getData().subscribe((questionnaire) => this.questionnaire = questionnaire);
   }
 
 }

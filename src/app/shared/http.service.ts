@@ -16,9 +16,7 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   /** POST: Send filled out form to the backend */
-  sendQuestionnaire(questionnaire): Observable<number> {
-    console.log(environment.apiUrl + " " + environment.production);
-    
+  sendQuestionnaire(questionnaire): Observable<number> {    
     return this.http.post<number>(this.apiUrl + "/save-questionnaire", questionnaire, this.httpOptions).pipe(
       tap((id) => console.log(`Your data was saved with following id: ${id}`)),
       catchError(this.handleError<number>('sendQuestionnaire'))
