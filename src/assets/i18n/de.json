@@ -25,7 +25,7 @@
     "GENERAL_INFO_FORM_GENDER_MALE": "Männlich",
     "GENERAL_INFO_FORM_GENDER_FEMALE": "Weiblich",
     "GENERAL_INFO_FORM_GENDER_OTHER": "Andere",
-    "GENERAL_INFO_FORM_HINT_VALUE_OPTIONAL": "Freiwillige Angabe, um Ergebnisse per Email zu erhalten",
+    "GENERAL_INFO_FORM_HINT_VALUE_OPTIONAL": "Freiwillige Angabe, um Ergebnis per Email zu erhalten",
     "GENERAL_INFO_FORM_PRIVACY_1": "Ich habe die ",
     "GENERAL_INFO_FORM_PRIVACY_2": " gelesen und stimme zu.",
     "LEGAL_AND_PRIVACY": "Impressum & Datenschutz",
@@ -194,10 +194,12 @@
     "Q4_7": "Ich beurteile Menschen nach ihrem Aussehen",
     "Q4_8": "Ich bin nicht leicht zu ärgern",
     "Q4_9": "Ich versuche zu vergeben und zu vergessen",
+    "RESULT_QUESTIONNAIRE_EVALUATION" : "Auswertung des Fragebogens",
     "FAQ_SUBTITLE": "Häufig gestellte Fragen",
     "404_SUBTITLE": "Die gesuchte Seite konnte leider nicht gefunden werden.",
     "404_BTN_HOME": "Zurück zum Start",
     "404_BTN_CONTACT": "Kontakt aufnehmen",
     "UNDER_CONSTRUCTION_NOTICE1" : "Diese Seite ist im Aufbau.",
-    "UNDER_CONSTRUCTION_NOTICE2" : "Wende dich bei Fragen bitte direkt an mich."
+    "UNDER_CONSTRUCTION_NOTICE_QUESTIONS" : "Wende dich bei Fragen bitte direkt an mich.",
+    "UNDER_CONSTRUCTION_NOTICE_APOLOGY" : "Die Ergebnisse zum Persönlichkeitstest kommen in Kürze. Besten Dank für deine Geduld."
 }

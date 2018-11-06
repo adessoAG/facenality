@@ -25,7 +25,7 @@
     "GENERAL_INFO_FORM_GENDER_MALE": "Male",
     "GENERAL_INFO_FORM_GENDER_FEMALE": "Female",
     "GENERAL_INFO_FORM_GENDER_OTHER": "Other",
-    "GENERAL_INFO_FORM_HINT_VALUE_OPTIONAL": "Voluntary submission to receive results by mail.",
+    "GENERAL_INFO_FORM_HINT_VALUE_OPTIONAL": "Voluntary submission to receive result by mail.",
     "GENERAL_INFO_FORM_PRIVACY_1": "I've read the ",
     "GENERAL_INFO_FORM_PRIVACY_2": " and agree.",
     "LEGAL_AND_PRIVACY": "Legal and Privacy",
@@ -199,5 +199,6 @@
     "404_BTN_HOME": "Take Me Home", 
     "404_BTN_CONTACT": "Get in touch",
     "UNDER_CONSTRUCTION_NOTICE1" : "This page is under construction.",
-    "UNDER_CONSTRUCTION_NOTICE2" : "If you have questions, please don't hesitate to get in touch."
+    "UNDER_CONSTRUCTION_NOTICE_QUESTIONS" : "If you have questions, please don't hesitate to get in touch.",
+    "UNDER_CONSTRUCTION_NOTICE_APOLOGY" : "Personality results will come soon. Thank you for your patience."
 }

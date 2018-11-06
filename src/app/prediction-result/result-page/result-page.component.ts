@@ -16,6 +16,7 @@ export class ResultPageComponent implements OnInit {
   /** TODO: Get and display predicted results for @cattells16QuestionsForm */ 
   ngOnInit() {
     this.dataExchangeService.getData().subscribe((questionnaire) => this.questionnaire = questionnaire);
+    this.questionnaire.id = 1337; // DEV MODE
   }
 
 }

@@ -1,6 +1,116 @@
-<p class="text-primary">
-  result-page works!
-</p>
+<div class="global-body-wrapper">
+  <h1 class="display-3">{{"RESULT" | translate}}</h1>
+  <hr class="my-4" style="margin-left: 0%;">
 
-<br>
-<p *ngIf="questionnaire !== undefined" class="text-primary">{{questionnaire.id}}</p>
+  <div *ngIf="questionnaire !== undefined" class="row" style="margin-bottom: 5%;">
+    <!-- General information -->
+    <div class="col-7 row" style="margin-top: 3%;">
+
+      <!-- Key: ID -->
+      <div class="col-3">
+        <p class="global-font">ID:</p>
+      </div>
+      <!-- Value: ID -->
+      <div class="col">
+        <p class="global-font text-success">{{questionnaire.id}}</p>
+        <small class="form-text text-muted">
+          <i class="fa fa-exclamation  text-info" aria-hidden="true"></i>
+          {{"RESULT_HINT_ID" | translate}}</small>
+      </div>
+
+      <div class="w-100"></div>
+
+      <!-- Key: email -->
+      <div class="col-3">
+        <p class="global-font">Email:</p>
+      </div>
+      <!-- Value: email -->
+      <div class="col">
+        <p class="global-font text-primary">{{questionnaire.email}}</p>
+      </div>
+
+      <div class="w-100"></div>
+
+      <!-- Key: age -->
+      <div class="col-3">
+        <p class="global-font">Age:</p>
+      </div>
+      <!-- Value: age -->
+      <div class="col">
+        <p *ngIf="questionnaire.age !== ''" class="global-font text-primary">{{questionnaire.age}}</p>
+        <p *ngIf="questionnaire.age === ''" class="global-font text-primary">?</p>
+      </div>
+
+      <div class="w-100"></div>
+
+      <!-- Key: gender -->
+      <div class="col-3">
+        <p class="global-font">Gender:</p>
+      </div>
+      <!-- Value: gender -->
+      <div class="col">
+        <p *ngIf="questionnaire.gender === '0'" class="global-font text-primary">?</p>
+        <p *ngIf="questionnaire.gender === '1'" class="global-font text-primary">{{"GENERAL_INFO_FORM_GENDER_MALE" |
+          translate}}</p>
+        <p *ngIf="questionnaire.gender === '2'" class="global-font text-primary">{{"GENERAL_INFO_FORM_GENDER_FEMALE" |
+          translate}}</p>
+        <p *ngIf="questionnaire.gender === '3'" class="global-font text-primary">{{"GENERAL_INFO_FORM_GENDER_OTHER" |
+          translate}}</p>
+      </div>
+      <!-- End of general information -->
+    </div>
+
+    <!-- Image grid - might be exported to own component -->
+    <div class="col row">
+      <!-- Main image -->
+      <div class="col-9 text-center">
+        <img class="img-fluid" src="assets/images/face-neutral.svg">
+        <label><span class="badge badge-pill badge-info global-font">Expression</span></label>
+      </div>
+
+      <!-- 3 images on the right -->
+      <div class="col row">
+        <div class="col">
+          <img class="img-fluid" src="assets/images/face-neutral.svg">
+        </div>
+
+        <div class="w-100"></div>
+
+        <div class="col">
+          <img class="img-fluid" src="assets/images/face-neutral.svg">
+        </div>
+
+        <div class="w-100"></div>
+
+        <div class="col">
+          <img class="img-fluid" src="assets/images/face-neutral.svg">
+        </div>
+      </div>
+    </div>
+    <!-- End of image grid -->
+  </div>
+
+  <hr class="my-4" style="margin-left: 0%;">
+
+  <!-- Cattells' 16 questionnaire result-->
+  <div class="container" style="margin-top: 4%;">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="unavaible-template">
+          <h1 class="col-12" style="text-align: center; margin-top: 2%; margin-bottom: 6%;">
+            {{"RESULT_QUESTIONNAIRE_EVALUATION" | translate}}
+          </h1>
+          <i class="fa fa-5x fa-bar-chart text-warning" aria-hidden="true"></i>
+
+          <h3 class="col-12" style="text-align: center; margin-top: 6%; margin-bottom: 1%;">
+            {{"UNDER_CONSTRUCTION_NOTICE1" | translate}}
+          </h3>
+          <p class="col-12 text-primary global-font" style="text-align: center; margin-bottom: 6%;">
+            {{"UNDER_CONSTRUCTION_NOTICE_APOLOGY" | translate}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
