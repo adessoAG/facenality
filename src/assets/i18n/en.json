@@ -195,6 +195,8 @@
     "Q4_8": "I am not easily annoyed",
     "Q4_9": "I try to forgive and forget",
     "RESULT": "Result",
+    "RESULT_LOADING": "Evaluating..",
+    "RESULT_LOADING_NOTICE": "How exciting, your result is almost there!",
     "RESULT_HINT_ID": "Important - Your identification number for information and deletion of personal data at Facenality.",
     "RESULT_HINT_SWAP_IMAGE" : "Click photos to swap",
     "RESULT_QUESTIONNAIRE_EVALUATION" : "Questionnaire evaluation",
@@ -202,7 +204,7 @@
     "404_SUBTITLE" : "The requested page could not be found.",
     "404_BTN_HOME": "Take Me Home", 
     "404_BTN_CONTACT": "Get in touch",
-    "UNDER_CONSTRUCTION_NOTICE1" : "This page is under construction.",
+    "UNDER_CONSTRUCTION_NOTICE1" : "This function is in development.",
     "UNDER_CONSTRUCTION_NOTICE_QUESTIONS" : "If you have questions, please don't hesitate to get in touch.",
     "UNDER_CONSTRUCTION_NOTICE_APOLOGY" : "Personality results will come soon. Thank you for your patience."
 }

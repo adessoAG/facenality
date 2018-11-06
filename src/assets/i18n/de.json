@@ -195,6 +195,8 @@
     "Q4_8": "Ich bin nicht leicht zu ärgern",
     "Q4_9": "Ich versuche zu vergeben und zu vergessen",
     "RESULT": "Ergebnis",
+    "RESULT_LOADING": "Auswertung läuft..",
+    "RESULT_LOADING_NOTICE": "Wie aufregend, dein Ergebnis ist gleich da!",
     "RESULT_HINT_ID": "Wichtig - Deine Identifikationsnummer zur Auskunft und Löschung von persönlichen Daten bei Facenality.",
     "RESULT_HINT_SWAP_IMAGE" : "Fotos zum Tausch anklicken",
     "RESULT_QUESTIONNAIRE_EVALUATION" : "Auswertung des Fragebogens",
@@ -202,7 +204,7 @@
     "404_SUBTITLE": "Die gesuchte Seite konnte leider nicht gefunden werden.",
     "404_BTN_HOME": "Zurück zum Start",
     "404_BTN_CONTACT": "Kontakt aufnehmen",
-    "UNDER_CONSTRUCTION_NOTICE1" : "Diese Seite ist im Aufbau.",
+    "UNDER_CONSTRUCTION_NOTICE1" : "Diese Funktion ist in Entwicklung.",
     "UNDER_CONSTRUCTION_NOTICE_QUESTIONS" : "Wende dich bei Fragen bitte direkt an mich.",
     "UNDER_CONSTRUCTION_NOTICE_APOLOGY" : "Die Ergebnisse zum Persönlichkeitstest kommen in Kürze. Besten Dank für deine Geduld."
 }

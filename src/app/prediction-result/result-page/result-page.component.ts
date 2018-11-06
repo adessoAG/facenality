@@ -15,16 +15,28 @@ export class ResultPageComponent implements OnInit {
 
   constructor(private dataExchangeService: DataExchangeService) { }
 
-  /** TODO: Get and display predicted results for @cattells16QuestionsForm */ 
+  /** TODO: Get and display predicted results for @cattells16QuestionsForm */
   ngOnInit() {
-    this.dataExchangeService.getData().subscribe((questionnaire) => this.questionnaire = questionnaire);
-    this.questionnaire.id = 1337; // DEV MODE
+    this.dataExchangeService.getData().subscribe((questionnaire) => {
+      setTimeout(() => this.questionnaire = questionnaire, 1500); // Just for the "feeling". Evaluate if necessary
+    });
+    this.questionnaire.id = 1337; // DEV MODE 
+  }
+
+  ngAfterViewInit() {
+    //this.scrollToTop(); // Evaluate if necessary
+  }
+
+  scrollToTop() {
+    document.getElementById("pageTitle").scrollIntoView({
+      behavior: "smooth"
+    });
   }
 
   swapMainPhoto(i: number) {
     let h = this.photoDescriptions[0];
     this.photoDescriptions[0] = this.photoDescriptions[i];
-    this.photoDescriptions[i] = h; 
+    this.photoDescriptions[i] = h;
     this.descriptionLabel = this.photoDescriptions[0].label;
 
     let h2 = this.questionnaire.photos[0];
