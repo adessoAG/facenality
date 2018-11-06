@@ -2,7 +2,7 @@
   <fieldset class="row">
 
     <div class="col-2 my-auto global-font text-primary">
-      <label for="inputAge">{{"GENERAL_INFO_FORM_AGE" | translate}}</label>
+      <label for="inputAge">{{"AGE" | translate}}</label>
     </div>
     <div class="col">
       <input type="number" class="form-control" id="inputAge" aria-describedby="ageHelp" placeholder="" [formControl]="form.controls['age']">
@@ -12,13 +12,13 @@
     <div class="w-100" style="margin-bottom: 2%;"></div>
 
     <div class="col-2 my-auto global-font text-primary">
-      <label for="genderSelect">{{"GENERAL_INFO_FORM_GENDER" | translate}}</label>
+      <label for="genderSelect">{{"GENDER" | translate}}</label>
     </div>
     <div class="col">
       <select class="form-control" id="genderSelect" [formControl]="form.controls['gender']">
-        <option value="1">{{"GENERAL_INFO_FORM_GENDER_MALE" | translate}}</option>
-        <option value="2">{{"GENERAL_INFO_FORM_GENDER_FEMALE" | translate}}</option>
-        <option value="3">{{"GENERAL_INFO_FORM_GENDER_OTHER" | translate}}</option>
+        <option value="1">{{"GENDER_MALE" | translate}}</option>
+        <option value="2">{{"GENDER_FEMALE" | translate}}</option>
+        <option value="3">{{"GENDER_OTHER" | translate}}</option>
       </select>
       <small id="emailHelp" class="form-text text-muted">{{"GENERAL_INFO_FORM_HINT_VALUE_OPTIONAL" | translate}}</small>
     </div>

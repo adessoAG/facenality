@@ -13,7 +13,7 @@ export class Questionnaire {
     age: number;
     gender: number;
     timeElapsedInSeconds: number;
- 
+
     constructor(email, photos, cattells16Questions, age, gender, timeElapsedInSeconds) {
         this.email = email;
         this.photos = photos;
@@ -23,4 +23,11 @@ export class Questionnaire {
         this.timeElapsedInSeconds = timeElapsedInSeconds;
     }
 }
+
+export const PHOTO_DESCRIPTIONS: { index: number, label: string }[] = [
+    { index: 0, label: "DESCRIPTION_NEUTRAL_FACE" },
+    { index: 1, label: "DESCRIPTION_HAPPY_FACE" },
+    { index: 2, label: "DESCRIPTION_SAD_FACE" },
+    { index: 3, label: "DESCRIPTION_RANDOM_FACE" }
+]
 

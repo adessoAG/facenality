@@ -15,7 +15,9 @@
         <p class="global-font text-success">{{questionnaire.id}}</p>
         <small class="form-text text-muted">
           <i class="fa fa-exclamation  text-info" aria-hidden="true"></i>
-          {{"RESULT_HINT_ID" | translate}}</small>
+          {{"RESULT_HINT_ID" | translate}}
+          <i class="fa fa-exclamation  text-info" aria-hidden="true"></i>
+        </small>
       </div>
 
       <div class="w-100"></div>
@@ -33,7 +35,7 @@
 
       <!-- Key: age -->
       <div class="col-3">
-        <p class="global-font">Age:</p>
+        <p class="global-font">{{"AGE" | translate}}:</p>
       </div>
       <!-- Value: age -->
       <div class="col">
@@ -45,17 +47,17 @@
 
       <!-- Key: gender -->
       <div class="col-3">
-        <p class="global-font">Gender:</p>
+        <p class="global-font">{{"GENDER" | translate}}:</p>
       </div>
       <!-- Value: gender -->
       <div class="col">
         <p *ngIf="questionnaire.gender === '0'" class="global-font text-primary">?</p>
-        <p *ngIf="questionnaire.gender === '1'" class="global-font text-primary">{{"GENERAL_INFO_FORM_GENDER_MALE" |
-          translate}}</p>
-        <p *ngIf="questionnaire.gender === '2'" class="global-font text-primary">{{"GENERAL_INFO_FORM_GENDER_FEMALE" |
-          translate}}</p>
-        <p *ngIf="questionnaire.gender === '3'" class="global-font text-primary">{{"GENERAL_INFO_FORM_GENDER_OTHER" |
-          translate}}</p>
+        <p *ngIf="questionnaire.gender === '1'" class="global-font text-primary">
+          {{"GENDER_MALE" | translate}}</p>
+        <p *ngIf="questionnaire.gender === '2'" class="global-font text-primary">
+          {{"GENDER_FEMALE" | translate}}</p>
+        <p *ngIf="questionnaire.gender === '3'" class="global-font text-primary">
+          {{"GENDER_OTHER" | translate}}</p>
       </div>
       <!-- End of general information -->
     </div>
@@ -64,26 +66,30 @@
     <div class="col row">
       <!-- Main image -->
       <div class="col-9 text-center">
-        <img class="img-fluid" src="assets/images/face-neutral.svg">
-        <label><span class="badge badge-pill badge-info global-font">Expression</span></label>
+        <img class="img-fluid" src={{questionnaire.photos[0]}}>
+        <label><span class="badge badge-pill badge-info global-font">{{descriptionLabel | translate}}</span></label>
+        <small class="form-text text-muted">
+            <i class="fa fa-hand-pointer-o text-primary" aria-hidden="true"></i>
+          {{"RESULT_HINT_SWAP_IMAGE" | translate}}
+        </small>
       </div>
 
       <!-- 3 images on the right -->
       <div class="col row">
         <div class="col">
-          <img class="img-fluid" src="assets/images/face-neutral.svg">
+          <img class="img-fluid btn-secondary" src={{questionnaire.photos[1]}} (click)="swapMainPhoto(1)">
         </div>
 
         <div class="w-100"></div>
 
         <div class="col">
-          <img class="img-fluid" src="assets/images/face-neutral.svg">
+          <img class="img-fluid btn-secondary" src={{questionnaire.photos[2]}} (click)="swapMainPhoto(2)">
         </div>
 
         <div class="w-100"></div>
 
         <div class="col">
-          <img class="img-fluid" src="assets/images/face-neutral.svg">
+          <img class="img-fluid btn-secondary" src={{questionnaire.photos[3]}} (click)="swapMainPhoto(3)">
         </div>
       </div>
     </div>

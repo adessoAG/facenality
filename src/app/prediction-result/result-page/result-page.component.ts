@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataExchangeService } from 'src/app/shared/data-exchange.service';
-import { Questionnaire } from 'src/app/landing-page/dynamic-form/types/questionnaire';
+import { Questionnaire, PHOTO_DESCRIPTIONS } from 'src/app/landing-page/dynamic-form/types/questionnaire';
 
 @Component({
   selector: 'app-result-page',
@@ -10,6 +10,8 @@ import { Questionnaire } from 'src/app/landing-page/dynamic-form/types/questionn
 export class ResultPageComponent implements OnInit {
 
   questionnaire: Questionnaire;
+  photoDescriptions = PHOTO_DESCRIPTIONS;
+  descriptionLabel = this.photoDescriptions[0].label;
 
   constructor(private dataExchangeService: DataExchangeService) { }
 
@@ -17,6 +19,17 @@ export class ResultPageComponent implements OnInit {
   ngOnInit() {
     this.dataExchangeService.getData().subscribe((questionnaire) => this.questionnaire = questionnaire);
     this.questionnaire.id = 1337; // DEV MODE
+  }
+
+  swapMainPhoto(i: number) {
+    let h = this.photoDescriptions[0];
+    this.photoDescriptions[0] = this.photoDescriptions[i];
+    this.photoDescriptions[i] = h; 
+    this.descriptionLabel = this.photoDescriptions[0].label;
+
+    let h2 = this.questionnaire.photos[0];
+    this.questionnaire.photos[0] = this.questionnaire.photos[i];
+    this.questionnaire.photos[i] = h2;
   }
 
 }
