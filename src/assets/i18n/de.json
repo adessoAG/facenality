@@ -194,7 +194,10 @@
     "Q4_7": "Ich beurteile Menschen nach ihrem Aussehen",
     "Q4_8": "Ich bin nicht leicht zu ärgern",
     "Q4_9": "Ich versuche zu vergeben und zu vergessen",
-    "404_SUBTITLE" : "Die gesuchte Seite konnte leider nicht gefunden werden.",
-    "404_BTN_HOME": "Zurück zum Start", 
-    "404_BTN_CONTACT": "Kontakt aufnehmen"
+    "FAQ_SUBTITLE": "Häufig gestellte Fragen",
+    "404_SUBTITLE": "Die gesuchte Seite konnte leider nicht gefunden werden.",
+    "404_BTN_HOME": "Zurück zum Start",
+    "404_BTN_CONTACT": "Kontakt aufnehmen",
+    "UNDER_CONSTRUCTION_NOTICE1" : "Diese Seite ist im Aufbau.",
+    "UNDER_CONSTRUCTION_NOTICE2" : "Wende dich bei Fragen bitte direkt an mich."
 }

@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'result', loadChildren: './prediction-result/prediction-result.module#PredictionResultModule' },
   { path: 'legal-and-privacy', loadChildren: './legal-and-further/legal-and-further.module#LegalAndFurtherModule' },
   { path: 'about', loadChildren: './legal-and-further/legal-and-further.module#LegalAndFurtherModule' },
+  { path: 'faq', loadChildren: './legal-and-further/legal-and-further.module#LegalAndFurtherModule' },
   { path: '404', loadChildren: './error/error.module#ErrorModule' },
   { path: '**', redirectTo: '/404' }
 ];

@@ -194,7 +194,10 @@
     "Q4_7": "I judge people by their appearance",
     "Q4_8": "I am not easily annoyed",
     "Q4_9": "I try to forgive and forget",
+    "FAQ_SUBTITLE": "Frequently asked questions",
     "404_SUBTITLE" : "The requested page could not be found.",
     "404_BTN_HOME": "Take Me Home", 
-    "404_BTN_CONTACT": "Get in touch"
+    "404_BTN_CONTACT": "Get in touch",
+    "UNDER_CONSTRUCTION_NOTICE1" : "This page is under construction.",
+    "UNDER_CONSTRUCTION_NOTICE2" : "If you have questions, please don't hesitate to get in touch."
 }
