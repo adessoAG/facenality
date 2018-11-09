@@ -12,17 +12,19 @@ import { WebcamComponent } from './webcam/webcam.component';
 import { TranslateModule } from '@ngstack/translate';
 import { FooterComponent } from './footer/footer.component';
 
+import { ScrollToTopDirective } from './scroll-to-top.directive';
+
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, ImageComponent, WebcamComponent],
+  declarations: [HeaderComponent, FooterComponent, ImageComponent, WebcamComponent, ScrollToTopDirective],
   imports: [
     CommonModule, FormsModule, ReactiveFormsModule, RouterModule, NgbModule, TranslateModule.forChild(),
     AngularFontAwesomeModule
   ],
   exports: [
-    HeaderComponent, FooterComponent, ImageComponent, WebcamComponent,
+    HeaderComponent, FooterComponent, ImageComponent, WebcamComponent, ScrollToTopDirective,
     CommonModule, FormsModule, ReactiveFormsModule, RouterModule,
-    NgbModule, TranslateModule, AngularFontAwesomeModule
+    NgbModule, TranslateModule, AngularFontAwesomeModule,
   ]
 })
 export class SharedModule { }

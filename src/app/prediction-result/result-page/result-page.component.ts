@@ -22,17 +22,7 @@ export class ResultPageComponent implements OnInit {
     });
     this.questionnaire.id = 1337; // DEV MODE 
   }
-
-  ngAfterViewInit() {
-    //this.scrollToTop(); // Evaluate if necessary
-  }
-
-  scrollToTop() {
-    document.getElementById("pageTitle").scrollIntoView({
-      behavior: "smooth"
-    });
-  }
-
+  
   swapMainPhoto(i: number) {
     let h = this.photoDescriptions[0];
     this.photoDescriptions[0] = this.photoDescriptions[i];

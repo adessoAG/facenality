@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LegalAndPrivacyComponent implements OnInit {
 
+  showFirstChapter = false;
+  showSecondChapter = false;
+  showThirdChapter = false;
+  showFourthChapter = false;
+  showFifthChapter = false;
+  showSixthChapter = false;
+  showConsentForm = false;
+
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }
