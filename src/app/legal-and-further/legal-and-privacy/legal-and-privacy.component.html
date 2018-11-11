@@ -1,8 +1,8 @@
 <div class="global-body-wrapper text-primary" scrollToTop>
   <h1 class="display-4 text">{{"LEGAL" | translate}}</h1>
-  <p class="card-text global-font">
+  <p *ngIf="activeLanguage === 'de'" class="card-text global-font">
     adesso AG<br>
-    Stockholmer Allee 20<br>
+    Adessoplatz 1<br>
     44269 Dortmund<br>
     T +49 231 7000-7000<br>
     F +49 231 7000-1000<br>
@@ -26,6 +26,31 @@
     Konzeption und Gestaltung: Sergej Grilborzer
   </p>
 
+  <p *ngIf="activeLanguage === 'en'" class="card-text global-font">
+    adesso AG<br>
+    Adessoplatz 1<br>
+    44269 Dortmund<br>
+    T +49 231 7000-7000<br>
+    F +49 231 7000-1000<br>
+    E info@adesso.de<br>
+    <br>
+    Represented by the Executive Board:<br>
+    Michael Kenfenheuer (Chairman), Christoph Junge, Dirk Pothen, Andreas Prenneis.<br>
+    <br>
+    Chairman of the Supervisory Board: Prof. Dr. Volker Gruhn<br>
+    <br>
+    Commercial Register at Dortmund Local Court, No. HRB 20663<br>
+    Value added tax identification number DE 208 318 527<br>
+    <br>
+    Responsible in the sense of § 55 Abs. 2 RStV:<br>
+    <br>
+    Rüdiger Striemer (Chief Marketing Officer)<br>
+    Rotherstr. 19<br>
+    10245 Berlin<br>
+    E office-berlin@adesso.de<br>
+    <br>
+    Konzeption und Gestaltung: Sergej Grilborzer
+  </p>
 
   <h1 id="privacy-header" class="display-4">{{"PRIVACY" | translate}}</h1>
   <div class="row card-body text-block global-font">
@@ -34,8 +59,8 @@
       {{"PRIVACY_HEADING1" | translate}}
     </button>
 
-    <p *ngIf="translate.activeLang === 'de' && chaptersVisible[0].isVisible" class="card-text">
-      Verantwortlich für die Internetangebote ist die adesso AG, Stockholmer Allee 20, 44269 Dortmund,
+    <p *ngIf="activeLanguage === 'de' && chaptersVisible[0].isVisible" class="card-text">
+      Verantwortlich für die Internetangebote ist die adesso AG, Adessoplatz 1, 44269 Dortmund,
       <br>
       kurz: adesso, (nachfolgend auch wir/uns).
       <br>
@@ -48,8 +73,8 @@
       nicht, unseren Datenschutzbeauftragten unter den in Ziffer II genannten Kontaktdetails zu kontaktieren.
     </p>
 
-    <p *ngIf="translate.activeLang === 'en' && chaptersVisible[0].isVisible" class="card-text">
-      Responsible for the internet offers is adesso AG, Stockholmer Allee 20, 44269 Dortmund, Germany,
+    <p *ngIf="activeLanguage === 'en' && chaptersVisible[0].isVisible" class="card-text">
+      Responsible for the internet offers is adesso AG, Adessoplatz 1, 44269 Dortmund, Germany,
       <br>
       short: adesso, (hereinafter also we/us).
       <br>
@@ -67,7 +92,7 @@
       {{"PRIVACY_HEADING2" | translate}}
     </button>
 
-    <p *ngIf="translate.activeLang === 'de' && chaptersVisible[1].isVisible" class="card-text">
+    <p *ngIf="activeLanguage === 'de' && chaptersVisible[1].isVisible" class="card-text">
       <strong>Verantwortliche Stelle</strong><br>
       <br>
       adesso AG<br>
@@ -97,7 +122,7 @@
       40213 Düsseldorf <br>
     </p>
 
-    <p *ngIf="translate.activeLang === 'en' && chaptersVisible[1].isVisible" class="card-text">
+    <p *ngIf="activeLanguage === 'en' && chaptersVisible[1].isVisible" class="card-text">
       <strong>Responsible position</strong><br>
       <br>
       adesso AG<br>
@@ -132,7 +157,7 @@
       {{"PRIVACY_HEADING3" | translate}}
     </button>
 
-    <p *ngIf="translate.activeLang === 'de' && chaptersVisible[2].isVisible" class="card-text">
+    <p *ngIf="activeLanguage === 'de' && chaptersVisible[2].isVisible" class="card-text">
       Die Begriffsbestimmungen und Definitionen richten sich nach der Verordnung (EU) 679/2016 zum Schutz natürlicher
       Personen bei der Verarbeitung personenbezogener Daten, zum freien Datenverkehr und zur Aufhebung der Richtlinie
       95/46/EG (im Folgenden „Datenschutz-Grundverordnung“ oder „DSGVO“). Es gelten insbesondere die
@@ -205,7 +230,7 @@
       <br>
     </p>
 
-    <p *ngIf="translate.activeLang === 'en' && chaptersVisible[2].isVisible" class="card-text">
+    <p *ngIf="activeLanguage === 'en' && chaptersVisible[2].isVisible" class="card-text">
       Definitions and definitions are in accordance with Regulation (EU) 679/2016 on the protection of natural habitats
       and the environment (OJ L 304, 30.12.67, p. 1).
       persons with regard to the processing of personal data, the free movement of such data and the repeal of the
@@ -295,7 +320,7 @@
       {{"PRIVACY_HEADING4" | translate}}
     </button>
 
-    <p *ngIf="translate.activeLang === 'de' && chaptersVisible[3].isVisible" class="card-text">
+    <p *ngIf="activeLanguage === 'de' && chaptersVisible[3].isVisible" class="card-text">
       <strong>1. Umfang der Verarbeitung personenbezogener Daten</strong><br>
       Wir erheben und verwenden personenbezogene Daten unserer Nutzer grundsätzlich nur, soweit dies zur Erbringung und
       Bereitstellung unserer Leistungen sowie zur Bereitstellung unsere Web- oder Online-Angebote (einschließlich
@@ -366,7 +391,7 @@
       kontaktieren. Nutzen Sie hierzu bitte die unter Ziffer II angegebenen Kontaktmöglichkeiten.
     </p>
 
-    <p *ngIf="translate.activeLang === 'en' && chaptersVisible[3].isVisible" class="card-text">
+    <p *ngIf="activeLanguage === 'en' && chaptersVisible[3].isVisible" class="card-text">
       <strong>1. Extent of the processing of personal data </strong><br>
       We only collect and use personal data of our users to the extent that is necessary for the provision and use
       of our web or online services (including mobile Apps), unless otherwise stated in the data protection declaration
@@ -455,7 +480,7 @@
       {{"PRIVACY_HEADING5" | translate}}
     </button>
 
-    <p *ngIf="translate.activeLang === 'de' && chaptersVisible[4].isVisible" class="card-text">
+    <p *ngIf="activeLanguage === 'de' && chaptersVisible[4].isVisible" class="card-text">
       Bei jedem Aufruf unserer Internetseite erfasst unser System automatisiert Daten und Informationen vom
       Computersystem des aufrufenden Rechners. Folgende Daten werden erhoben (im Folgenden „Log-Daten“):<br>
       <br>
@@ -500,7 +525,7 @@
       Widerspruchsmöglichkeit seitens des Nutzers.
     </p>
 
-    <p *ngIf="translate.activeLang === 'en' && chaptersVisible[4].isVisible" class="card-text">
+    <p *ngIf="activeLanguage === 'en' && chaptersVisible[4].isVisible" class="card-text">
       Each time you visit our website, our system automatically collects data and information from you.
       Computer system of the calling computer. The following data is collected (hereinafter "log data"): <br>
       <br>
@@ -558,7 +583,7 @@
       {{"PRIVACY_HEADING6" | translate}}
     </button>
 
-    <p *ngIf="translate.activeLang === 'de' && chaptersVisible[5].isVisible" class="card-text">
+    <p *ngIf="activeLanguage === 'de' && chaptersVisible[5].isVisible" class="card-text">
       Dem Nutzer stehen nach der DSGVO insbesondere folgende Betroffenenrechte zu:<br>
       <br>
       <strong>1. Auskunftsrecht (Art. 15 DSGVO)</strong><br>
@@ -678,7 +703,7 @@
       Mitgliedsstaaten wenden. Für unser Unternehmen ist die in Ziffer II genannte Aufsichtsbehörde zuständig.
     </p>
 
-    <p *ngIf="translate.activeLang === 'en' && chaptersVisible[5].isVisible" class="card-text">
+    <p *ngIf="activeLanguage === 'en' && chaptersVisible[5].isVisible" class="card-text">
       According to the DSGVO, the user is entitled in particular to the following data subject rights:<br>
       <br>
       <strong>1. right to information (Art. 15 DSGVO)</strong><br>
@@ -820,7 +845,7 @@
       {{"PRIVACY_HEADING_CONSENT" | translate}}
     </button>
 
-    <p *ngIf="translate.activeLang === 'de' && chaptersVisible[6].isVisible" class="card-text">
+    <p *ngIf="activeLanguage === 'de' && chaptersVisible[6].isVisible" class="card-text">
       Ich bin damit einverstanden, dass die von mir bereitgestellten Daten zum Training eines neuronalen Netzwerks
       verwendet werden.<br>
       <br>
@@ -833,6 +858,7 @@
       Persönlichkeitsmerkmale einschätzt. Die hierbei getroffene Vorhersage dient ausschließlich wissenschaftlichem
       Zweck und erforscht ob und wie zuverlässig Persönlichkeitsmerkmale anhand von Gesichtsmerkmalen hergeleitet
       werden können.<br>
+      Es besteht kein Anspruch auf Richtigkeit der Ergebnisse.<br>
       <br>
       Die gesammelten Daten werden streng vertraulich behandelt, keinesfalls an Dritte weitergegeben und gelöscht,
       sobald sie für die Erreichung des Zweckes ihrer Erhebung nicht mehr erforderlich sind.<br>
@@ -843,7 +869,7 @@
       <br>
     </p>
 
-    <p *ngIf="translate.activeLang === 'en' && chaptersVisible[6].isVisible" class="card-text">
+    <p *ngIf="activeLanguage === 'en' && chaptersVisible[6].isVisible" class="card-text">
       I agree that the data provided by me will be used to train a neural network.<br>
       <br>
       The collected data consists of email, age, gender, a personality questionnaire, the required time to fill out the
@@ -854,6 +880,7 @@
       As a result, the neuronal network provides a prediction of my personality traits.
       The prediction made here serves an exclusively scientific purpose and investigates whether and how reliably
       personality traits can be derived from facial features.<br>
+      There is no claim for correctness of the results.<br>
       <br>
       The collected data will be treated strictly confidential, will not be passed on to third parties and will be
       deleted

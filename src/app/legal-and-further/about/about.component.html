@@ -1,9 +1,9 @@
-<div id="pageTitle" #pageTitle class="global-body-wrapper">
+<div id="pageTitle" #pageTitle class="global-body-wrapper" scrollToTop>
     <h1 class="display-3">{{"ABOUT_FACENALITY" | translate}}</h1>
-    <hr class="my-4" style="margin-left: 0.5%;">
+    <hr class="my-4" style="margin-left: 0.5%; margin-right: 0%;">
 
     <div id="about-content-wrapper" class="row">
-        <!-- Introduction/ Abstract -->
+        <!-- ABSTRACT -->
         <div class="col-12 text-content text-primary">
             <h4 class="card-title text-info">{{"ABSTRACT" | translate}}</h4>
             <p>
@@ -23,33 +23,34 @@
                 Persönlichkeitsmerkmale anhand eines aufgenommenen Fotos vorhersagen zu lassen.
                 <br>
             </p>
-            <h4>Was ist deine Facenality?</h4>
             <br>
         </div>
 
+        <!-- GITHUB LINKS-->
         <div class="col-12 section row">
             <h4 class="col-12 text-center" style="margin-bottom: 2%;">
                 {{"FACENALITY_OSS_GITHUB" | translate}}
             </h4>
-            <a href="https://github.com/adessoag/facenality" class="col btn btn-outline-primary">
+            <a href="https://github.com/adessoag/facenality" target="_blank" class="col btn btn-outline-primary">
                 <i class="fa fa-2x fa-desktop fa-margin" aria-hidden="true"></i>
                 Frontend
             </a>
-            <a href="https://github.com/adessoag/facenality-backend" class="col btn btn-outline-primary">
+            <a href="https://github.com/adessoag/facenality-backend" target="_blank" class="col btn btn-outline-primary">
                 <i class="fa fa-2x fa-leaf fa-margin" aria-hidden="true"></i>
                 Backend
             </a>
-            <a href="https://github.com/adessoag/facenality-model" class="col btn btn-outline-primary">
+            <a href="https://github.com/adessoag/facenality-model" target="_blank" class="col btn btn-outline-primary">
                 <i class="fa fa-2x fa-server fa-margin" aria-hidden="true"></i>
                 Deep Learning Model
             </a>
             <div class="w-100" style="margin-bottom: 2%"></div>
-            <a class="col btn btn-outline-success text-primary">
+            <a href="https://github.com/adessoag" target="_blank" class="col btn btn-outline-success text-primary">
                 <i class="fa fa-2x fa-github"></i>
                 {{"ADESSO_MORE_OSS" | translate}}
             </a>
         </div>
 
+        <!-- GOALS -->
         <div class="col-12 text-content text-primary">
             <h4 class="card-title text-info">{{"GOALS" | translate}}</h4>
             <p>{{"GOAL_INTRO" | translate}}</p>
@@ -64,28 +65,35 @@
             </p>
         </div>
 
-        <div class="col-12 text-content text-primary">
-
+<!--         <div class="col-12 text-content text-primary">
             <h4 class="card-title text-info">{{"PRIVACY" | translate}}</h4>
-            <ul>
+            <ul class="list-spacing">
                 <li>asdasd</li>
                 <li>asdasd</li>
                 <li>asdasd</li>
             </ul>
             <h4>Was ist deine Facenality?</h4>
-        </div>
+        </div> -->
 
-        <div class="col-7 text-content text-primary">
+        <!-- ABOUT_ME -->
+        <div class="col-12 text-content text-primary">
             <h4 class="card-title text-info">{{"ABOUT_ME" | translate}}</h4>
-            <ul>
-                <li>asdasd</li>
-                <li>asdasd</li>
-                <li>asdasd</li>
-            </ul>
-        </div>
-
-        <div class="col-5 text-content">
-            <img class="img-fluid img-round" src="assets/images/sergej-grilborzer-smaller.jpg" style="border: 50%;">
+            <p class="paragraph-spacing">{{"ABOUT_ME_INTRO" | translate}}</p>
+            <p>{{"ABOUT_ME_INTRO2" | translate}}</p>
+            <div class="row" style="margin: 0 5%;">
+                <ul class="col-7">
+                    <li>{{"ABOUT_ME1" | translate}}</li>
+                    <li>{{"ABOUT_ME2" | translate}}</li>
+                    <li>{{"ABOUT_ME3" | translate}}</li>
+                </ul>
+                <div class="col-5" style="margin-top: 2.5%;">
+                    <img class="img-fluid img-round" src="assets/images/sergej-grilborzer-smaller.jpg" style="border: 50%;">
+                </div>
+            </div>
+            <p class="paragraph-spacing">{{"ABOUT_ME_FACENALITY" | translate}}</p>
+            <p class="paragraph-spacing">{{"ABOUT_ME_PRIVACY" | translate}}</p>
+            <p class="paragraph-spacing">{{"ABOUT_ME_YOUTUBE_ML" | translate}}<a class="text-danger" href="https://youtu.be/R9OHn5ZF4Uo" target="_blank">Youtube</a>.</p>
+            <p class="paragraph-spacing">{{"ABOUT_ME_PARTICIPATE" | translate}} <i class="fa fa-smile-o vertical-align" aria-hidden="true"></i></p>
         </div>
 
         <div class="col-12 actions-home-contact">
@@ -99,6 +107,7 @@
             </a>
         </div>
 
+        <!-- ACKNOWLEDGMENTS -->
         <div class="col-12 text-content text-primary">
             <h4 class="card-title text-info">{{"ACKNOWLEDGMENTS" | translate}}</h4>
             <p>
@@ -122,7 +131,7 @@
             <p>
                 {{"ACK_OUTRO" | translate}}
             </p>
-            <hr class="my-4" style="margin-left: 0.5%;">
+            <hr class="my-4" style="margin-left: 0.5%; margin-right: 0%;">
             <p class="text-muted text-center">
                 <i class="fa fa-heart text-danger" aria-hidden="true">
                 </i>
@@ -136,7 +145,6 @@
                 {{"BTN_HOME" | translate}}
             </a>
         </div>
-
 
     </div>
 </div>

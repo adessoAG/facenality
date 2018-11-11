@@ -8,6 +8,7 @@ import { TranslateService } from '@ngstack/translate';
 })
 export class LegalAndPrivacyComponent implements OnInit {
 
+  activeLanguage: string;
   chaptersVisible: { i: number, isVisible: boolean }[] =
     [
       { i: 0, isVisible: false },
@@ -21,9 +22,14 @@ export class LegalAndPrivacyComponent implements OnInit {
 
   constructor(private translate: TranslateService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.activeLanguage = this.translate.activeLang;
+    this.translate.activeLangChanged.subscribe(lang => {
+      this.activeLanguage = lang.currentValue;
+    });
+  }
 
   toggleChapterVisibility(i: number) {
-    this.chaptersVisible[i].isVisible = !this.chaptersVisible[i].isVisible; 
+    this.chaptersVisible[i].isVisible = !this.chaptersVisible[i].isVisible;
   }
 }
