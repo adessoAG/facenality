@@ -18,7 +18,10 @@
     <br>
     Verantwortlich im Sinne des § 55 Abs. 2 RStV:<br>
     <br>
-    ..wer?<br>
+    Rüdiger Striemer (Chief Marketing Officer)<br>
+    Rotherstr. 19<br>
+    10245 Berlin<br>
+    E office-berlin@adesso.de<br>
     <br>
     Konzeption und Gestaltung: Sergej Grilborzer
   </p>
@@ -27,13 +30,11 @@
   <h1 id="privacy-header" class="display-4">{{"PRIVACY" | translate}}</h1>
   <div class="row card-body text-block global-font">
     <!-- 1. -->
-
-
     <button class="col-12 btn btn-info btn-heading" (click)="toggleChapterVisibility(0)">
       {{"PRIVACY_HEADING1" | translate}}
     </button>
 
-    <p *ngIf="chaptersVisible[0].isVisible" class="card-text">
+    <p *ngIf="translate.activeLang === 'de' && chaptersVisible[0].isVisible" class="card-text">
       Verantwortlich für die Internetangebote ist die adesso AG, Stockholmer Allee 20, 44269 Dortmund,
       <br>
       kurz: adesso, (nachfolgend auch wir/uns).
@@ -45,6 +46,20 @@
       Werbezwecken verwendet oder weitergegeben.
       Soweit die nachfolgenden Informationen nicht ausreichend oder nicht verständlich sein sollten, zögern Sie
       nicht, unseren Datenschutzbeauftragten unter den in Ziffer II genannten Kontaktdetails zu kontaktieren.
+    </p>
+
+    <p *ngIf="translate.activeLang === 'en' && chaptersVisible[0].isVisible" class="card-text">
+      Responsible for the internet offers is adesso AG, Stockholmer Allee 20, 44269 Dortmund, Germany,
+      <br>
+      short: adesso, (hereinafter also we/us).
+      <br>
+      <br>
+      In the following, we would like to inform you comprehensively and in detail how we protect your privacy and how
+      we use your personal data in the context of our web pages and/or on-line offers.
+      Personal data will be deleted as soon as possible and will never be passed on or used for advertising purposes
+      without your consent.
+      If the following information should not be sufficient or not understandable, please do not hesitate to contact
+      our data protection officer at the contact details listed in Section II.
     </p>
 
     <!-- 2. -->
@@ -52,34 +67,64 @@
       {{"PRIVACY_HEADING2" | translate}}
     </button>
 
-    <p *ngIf="chaptersVisible[1].isVisible" class="card-text">
-        <strong>Verantwortliche Stelle</strong><br>
-        <br>
-        adesso AG<br>
-        Adessoplatz 1<br>
-        44269 Dortmund<br>
-        Deutschland<br>
-        <br>
-        Tel.: +49 231 7000-7000<br>
-        E-Mail: info@adesso.de<br>
-        Website: www.adesso.de<br>
-        <br>
-        <strong>Datenschutzbeauftragter</strong><br>
-        Julius Hüttmann<br>
-        adesso AG<br>
-        Adessoplatz 1<br>
-        44269 Dortmund<br>
-        Deutschland<br>
-        <br>
-        Tel.: +49 231 7000-7000<br>
-        E-Mail: info@adesso.de<br>
-        Website: www.adesso.de<br>
-        <br>
-        Zuständige Aufsichtsbehörde<br> 
-        Landesbeauftragte für Datenschutz und Informationsfreiheit<br>
-        Nordrhein-Westfalen<br>
-        Kavalleriestr. 2-4<br>
-        40213 Düsseldorf <br>
+    <p *ngIf="translate.activeLang === 'de' && chaptersVisible[1].isVisible" class="card-text">
+      <strong>Verantwortliche Stelle</strong><br>
+      <br>
+      adesso AG<br>
+      Adessoplatz 1<br>
+      44269 Dortmund<br>
+      Deutschland<br>
+      <br>
+      Tel.: +49 231 7000-7000<br>
+      E-Mail: info@adesso.de<br>
+      Website: www.adesso.de<br>
+      <br>
+      <strong>Datenschutzbeauftragter</strong><br>
+      Julius Hüttmann<br>
+      adesso AG<br>
+      Adessoplatz 1<br>
+      44269 Dortmund<br>
+      Deutschland<br>
+      <br>
+      Tel.: +49 231 7000-7000<br>
+      E-Mail: info@adesso.de<br>
+      Website: www.adesso.de<br>
+      <br>
+      <strong>Zuständige Aufsichtsbehörde</strong><br>
+      Landesbeauftragte für Datenschutz und Informationsfreiheit<br>
+      Nordrhein-Westfalen<br>
+      Kavalleriestr. 2-4<br>
+      40213 Düsseldorf <br>
+    </p>
+
+    <p *ngIf="translate.activeLang === 'en' && chaptersVisible[1].isVisible" class="card-text">
+      <strong>Responsible position</strong><br>
+      <br>
+      adesso AG<br>
+      Adessoplatz 1<br>
+      44269 Dortmund<br>
+      Germany<br>
+      <br>
+      Phone: +49 231 7000-7000<br>
+      E-mail: info@adesso.de<br>
+      Website: www.adesso.de<br>
+      <br>
+      <strong>Privacy Officer</strong><br>
+      Julius Hüttmann<br>
+      adesso AG<br>
+      Adessoplatz 1<br>
+      44269 Dortmund<br>
+      Germany<br>
+      <br>
+      Phone: +49 231 7000-7000<br>
+      E-mail: info@adesso.de<br>
+      Website: www.adesso.de<br>
+      <br>
+      <strong>Competence of the supervisory authority</strong><br>
+      State Commissioner for Data Protection and Freedom of Information<br>
+      North Rhine-Westphalia<br>
+      Kavalleriestr. 2-4<br>
+      40213 Düsseldorf <br>
     </p>
 
     <!-- 3. -->
@@ -87,18 +132,162 @@
       {{"PRIVACY_HEADING3" | translate}}
     </button>
 
-    <p *ngIf="chaptersVisible[2].isVisible" class="card-text">
-      Verantwortlich für die Internetangebote ist die adesso AG, Stockholmer Allee 20, 44269 Dortmund,
+    <p *ngIf="translate.activeLang === 'de' && chaptersVisible[2].isVisible" class="card-text">
+      Die Begriffsbestimmungen und Definitionen richten sich nach der Verordnung (EU) 679/2016 zum Schutz natürlicher
+      Personen bei der Verarbeitung personenbezogener Daten, zum freien Datenverkehr und zur Aufhebung der Richtlinie
+      95/46/EG (im Folgenden „Datenschutz-Grundverordnung“ oder „DSGVO“). Es gelten insbesondere die
+      Begriffsbestimmungen des Art. 4 und Art. 9 DSGVO. Im Rahmen dieser Datenschutzerklärung verwenden wir
+      insbesondere folgende in Art. 4 DSGVO definierten Begrifflichkeiten:<br>
       <br>
-      kurz: adesso, (nachfolgend auch wir/uns).
+      <strong>1. „personenbezogene Daten“</strong> alle Informationen, die sich auf eine identifizierte oder
+      identifizierbare natürliche
+      Person (im Folgenden „betroffene Person“) beziehen; als identifizierbar wird eine natürliche Person angesehen,
+      die direkt oder indirekt, insbesondere mittels Zuordnung zu einer Kennung wie einem Namen, zu einer Kennnummer,
+      zu Standortdaten, zu einer Online-Kennung oder zu einem oder mehreren besonderen Merkmalen, die Ausdruck der
+      physischen, physiologischen, genetischen, psychischen, wirtschaftlichen, kulturellen oder sozialen Identität
+      dieser natürlichen Person sind, identifiziert werden kann;<br>
       <br>
+      <strong>2. „Verarbeitung“</strong> jeden mit oder ohne Hilfe automatisierter Verfahren ausgeführten Vorgang oder
+      jede solche
+      Vorgangsreihe im Zusammenhang mit personenbezogenen Daten wie das Erheben, das Erfassen, die Organisation, das
+      Ordnen, die Speicherung, die Anpassung oder Veränderung, das Auslesen, das Abfragen, die Verwendung, die
+      Offenlegung durch Übermittlung, Verbreitung oder eine andere Form der Bereitstellung, den Abgleich oder die
+      Verknüpfung, die Einschränkung, das Löschen oder die Vernichtung;<br>
       <br>
-      Nachfolgend möchten wir Sie umfassend und im Detail informieren, wie wir Ihre Privatsphäre schützen und wie
-      eine Verarbeitung von personenbezogenen Daten im Rahmen unsere Webseiten und/oder Online-Angebote erfolgt.
-      Personenbezogene Daten werden sobald wie möglich wieder gelöscht und niemals ohne Ihr Einverständnis zu
-      Werbezwecken verwendet oder weitergegeben.
-      Soweit die nachfolgenden Informationen nicht ausreichend oder nicht verständlich sein sollten, zögern Sie
-      nicht, unseren Datenschutzbeauftragten unter den in Ziffer II genannten Kontaktdetails zu kontaktieren.
+      <strong>3. „Einschränkung der Verarbeitung“</strong> die Markierung gespeicherter personenbezogener Daten mit dem
+      Ziel, ihre
+      künftige Verarbeitung einzuschränken bzw. zu sperren;<br>
+      <br>
+      <strong>4. „Profiling“</strong> jede Art der automatisierten Verarbeitung personenbezogener Daten, die darin
+      besteht, dass diese
+      personenbezogenen Daten verwendet werden, um bestimmte persönliche Aspekte, die sich auf eine natürliche Person
+      beziehen, zu bewerten, insbesondere um Aspekte bezüglich Arbeitsleistung, wirtschaftliche Lage, Gesundheit,
+      persönliche Vorlieben, Interessen, Zuverlässigkeit, Verhalten, Aufenthaltsort oder Ortswechsel dieser natürlichen
+      Person zu analysieren oder vorherzusagen;<br>
+      <br>
+      <strong>5. „Pseudonymisierung“</strong> die Verarbeitung personenbezogener Daten in einer Weise, dass die
+      personenbezogenen Daten
+      ohne Hinzuziehung zusätzlicher Informationen nicht mehr einer spezifischen betroffenen Person zugeordnet werden
+      können, sofern diese zusätzlichen Informationen gesondert aufbewahrt werden und technischen und organisatorischen
+      Maßnahmen unterliegen, die gewährleisten, dass die personenbezogenen Daten nicht einer identifizierten oder
+      identifizierbaren natürlichen Person zugewiesen werden;<br>
+      <br>
+      <strong>6. „Verantwortlicher“</strong> die natürliche oder juristische Person, Behörde, Einrichtung oder andere
+      Stelle, die allein
+      oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten entscheidet;
+      sind die Zwecke und Mittel dieser Verarbeitung durch das Unionsrecht oder das Recht der Mitgliedstaaten
+      vorgegeben, so kann der Verantwortliche beziehungsweise können die bestimmten Kriterien seiner Benennung nach dem
+      Unionsrecht oder dem Recht der Mitgliedstaaten vorgesehen werden;<br>
+      <br>
+      <strong>7 „Auftragsverarbeiter“</strong> eine natürliche oder juristische Person, Behörde, Einrichtung oder
+      andere Stelle, die
+      personenbezogene Daten im Auftrag des Verantwortlichen verarbeitet;<br>
+      <br>
+      <strong>8. „Empfänger“</strong> eine natürliche oder juristische Person, Behörde, Einrichtung oder andere Stelle,
+      der
+      personenbezogene Daten offengelegt werden, unabhängig davon, ob es sich bei ihr um einen Dritten handelt oder
+      nicht. Behörden, die im Rahmen eines bestimmten Untersuchungsauftrags nach dem Unionsrecht oder dem Recht der
+      Mitgliedstaaten möglicherweise personenbezogene Daten erhalten, gelten jedoch nicht als Empfänger; die
+      Verarbeitung dieser Daten durch die genannten Behörden erfolgt im Einklang mit den geltenden
+      Datenschutzvorschriften gemäß den Zwecken der Verarbeitung;<br>
+      <br>
+      <strong>9. „Dritter“</strong> eine natürliche oder juristische Person, Behörde, Einrichtung oder andere Stelle,
+      außer der
+      betroffenen Person, dem Verantwortlichen, dem Auftragsverarbeiter und den Personen, die unter der unmittelbaren
+      Verantwortung des Verantwortlichen oder des Auftragsverarbeiters befugt sind, die personenbezogenen Daten zu
+      verarbeiten;<br>
+      <br>
+      <strong>10. „Einwilligung“</strong> der betroffenen Person jede freiwillig für den bestimmten Fall, in
+      informierter Weise und
+      unmissverständlich abgegebene Willensbekundung in Form einer Erklärung oder einer sonstigen eindeutigen
+      bestätigenden Handlung, mit der die betroffene Person zu verstehen gibt, dass sie mit der Verarbeitung der sie
+      betreffenden personenbezogenen Daten einverstanden ist;<br>
+      <br>
+    </p>
+
+    <p *ngIf="translate.activeLang === 'en' && chaptersVisible[2].isVisible" class="card-text">
+      Definitions and definitions are in accordance with Regulation (EU) 679/2016 on the protection of natural habitats
+      and the environment (OJ L 304, 30.12.67, p. 1).
+      persons with regard to the processing of personal data, the free movement of such data and the repeal of the
+      Directive
+      95/46/EC (hereinafter referred to as the "Basic Data Protection Regulation" or the "DSGVO"). In particular, the
+      following apply
+      Definitions of Art. 4 and Art. 9 DSGVO. In the context of this data protection declaration we use
+      in particular, the following terms defined in Art. 4 DSGVO:<br>
+      <br>
+      <strong>1. personal data"</strong> any information that relates to an identified or identifiable natural
+      person (hereinafter "data subject"); a natural person is regarded as identifiable,
+      directly or indirectly, in particular by means of assignment to an identifier such as a name, to an
+      identification number,
+      to location data, to an online identifier or to one or more special characteristics which are the expression of
+      the
+      physical, physiological, genetic, psychological, economic, cultural or social identity
+      of this natural person can be identified;<br>
+      <br>
+      <strong>2. processing"</strong> any operation carried out with or without the aid of automated procedures, or
+      each such
+      Series of operations related to personal data such as collection, recording, organization, use, processing,
+      storage, and disclosure of personal data.
+      arranging, storing, adjusting or modifying, reading out, querying, using, displaying, editing, editing
+      Disclosure by transmission, dissemination or any other form of making available, comparison or dissemination
+      Link, restriction, deletion, or destruction;<br>
+      <br>
+      <strong>3. "Restriction of processing"</strong> the marking of stored personal data with the
+      goal is to
+      Restrict or block future processing;<br>
+      <br>
+      <strong>4. "Profiling"</strong> any form of automated processing of personal data contained therein
+      that this
+      personal data may be used to identify certain personal aspects that relate to a natural person or a legal entity.
+      in particular in order to assess aspects related to work performance, economic situation, health,
+      personal preferences, interests, reliability, conduct, whereabouts or relocation of these natural
+      person to analyze or predict;<br>
+      <br>
+      <strong>5. "pseudonymisation"</strong> the processing of personal data in such a way as to prevent the use of
+      such data by third parties.
+      personal data
+      are no longer attributed to a specific data subject without additional information being provided
+      provided that such additional information is kept separate and can be used for technical and organisational
+      purposes.
+      measures to ensure that the personal data is not used to identify or identify a third party.
+      identifiable natural person; <br>; and
+      <br>
+      <strong>6. "Person responsible"</strong> the natural or legal person, authority, institution or other
+      A place that is alone
+      or jointly with others, on the purposes and means of the processing of personal data;
+      the purposes and means of such processing are determined by Union law or by the law of the Member States
+      the person responsible or the specific criteria of his nomination can be determined according to the
+      Union law or the law of the Member States;<br>
+      <br>
+      <strong>7 "Processor"</strong> a natural or legal person, public authority, agency or agency or
+      other place, which
+      personal data is processed on behalf of the person responsible;<br>
+      <br>
+      <strong>8. "recipient"</strong> a natural or legal person, public authority, institution or other entity,
+      that
+      personal information is disclosed, whether it is a third party or not
+      not. Authorities which, within the framework of a specific investigation mandate, are required by Union law or by
+      the law of the Member States to
+      Member States may receive personal data, but are not considered to be recipients; the
+      The processing of such data by the said authorities shall be carried out in accordance with the applicable data
+      protection legislation.
+      Data protection rules in accordance with the purposes of the processing;<br>
+      <br>
+      <strong>9. "third party"</strong> a natural or legal person, public authority, institution or other entity,
+      other than
+      the data subject, the controller, the processor and the persons covered by the direct or indirect proceedings
+      under the law of the Member State in which the processing is carried out.
+      the responsibility of the data controller or the processor of the order to process the personal data.
+      process;<br>
+      <br>
+      <strong>10. "Consent"</strong> of the data subject any voluntarily for the particular case, in which
+      informed manner and
+      unequivocally expressed expression of intention in the form of a statement or other unequivocal statement of
+      intention
+      the data subject indicates that he or she is involved in the processing of the personal data which he or she has
+      supplied to him.
+      personal data concerned;<br> is in agreement with us;<br> is in agreement with us
+      <br>
     </p>
 
     <!-- 4. -->
@@ -106,18 +295,158 @@
       {{"PRIVACY_HEADING4" | translate}}
     </button>
 
-    <p *ngIf="chaptersVisible[3].isVisible" class="card-text">
-      Verantwortlich für die Internetangebote ist die adesso AG, Stockholmer Allee 20, 44269 Dortmund,
+    <p *ngIf="translate.activeLang === 'de' && chaptersVisible[3].isVisible" class="card-text">
+      <strong>1. Umfang der Verarbeitung personenbezogener Daten</strong><br>
+      Wir erheben und verwenden personenbezogene Daten unserer Nutzer grundsätzlich nur, soweit dies zur Erbringung und
+      Bereitstellung unserer Leistungen sowie zur Bereitstellung unsere Web- oder Online-Angebote (einschließlich
+      mobile Apps) erforderlich ist, soweit in der Datenschutzerklärung nachfolgend nicht etwas anders ausgeführt wird.
+      Eine Erhebung und Verwendung personenbezogener Daten zu anderen Zwecken erfolgt regelmäßig nur<br>
+      (i) nach Einwilligung des Nutzers,<br>
+      (ii) wenn die Verarbeitung zum Zwecke der Vertragserfüllung, oder<br>
+      (iii) zur Wahrung berechtigten Interessen, soweit nicht die Interessen oder Grundrechte und Grundfreiheiten der<br>
+      betroffenen Person, die den Schutz personenbezogener Daten erfordern, überwiegen.<br>
+      Eine Ausnahme gilt im Übrigen in solchen Fällen, in denen eine vorherige Einholung einer Einwilligung aus
+      tatsächlichen Gründen nicht möglich oder die Verarbeitung der Daten durch gesetzliche Vorschriften gestattet ist.<br>
       <br>
-      kurz: adesso, (nachfolgend auch wir/uns).
+      <strong>2. Rechtsgrundlagen</strong><br>
+      Soweit personenbezogene Daten auf Basis einer Einwilligung der betroffenen Person verarbeitet werden, ist Art. 6
+      Abs. 1 lit. a DSGVO Rechtsgrundlage für die Verarbeitung.
+      Bei der Verarbeitung von personenbezogenen Daten zur Erfüllung eines Vertrages, dessen Vertragspartei die
+      betroffene Person ist, ist Art. 6 Abs. 1 lit. b DSGVO die Rechtsgrundlage; dies gilt auch für Verarbeitungen, die
+      zur Durchführung vorvertraglicher Maßnahmen erforderlich sind.
+      Erfolgt eine Verarbeitung personenbezogener Daten zur Erfüllung einer rechtlichen Verpflichtung, der wir
+      unterliegen, ist Art. 6 Abs. 1 lit. c DSGVO Rechtsgrundlage. Für den Fall, dass lebenswichtige Interessen der
+      betroffenen Person oder einer anderen natürlichen Person eine Verarbeitung personenbezogener Daten erforderlich
+      machen, ist Art. 6 Abs. 1 lit. d DSGVO Rechtsgrundlage.
+      Erfolgt eine Verarbeitung zur Wahrung eines berechtigten Interesses unseres Unternehmens oder eines Dritten und
+      überwiegen die Interessen, Grundrechte und Grundfreiheiten des Betroffenen das erstgenannte Interesse nicht, ist
+      Art. 6 Abs. 1 lit. f DSGVO Rechtsgrundlage der Verarbeitung.<br>
       <br>
+      <strong>3. Einholung von Einwilligungen / Widerrufsrecht</strong><br>
+      Einwilligungen nach Art. 6 Abs. 1 lit a DSGVO werden in der Regel elektronisch eingeholt. Die Einwilligung
+      erfolgt durch Setzen eines Häkchens in das entsprechende Feld zwecks Dokumentation der Einwilligungserteilung.
+      Der Inhalt der Einwilligungserklärung wird elektronisch protokolliert.
+      Widerrufsrecht: Bitte beachten Sie, dass eine einmal erteilte Einwilligung jederzeit mit Wirkung für die Zukunft
+      – vollständig oder teilweise – widerrufen werden kann; die Rechtmäßigkeit der aufgrund der Einwilligung bis zum
+      Widerruf erfolgten Verarbeitung bleibt hiervon unberührt. Einen etwaigen Widerruf richten Sie bitte an die in
+      Ziffer II genannten Kontaktdaten (Verantwortliche Stelle oder Datenschutzbeauftragter).<br>
       <br>
-      Nachfolgend möchten wir Sie umfassend und im Detail informieren, wie wir Ihre Privatsphäre schützen und wie
-      eine Verarbeitung von personenbezogenen Daten im Rahmen unsere Webseiten und/oder Online-Angebote erfolgt.
-      Personenbezogene Daten werden sobald wie möglich wieder gelöscht und niemals ohne Ihr Einverständnis zu
-      Werbezwecken verwendet oder weitergegeben.
-      Soweit die nachfolgenden Informationen nicht ausreichend oder nicht verständlich sein sollten, zögern Sie
-      nicht, unseren Datenschutzbeauftragten unter den in Ziffer II genannten Kontaktdetails zu kontaktieren.
+      <strong>4. Etwaige Empfänger von personenbezogenen Daten</strong><br>
+      Zur Erbringung unserer Web- und/oder Online-Angebote setzen wir teilweise dritte Dienstleister ein, die im Rahmen
+      der Leistungserbringung in unserem Auftrag und nach Weisung tätig werden (Auftragsverarbeiter). Diese
+      Dienstleister können im Rahmen der Leistungserbringung personenbezogene Daten empfangen bzw. mit
+      personenbezogenen Daten in Berührung kommen und stellen Dritte bzw. Empfänger i.S.d. DSGVO dar.
+      In einem solchen Fall tragen wir dafür Sorge, dass unsere Dienstleister hinreichende Garantien dafür bieten, dass
+      geeignete technische und organisatorische Maßnahmen vorhanden sind und Verarbeitungen so durchgeführt werden,
+      dass sie im Einklang mit den Anforderungen dieser Verordnung stehen und den Schutz der Rechte der betroffenen
+      Person gewährleisten (vgl. Art. 28 DSGVO).
+      Soweit eine Übermittlung von personenbezogenen Daten außerhalb einer Auftragsverarbeitung an Dritte und/oder
+      Empfänger erfolgt, stellen wir sicher, dass dies ausschließlich in Übereinstimmung mit den Anforderungen des
+      DSGVO (z.B. Art. 6 Abs. 4 DSGVO) und nur bei Vorliegen einer entsprechenden Rechtsgrundlage (z.B. Art. 6 Abs. 4
+      DSGVO, im Übrigen siehe Ziffer IV.2) geschieht.<br>
+      <br>
+      <strong>5. Verarbeitung von Daten in sog. Drittländern</strong><br>
+      Die Verarbeitung Ihrer personenbezogenen Daten erfolgt grundsätzlich innerhalb der EU bzw. des Europäischen
+      Wirtschaftsraums („EWR“).<br>
+      <br>
+      <strong>6. Datenlöschung und Speicherdauer</strong><br>
+      Personenbezogene Daten der betroffenen Person werden gelöscht oder gesperrt, sobald der Zweck der Verarbeitung
+      entfällt. Eine Speicherung nach Wegfall des Verarbeitungszwecks erfolgt nur, wenn dies durch den europäischen
+      oder nationalen Gesetzgeber in unionsrechtlichen Verordnungen, Gesetzen oder sonstigen Vorschriften, denen unser
+      Unternehmen unterliegt, vorgesehen ist (z.B. zur Erfüllung von gesetzlichen Aufbewahrungspflichten und/oder bei
+      Bestehen berechtigter Interessen an einer Speicherung, z.B. während des Laufs von Verjährungsfristen zum Zwecke
+      der Rechtsverteidigung gegen etwaige Ansprüche). Eine Sperrung oder Löschung der Daten erfolgt auch dann, wenn
+      eine durch die genannten Normen vorgeschriebene Speicherfrist abläuft, es sei denn, dass eine Erforderlichkeit
+      zur weiteren Speicherung der Daten für einen Vertragsabschluss oder zu anderen Zwecken besteht.<br>
+      <br>
+      <strong>7. Betroffenenrechte</strong><br>
+      Die DSGVO gewährt der von einer Verarbeitung personenbezogener Daten betroffenen Person bestimmte Rechte (sog.
+      Betroffenenrechte, insb. Art. 12 bis Art. 22 DSGVO). Die einzelnen Betroffenenrechte sind in Ziffer VI näher
+      erläutert. Möchten Sie eines oder mehrere dieser Rechte in Anspruch nehmen, können Sie uns jederzeit
+      kontaktieren. Nutzen Sie hierzu bitte die unter Ziffer II angegebenen Kontaktmöglichkeiten.
+    </p>
+
+    <p *ngIf="translate.activeLang === 'en' && chaptersVisible[3].isVisible" class="card-text">
+      <strong>1. Extent of the processing of personal data </strong><br>
+      We only collect and use personal data of our users to the extent that is necessary for the provision and use
+      of our web or online services (including mobile Apps), unless otherwise stated in the data protection declaration below.
+      Collection and use of personal data for other purposes regularly only occurs<br>
+      (i) with the consent of the user,<br>
+      (ii) if the processing is carried out for the purpose of fulfilling the contract, or<br>
+      (iii) to safeguard legitimate interests, except where the interests or fundamental rights and freedoms of the
+      citizens of the European Union are<br>
+      data subjects who require the protection of personal data.
+      An exception shall also apply in such cases where prior consent has been obtained from
+      actual reasons is not possible or the processing of the data is permitted by legal regulations.
+      <br>
+      <strong>2. legal bases</strong><br>
+      Where personal data are processed on the basis of the consent of the data subject, Art. 6
+      para. 1 lit. a DSGVO is the legal basis for the processing.
+      The processing of personal data for the fulfilment of a contract to which the contracting party is a party shall
+      be subject to the provisions of Art. 6 para. 1 lit. a DSGVO.
+      is the data subject, Article 6(1)(b) DSGVO is the legal basis; this also applies to processing operations which
+      are necessary for the implementation of pre-contractual measures.
+      If personal data is processed in order to fulfil a legal obligation, which we are obliged to fulfil, we shall be
+      entitled to
+      Art. 6 para. 1 lit. c DSGVO is the legal basis. In the event that vital interests of the
+      data subject or any other natural person, the processing of personal data is necessary.
+      Art. 6 (1) lit. d DSGVO is the legal basis.
+      If processing is carried out to safeguard a legitimate interest of our company or of a third party, and
+      the interests, fundamental rights and fundamental freedoms of the person concerned do not prevail over the first
+      interest, is
+      Art. 6 para. 1 lit. f DSGVO Legal basis for the processing.<br>
+      <br>
+      <strong>3. obtaining of consents / right of withdrawal</strong><br>
+      Consents pursuant to Art. 6 para. 1 lit a DSGVO are generally obtained electronically. Consent
+      is done by placing a check mark in the corresponding field for the purpose of documenting the granting of
+      consent.
+      The content of the declaration of consent is recorded electronically.
+      Right of revocation: Please note that once you have given your consent, it will always take effect for the
+      future.
+      - the lawfulness of the information provided on the basis of the consent up to the date on which it is received.
+      This shall not affect any processing that has been revoked. If you wish to revoke your consent, please contact
+      the person listed in
+      (responsible body or data protection officer).<br> contact data mentioned in point II.
+      <br>
+      <strong>4. possible recipients of personal data </strong><br>
+      In order to provide our web and/or online services, we partly use third party service providers, who are not
+      responsible for the content of these websites.
+      of the service provision on our behalf and according to instructions (contract processor). These
+      Service providers may receive personal data within the framework of the provision of services, or may provide
+      such data with
+      personal data and represent third parties or recipients within the meaning of the DSGVO.
+      In such a case, we will ensure that our service providers provide adequate guarantees that
+      appropriate technical and organisational measures are in place and processing is carried out,
+      that they are consistent with the requirements of this Regulation and protect the rights of the persons concerned
+      person (cf. Art. 28 DSGVO).
+      Insofar as the transfer of personal data outside of order processing to a third party and/or
+      recipient, we will ensure that this is done only in accordance with the requirements of the
+      DSGVO (e.g. Art. 6 para. 4 DSGVO) and only if there is a corresponding legal basis (e.g. Art. 6 para. 4 DSGVO).
+      DSGVO, otherwise see point IV.2).<br>.
+      <br>
+      <strong>5. processing of data in so-called third countries </strong><br>
+      The processing of your personal data takes place in principle within the EU or the European Union.
+      Economic Area ('EEA').<br>
+      <br>
+      <strong>6. data deletion and storage time</strong><br>
+      Personal data of the data subject will be deleted or blocked as soon as the purpose of the processing has been
+      fulfilled.
+      not applicable. Storage after the processing purpose has ceased to apply will only take place if this is
+      permitted by the European
+      or national legislators in Union regulations, laws or other regulations to which our company is subject.
+      company is subject to (e.g. for the fulfillment of legal retention obligations and/or in the case of
+      Existence of legitimate interests in storage, e.g. during the run of limitation periods for the purpose of
+      legal defence against any claims). The data will also be blocked or deleted if
+      a storage period prescribed by those standards expires, unless a necessity for the storage of the data
+      for the further storage of the data for the conclusion of a contract or for other purposes.
+      <br>
+      <strong>7. rights affected </strong><br>
+      The DSGVO grants the person affected by the processing of personal data certain rights (so-called "rights of
+      privacy").
+      Data subject rights, in particular Art. 12 to Art. 22 DSGVO). The individual rights of data subjects are
+      described in more detail in Section VI.
+      explained. If you wish to make use of one or more of these rights, you can contact us at any time.
+      contact. For this purpose, please use the contact options listed under point II.
     </p>
 
     <!-- 5. -->
@@ -125,38 +454,364 @@
       {{"PRIVACY_HEADING5" | translate}}
     </button>
 
-    <p *ngIf="chaptersVisible[4].isVisible" class="card-text">
-      Verantwortlich für die Internetangebote ist die adesso AG, Stockholmer Allee 20, 44269 Dortmund,
+    <p *ngIf="translate.activeLang === 'de' && chaptersVisible[4].isVisible" class="card-text">
+      Bei jedem Aufruf unserer Internetseite erfasst unser System automatisiert Daten und Informationen vom
+      Computersystem des aufrufenden Rechners. Folgende Daten werden erhoben (im Folgenden „Log-Daten“):<br>
       <br>
-      kurz: adesso, (nachfolgend auch wir/uns).
+      • Informationen über den Browsertyp und die verwendete Version<br>
+      • das Betriebssystem des Nutzers<br>
+      • die IP-Adresse des Nutzers<br>
+      • Datum und Uhrzeit des Zugriffs<br>
+      • Webseiten, von denen das System des Nutzers auf unsere Internetseite gelangt<br>
+      • Webseiten, die vom System des Nutzers über unsere Webseite aufgerufen werden<br>
       <br>
+      Die genannten Log-Daten ermöglichen – mit Ausnahme der IP-Adresse – keine Herstellung eines Personenbezugs zum
+      Nutzer; eine Personenbeziehbarkeit lässt sich nur über die Zuordnung bzw. Verknüpfung der Log-Daten zu einer
+      IP-Adresse herstellen.<br>
       <br>
-      Nachfolgend möchten wir Sie umfassend und im Detail informieren, wie wir Ihre Privatsphäre schützen und wie
-      eine Verarbeitung von personenbezogenen Daten im Rahmen unsere Webseiten und/oder Online-Angebote erfolgt.
-      Personenbezogene Daten werden sobald wie möglich wieder gelöscht und niemals ohne Ihr Einverständnis zu
-      Werbezwecken verwendet oder weitergegeben.
-      Soweit die nachfolgenden Informationen nicht ausreichend oder nicht verständlich sein sollten, zögern Sie
-      nicht, unseren Datenschutzbeauftragten unter den in Ziffer II genannten Kontaktdetails zu kontaktieren.
+      <strong>1. Zweck und Rechtsgrundlage</strong><br>
+      Die Erhebung und Verarbeitung der Log-Daten insbesondere der IP-Adresse erfolgt zum Zwecke der Bereitstellung der
+      auf unserer Webseite enthaltenen Inhalte an den Nutzer, d.h. zum Zwecke der Kommunikation zwischen dem Nutzer und
+      unserem Web- bzw. Online-Angebot. Für die Dauer des jeweiligen Kommunikationsvorgangs ist eine vorübergehende
+      Speicherung der IP-Adresse erforderlich. Diese wird zur Adressierung der Kommunikationsverkehr zwischen dem
+      Nutzer und unserem Web- und/oder Online-Angebot benötigt bzw. ist zur Inanspruchnahme unseres Web- und/oder
+      Online-Angebots erforderlich. Rechtsgrundlage für diese Datenverarbeitung – d.h. für die Dauer Ihres
+      Webseitenbesuchs - ist Art. 6 Abs. 1 lit. b DSGVO respektive § 96 TKG bzw. § 15 Abs. 1 TMG.
+      Eine über den Kommunikationsvorgang hinausgehende Verarbeitung und Speicherung der IP-Adresse in Logfiles erfolgt
+      zum Zweck der Sicherstellung der Funktionsfähigkeit unserer Web- und Online-Angebote, zum Zweck der Optimierung
+      dieser Angebote sowie zur Sicherstellung der Sicherheit unserer informationstechnischen Systeme. Rechtsgrundlage
+      für eine über den Kommunikationsvorgang hinausgehende Speicherung der IP-Adresse für diese Zwecke ist Art. 6 Abs.
+      1 lit. f DSGVO (Wahrung berechtigter Interessen) respektive § 109 TKG.<br>
+      <br>
+      <strong>2. Datenlöschung und Speicherdauer</strong><br>
+      Die Daten werden gelöscht, sobald sie für die Erreichung des Zweckes ihrer Erhebung nicht mehr erforderlich sind.
+      Im Falle der Erfassung der Daten zur Bereitstellung der Webseite ist dies der Fall, wenn die jeweilige Sitzung –
+      der Webseitenbesuch - beendet ist. Eine darüber hinausgehende Speicherung von Log-Daten einschließlich der
+      IP-Adresse zum Zwecke der Systemsicherheit erfolgt für einen Zeitraum von maximal sieben Tagen ab Beendigung des
+      Seitenzugriffs durch den Nutzer. Eine darüberhinausgehende Verarbeitung und/oder Speicherung von Log-Daten ist
+      möglich und zulässig, sofern die IP-Adressen der Nutzer nach Ablauf der vorgenannten Speicherfrist von sieben
+      Tagen gelöscht oder derart verfremdet wird, dass eine Zuordnung der Log-Daten zu einer IP-Adresse nicht mehr
+      möglich ist.<br>
+      <br>
+      <strong>3. Widerspruchs- und Beseitigungsmöglichkeit</strong><br>
+      Die Erfassung von Log-Daten zur Bereitstellung der Webseite einschließlich deren Speicherung in Logfiles in den
+      vorgenannten Grenzen ist für den Betrieb der Internetseite zwingend erforderlich. Es besteht daher keine
+      Widerspruchsmöglichkeit seitens des Nutzers.
     </p>
 
+    <p *ngIf="translate.activeLang === 'en' && chaptersVisible[4].isVisible" class="card-text">
+      Each time you visit our website, our system automatically collects data and information from you.
+      Computer system of the calling computer. The following data is collected (hereinafter "log data"): <br>
+      <br>
+      - Information about the browser type and the version used<br>.
+      - the operating system of the user<br>
+      - the IP address of the user<br>
+      - Date and time of access<br>
+      - Websites from which the user's system accesses our website <br>
+      - Websites that are accessed by the user's system via our website <br>
+      <br>
+      With the exception of the IP address, the log data mentioned above do not enable the creation of a personal
+      reference to the
+      User; a personal relationship can only be established by assigning or linking the log data to an
+      Establish IP address.<br>
+      <br>
+      <strong>1. Purpose and legal basis</strong><br>
+      The collection and processing of the log data, in particular the IP address, is carried out for the purpose of
+      providing the
+      content contained on our website to the user, i.e. for the purpose of communication between the user and
+      our web or online offer. For the duration of the respective communication process, a temporary
+      Storage of IP address required. This is used for addressing the communication traffic between the
+      user and our web and/or online offer or is required for the use of our web and/or online offer.
+      Online offer required. Legal basis for this data processing - i.e. for the duration of your visit to our website.
+      Website visit - is Art. 6 Para. 1 lit. b DSGVO respectively § 96 TKG respectively § 15 Para. 1 TMG.
+      Any processing and storage of the IP address in log files that goes beyond the communication process is carried
+      out by
+      for the purpose of ensuring the functionality of our web and online offers, for the purpose of optimization
+      of these services and to ensure the security of our information technology systems. Legal basis
+      for a storage of the IP address going beyond the communication process for these purposes is Art. 6 Para.
+      1 lit. f DSGVO (protection of legitimate interests) respectively § 109 TKG.<br>
+      <br>
+      <strong>2. data deletion and storage time</strong><br>
+      The data will be deleted as soon as they are no longer necessary to achieve the purpose for which they were
+      collected.
+      In the case of the collection of data to provide the website, this is the case when the session in question - the
+      user - is not in possession of the data.
+      the website visit - is finished. A storage of log data going beyond this, including the
+      IP address for the purpose of system security is used for a maximum period of seven days after termination of the
+      contract.
+      Page access by the user. Any further processing and/or storage of log data is prohibited.
+      possible and admissible, provided that the IP addresses of the users are not changed after the expiry of the
+      aforementioned storage period of seven years.
+      days is deleted or altered in such a way that an assignment of the log data to an IP address is no longer
+      possible.
+      is possible.<br>
+      <br>
+      <strong>3. possibility of contradiction and elimination</strong><br>
+      The collection of log data for the provision of the website, including its storage in log files in the
+      is mandatory for the operation of the website. There is therefore no
+      Possibility of objection on the part of the user.
+    </p>
 
     <!-- 6. -->
     <button class="col-12 btn btn-info btn-heading" (click)="toggleChapterVisibility(5)">
       {{"PRIVACY_HEADING6" | translate}}
     </button>
 
-    <p *ngIf="chaptersVisible[5].isVisible" class="card-text">
-      Verantwortlich für die Internetangebote ist die adesso AG, Stockholmer Allee 20, 44269 Dortmund,
+    <p *ngIf="translate.activeLang === 'de' && chaptersVisible[5].isVisible" class="card-text">
+      Dem Nutzer stehen nach der DSGVO insbesondere folgende Betroffenenrechte zu:<br>
       <br>
-      kurz: adesso, (nachfolgend auch wir/uns).
+      <strong>1. Auskunftsrecht (Art. 15 DSGVO)</strong><br>
+      Sie haben das Recht, Auskunft darüber zu verlangen, ob wir personenbezogene Daten zu ihrer Person verarbeiten
+      oder nicht. Erfolgt eine Verarbeitung personenbezogener Daten zu ihrer Person durch unser Unternehmen, haben Sie
+      Anspruch auf Auskunft über<br>
       <br>
+      • die Verarbeitungszwecke;<br>
+      • die Kategorien personenbezogener Daten (Art von Daten), die verarbeitet werden;<br>
+      • die Empfänger oder Kategorien von Empfängern, denen ihre Daten offengelegt worden sind oder noch offengelegt
+      werden sollen; dies gilt insbesondere, wenn Daten an Empfänger in Drittländern außerhalb der Geltung der DSGVO
+      offengelegt wurden oder offengelegt werden sollen;<br>
+      • die geplante Speicherdauer, soweit möglich sind; falls eine Angabe zur Speicherdauer nicht möglich ist, sind
+      jedenfalls die Kriterien zur Festlegung der Speicherdauer (z.B. gesetzliche Aufbewahrungsfristen o.Ä.)
+      mitzuteilen;<br>
+      • ihr Recht auf Berichtigung und Löschung der Sie betreffenden Daten einschließlich des Rechts auf Einschränkung
+      der Bearbeitung und/oder der Möglichkeit zum Widerspruch (siehe hierzu auch die nachfolgenden Ziffern);<br>
+      • das Bestehen eines Beschwerderechts bei einer Aufsichtsbehörde;<br>
+      • die Herkunft der Daten, falls personenbezogene Daten nicht bei Ihnen direkt erhoben wurden.<br>
       <br>
-      Nachfolgend möchten wir Sie umfassend und im Detail informieren, wie wir Ihre Privatsphäre schützen und wie
-      eine Verarbeitung von personenbezogenen Daten im Rahmen unsere Webseiten und/oder Online-Angebote erfolgt.
-      Personenbezogene Daten werden sobald wie möglich wieder gelöscht und niemals ohne Ihr Einverständnis zu
-      Werbezwecken verwendet oder weitergegeben.
-      Soweit die nachfolgenden Informationen nicht ausreichend oder nicht verständlich sein sollten, zögern Sie
-      nicht, unseren Datenschutzbeauftragten unter den in Ziffer II genannten Kontaktdetails zu kontaktieren.
+      Sie haben ferner Anspruch auf Auskunft, ob ihre personenbezogen Daten Gegenstand einer automatisierte
+      Entscheidungen i.S.d. Art 22 DSGVO sind und falls dies der Fall ist, welche Entscheidungskriterien einer solch
+      automatisierten Entscheidung zu Grunde liegen (Logik) bzw. welche Auswirkungen und Tragweite die automatisierte
+      Entscheidung für Sie haben kann.<br>
+      Werden personenbezogene Daten in ein Drittland außerhalb des Anwendungsbereichs der DSGVO übermittelt, haben Sie
+      Anspruch auf Auskunft, ob und falls ja aufgrund welcher Garantien ein angemessenes Schutzniveau i.S.d. Art. 45,
+      46 DSGVO beim Datenempfänger in dem Drittland sichergestellt ist.<br>
+      Sie haben das Recht, eine Kopie ihrer personenbezogenen Daten zu verlangen. Datenkopien stellen wir grundsätzlich
+      in elektronischer Form zur Verfügung stellen, sofern Sie nichts anderes angegeben haben. Die erste Kopie ist
+      kostenfrei, für weiter Kopien kann ein angemessenes Entgelt verlangt werden. Die Bereitstellung erfolgt
+      vorbehaltlich der Rechte und Freiheiten anderer Personen, die durch die Übermittlung der Datenkopie
+      beeinträchtigt sein können.<br>
+      <br>
+      <strong>2. Recht auf Berichtigung (Art. 16 DSGVO)</strong><br>
+      Sie haben das Recht, von uns die Berichtigung ihrer Daten zu verlangen, sofern diese unrichtig, unzutreffend
+      und/oder unvollständig sein sollten; das Recht auf Berichtigung umfasst das Recht auf Vervollständigung durch
+      ergänzende Erklärungen oder Mitteilungen. Eine Berichtigung und/oder Ergänzung hat unverzüglich – d.h. ohne
+      schuldhaftes Zögern - zu erfolgen.<br>
+      <br>
+      <strong>3. Recht auf Löschung (Art. 17 DSGVO)</strong><br>
+      Sie haben das Recht, von uns die Löschung ihrer personenbezogenen Daten zu verlangen, soweit<br>
+      <br>
+      • die personenbezogene Daten für die Zwecke, für die sie erhoben und verarbeitet wurden, nicht länger
+      erforderlich sind;<br>
+      • die Datenverarbeitung aufgrund einer von Ihnen erteilten Einwilligung erfolgt und Sie die Einwilligung
+      widerrufen haben, sofern nicht eine anderweitige Rechtsgrundlage für die Datenverarbeitung besteht;<br>
+      • Sie Widerspruch gegen eine Datenverarbeitung gem. Art. 21 DSGVO eingelegt haben und keine vorrangigen
+      berechtigten Gründe für eine weitere Verarbeitung vorliegen,<br>
+      • Sie Widerspruch gegen eine Datenverarbeitung zum Zwecke der Direktwerbung gem. Art. 21 Abs. 2 DSGVO eingelegt
+      haben;<br>
+      • Ihre personenbezogenen Daten unrechtmäßig verarbeitet wurden;<br>
+      • es sich um Daten eines Kindes handelt, die in Bezug auf Dienste der Informationsgesellschaft gem. Art. 8 Abs. 1
+      DSGVO erhoben wurden.<br>
+      <br>
+      Ein Recht zur Löschung personenbezogener Daten besteht nicht, soweit<br>
+      • das Recht zur freien Meinungsäußerung und Information dem Löschungsverlangen entgegensteht;<br>
+      • die Verarbeitung personenbezogenen Daten (i) zur Erfüllung einer rechtlichen Verpflichtung (z.B. gesetzliche
+      Aufbewahrungspflichten), (ii) zur Wahrnehmung öffentlicher Aufgaben und Interessen nach Unionsrecht und/oder dem
+      Recht der Mitgliedsstaaten (hierzu gehören auch Interessen im Bereich öffentliche Gesundheit) oder (iii) zu
+      Archivierungs- und/oder Forschungszwecken erforderlich ist;<br>
+      • die personenbezogenen Daten zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen erforderlich
+      sind.<br>
+      <br>
+      Die Löschung hat unverzüglich – d.h. ohne schuldhaftes Zögern - zu erfolgen. Sind personenbezogene Daten von uns
+      öffentlich gemacht worden (z.B. im Internet), haben wir im Rahmen des technisch Möglichen und Zumutbaren dafür
+      Sorge zu tragen, dass auch dritte Datenverarbeiter über das Löschungsverlangen einschließlich der Löschung von
+      Links, Kopien und/oder Replikationen informiert werden.<br>
+      <br>
+
+      <strong>4. Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</strong><br>
+      Sie haben das Recht, die Verarbeitung ihrer personenbezogenen Daten in folgenden Fällen einschränken zu lassen:<br>
+      <br>
+      • Haben Sie die Richtigkeit ihrer personenbezogenen Daten bestritten, können Sie von uns verlangen, dass ihre
+      Daten für die Dauer der Richtigkeitsprüfung für andere Zwecke nicht genutzt und insoweit eingeschränkt werden.<br>
+      • Bei unrechtmäßiger Datenverarbeitung können Sie anstelle der Datenlöschung nach Art. 17 Abs. 1 lit. d DSGVO die
+      Einschränkung der Datennutzung nach Art. 18 DSGVO verlangen;<br>
+      • Benötigen Sie ihre personenbezogenen Daten zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen,
+      werden ihre personenbezogenen Daten im Übrigen aber nicht mehr benötigt, können Sie von uns die Einschränkung der
+      Verarbeitung auf die vorgenannten Rechtsverfolgungszwecke verlangen;<br>
+      • Haben Sie gegen eine Datenverarbeitung Widerspruch nach Art. 21 Abs. 1 DSGVO eingelegt und steht noch nicht
+      fest, ob unsere Interessen an einer Verarbeitung ihre Interessen überwiegen, können Sie verlangen, dass ihre
+      Daten für die Dauer der Prüfung für andere Zwecke nicht genutzt und insoweit eingeschränkt werden.<br>
+      <br>
+      Personenbezogenen Daten, deren Verarbeitung auf ihr Verlangen eingeschränkt wurde, dürfen – vorbehaltlich der
+      Speicherung - nur noch (i) mit ihrer Einwilligung, (ii) zur Geltendmachung, Ausübung oder Verteidigung von
+      Rechtsansprüchen, (iii) zum Schutz der Rechte anderer natürlicher oder juristischer Person, oder (iv) aus Gründen
+      eines wichtigen öffentlichen Interesses verarbeitet werden. Sollte eine Verarbeitungseinschränkung aufgehoben
+      werden, werden Sie hierüber vorab unterrichtet.<br>
+      <br>
+      <strong>5. Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</strong><br>
+      Sie haben - vorbehaltlich der nachfolgenden Regelungen - das Recht, die Herausgabe der Sie betreffenden Daten in
+      einem gängigen elektronischen, maschinenlesbaren Datenformat zu verlangen. Das Recht auf Datenübertragung
+      beinhaltet das Recht zur Übermittlung der Daten an einen anderen Verantwortlichen; auf Verlangen werden wir –
+      soweit technisch möglich – Daten daher direkt an einen von Ihnen benannten oder noch zu benennenden
+      Verantwortlichen übermitteln. Das Recht zur Datenübertragung besteht nur für von Ihnen bereitgestellte Daten und
+      setzt voraus, dass die Verarbeitung auf Grundlage einer Einwilligung oder zur Durchführung eines Vertrages
+      erfolgt und mithilfe automatisierter Verfahren durchgeführt wird. Das Recht zur Datenübertragung nach Art. 20
+      DSGVO lässt das Recht zur Datenlöschung nach Art. 17 DSGVO unberührt. Die Datenübertragung erfolgt vorbehaltlich
+      der Rechte und Freiheiten anderer Personen, deren Rechte durch die Datenübertragung beeinträchtigt sein können.<br>
+      <br>
+      <strong>6. Widerspruchsrecht (Art. 21 DSGVO)</strong><br>
+      Im Fall einer Verarbeitung personenbezogener Daten zur Wahrnehmung von im öffentlichen Interesse liegenden
+      Aufgaben (Art. 6 Abs. 1 lit e DSGVO) oder zur Wahrnehmung berechtigter Interessen (Art. 6 Abs. 1 lit f DSGVO),
+      können Sie der Verarbeitung der Sie betreffenden personenbezogenen Daten jederzeit mit Wirkung für die Zukunft
+      widersprechen. Im Fall des Widerspruch haben wir jede weitere Verarbeitung ihrer Daten zu den vorgenannten
+      Zwecken zu unterlassen, es sei denn,<br>
+      <br>
+      • es liegen zwingende, schutzwürdige Gründe für eine Verarbeitung vor, die ihre Interessen, Rechte und Freiheiten
+      überwiegen, oder<br>
+      • die Verarbeitung ist zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen erforderlich.
+      Einer Verwendung ihrer Daten zum Zwecke der Direktwerbung können Sie jederzeit mit Wirkung für die Zukunft
+      widersprechen; dies gilt auch für ein Profiling, soweit es mit der Direktwerbung in Verbindung steht. Im Fall des
+      Widerspruchs haben wir jede weitere Verarbeitung ihrer Daten zum Zwecke der Direktwerbung zu unterlassen.<br>
+      <br>
+      <strong>7. Rechtsschutzmöglichkeiten / Beschwerderecht bei einer Aufsichtsbehörde</strong><br>
+      Im Fall von Beschwerden können Sie sich jederzeit an die zuständige Aufsichtsbehörde der Union oder der
+      Mitgliedsstaaten wenden. Für unser Unternehmen ist die in Ziffer II genannte Aufsichtsbehörde zuständig.
+    </p>
+
+    <p *ngIf="translate.activeLang === 'en' && chaptersVisible[5].isVisible" class="card-text">
+      According to the DSGVO, the user is entitled in particular to the following data subject rights:<br>
+      <br>
+      <strong>1. right to information (Art. 15 DSGVO)</strong><br>
+      You have the right to request information about whether we process personal data about you.
+      or not. If our company processes personal data relating to you, you have the following rights
+      Right to information about <br>
+      <br>
+      - the processing purposes;<br>
+      - the categories of personal data (type of data) that will be processed;<br>
+      - the recipients or categories of recipients to whom their data have been or will be disclosed
+      in particular where data are sent to recipients in third countries outside the scope of the DSGVO
+      have been or are to be disclosed;<br>
+      - the planned duration of storage, where possible; if it is not possible to specify the duration of storage, the
+      following shall apply
+      at least the criteria for determining the storage period (e.g. legal retention periods, etc.)
+      <br> to be notified.
+      - your right to rectify and delete the data concerning you, including the right to object to it
+      the processing and/or the possibility of opposition (see also the following paragraphs);<br>
+      - the existence of a right of appeal to a supervisory authority; <br>
+      - the origin of the data, if personal data was not collected directly from you.<br>
+      <br>
+      They are also entitled to information as to whether their personal data are the subject of an automated
+      decisions within the meaning of Art 22 DSGVO and, if this is the case, what are the decision criteria for such a
+      decision?
+      automated decision (logic) and which effects and consequences the automated decision has.
+      decision for you can have.<br>
+      If personal data is transferred to a third country outside the scope of application of the DSGVO, you have
+      Right to information as to whether and, if so, on the basis of which guarantees an adequate level of protection
+      within the meaning of Art. 45,
+      46 DSGVO is ensured at the data recipient in the third country.
+      You have the right to request a copy of your personal data. Data copies are generally provided by us
+      in electronic form, unless you have indicated otherwise. The first copy shall be
+      free of charge, a reasonable fee may be charged for further copies. The provision takes place
+      subject to the rights and freedoms of other persons involved in the transmission of the data copy
+      may be impaired.<br>
+      <br>
+      <strong>2. right of rectification (Art. 16 DSGVO)</strong><br>
+      You have the right to ask us to rectify your data if it is incorrect, inaccurate, or
+      and/or incomplete; the right to rectification includes the right to be completed by
+      supplementary statements or communications. Corrections and/or additions must be made without delay - i.e.
+      without delay.
+      culpable hesitation - to take place.<br>
+      <br>
+      <strong>3. right to cancellation (art. 17 DSGVO)</strong><br>
+      You have the right to demand from us the deletion of your personal data, insofar as<br>.
+      <br>
+      - personal data are no longer used for the purposes for which they were collected and processed
+      are required;<br>
+      - the data processing takes place on the basis of a consent given by you and you the consent
+      unless there is another legal basis for the data processing; <br>, or
+      - you have lodged an objection against a data processing pursuant to Art. 21 DSGVO and do not have any priority
+      there are legitimate reasons for further processing, <br>
+      - you have lodged an objection against data processing for the purpose of direct marketing pursuant to Art. 21
+      para. 2 DSGVO
+      have <br>
+      - Your personal data has been unlawfully processed;<br>
+      - the data concerned is that of a child which, in relation to information society services, is covered by Art. 8
+      para. 1
+      DSGVO were collected.<br>
+      <br>
+      A right to the deletion of personal data does not exist, so far <br>
+      - the right to freedom of expression and information is contrary to the request for deletion;<br>
+      - the processing of personal data (i) for the fulfilment of a legal obligation (e.g. statutory duty to provide
+      information)
+      (ii) to carry out public tasks and interests in accordance with Union law and/or the
+      the law of the Member States (including public health interests) or (iii) to
+      archiving and/or research purposes is required;<br>
+      - the personal data required for the assertion, exercise or defence of legal claims
+      are.<br>
+      <br>
+      The deletion has to take place immediately - i.e. without culpable hesitation. Are personal data of us
+      (e.g. on the Internet), we have, within the framework of what is technically possible and reasonable, made the
+      following
+      to ensure that third party data processors are also informed of the request for deletion, including the deletion
+      of
+      Links, copies and/or replications are informed.<br>
+      <br>
+
+      <strong>4. right to limitation of processing (Art. 18 DSGVO)</strong><br>
+      You have the right to have the processing of your personal data restricted in the following cases: <br>
+      <br>
+      - If you have contested the accuracy of your personal data, you can demand from us that your personal data is not
+      used for any other purpose.
+      data are not used for other purposes for the duration of the accuracy check and are restricted to this extent.<br>
+      - In the event of unlawful data processing, you may, instead of deleting the data in accordance with Art. 17
+      para. 1 lit. d DSGVO, use the
+      Restrict the use of data in accordance with Art. 18 DSGVO;<br>
+      - Do you need your personal data to assert, exercise or defend legal claims?
+      If, however, your personal data is no longer required, you can request us to restrict the use of your personal
+      data for the purpose of
+      processing for the aforementioned law enforcement purposes; <br>
+      - Have you lodged an objection against a data processing pursuant to Art. 21 para. 1 DSGVO and is not yet
+      whether our interests in a processing operation outweigh their interests, you may request that their
+      data is not used for other purposes for the duration of the check and is restricted to this extent.<br>
+      <br>
+      Personal data the processing of which has been restricted at their request may, subject to the provisions of
+      Storage - only (i) with their consent, (ii) for the assertion, exercise or defence of
+      (iii) to protect the rights of another natural or legal person, or (iv) for reasons of
+      of an important public interest. Should a processing restriction be lifted
+      you will be informed about this in advance.<br>
+      <br>
+      <strong>5. right to data transferability (art. 20 DSGVO)</strong><br>
+      Subject to the following provisions, you have the right to request the disclosure of data concerning you in
+      a common electronic, machine-readable data format. The right to data transmission
+      includes the right to transfer the data to another responsible person; upon request we will - inform you about
+      the
+      as far as technically possible - data therefore directly to one of you named or yet to be named
+      to those responsible. The right to data transfer exists only for data and information provided by you.
+      presupposes that the processing has been carried out on the basis of a consent or for the execution of a contract
+      and is carried out using automated procedures. The right to transmit data pursuant to Art. 20
+      DSGVO does not affect the right to erase data pursuant to Art. 17 DSGVO. Data transmission is subject to the
+      following conditions
+      the rights and freedoms of other persons whose rights may be infringed by the transmission of data.<br>
+      <br>
+      <strong>6th right of objection (Art. 21 DSGVO)</strong><br>
+      In the case of processing of personal data for the performance of tasks carried out in the public interest
+      tasks (Art. 6 para. 1 lit e DSGVO) or to safeguard legitimate interests (Art. 6 para. 1 lit f DSGVO),
+      you can revoke the processing of your personal data at any time with effect for the future.
+      I disagree. In the event of objection, we shall have the right to further process your data in accordance with
+      the above provisions.
+      for any purpose, unless <br>
+      <br>
+      - there are compelling grounds for processing which are worthy of protection and which are such as to protect
+      their interests, rights and freedoms
+      predominate, or<br>
+      - the processing is necessary for the assertion, exercise or defence of legal claims.
+      You may at any time with effect for the future, cancel the use of your data for the purpose of direct
+      advertising.
+      This also applies to profiling in so far as it is related to direct marketing. In the case of
+      We have to refrain from any further processing of your data for the purpose of direct marketing.
+      <br>
+      <strong>7. legal protection possibilities / right of appeal to a supervisory authority</strong><br>
+      In the event of a complaint, you may at any time contact the competent supervisory authority of the Union or the
+      Member States. The supervisory authority mentioned in section II is responsible for our company.
     </p>
 
     <!-- Declaration of consent -->
@@ -165,17 +820,25 @@
     </button>
 
     <p *ngIf="chaptersVisible[6].isVisible" class="card-text">
-      Verantwortlich für die Internetangebote ist die adesso AG, Stockholmer Allee 20, 44269 Dortmund,
+      Ich bin damit einverstanden, dass die von mir bereitgestellten Daten zum Training eines neuronalen Netzwerks
+      verwendet werden.<br>
       <br>
-      kurz: adesso, (nachfolgend auch wir/uns).
+      Die hierbei gesammelten Daten bestehen aus Email, Alter, Geschlecht, einem Fragenbogen zur Persönlichkeit, der,
+      zum Ausfüllen des Fragebogens, benötigen Zeit und vier Bildern mit vier Gesichtsausdrücken, die hochgeladen, oder
+      mit Hilfe der Webcam, aufgenommen wurden.<br>
+      Bis auf das Alter und Geschlecht sind alle Daten verpflichtend, um mit der Anwendung fortfahren zu können.<br>
       <br>
+      Das neuronale Netzwerk liefert als Ergebnis, eine Vorhersage, welche die Ausprägung meiner
+      Persönlichkeitsmerkmale einschätzt. Die hierbei getroffene Vorhersage dient ausschließlich wissenschaftlichem
+      Zweck und erforscht ob und wie zuverlässig Persönlichkeitsmerkmale anhand von Gesichtsmerkmalen hergeleitet
+      werden können.<br>
       <br>
-      Nachfolgend möchten wir Sie umfassend und im Detail informieren, wie wir Ihre Privatsphäre schützen und wie
-      eine Verarbeitung von personenbezogenen Daten im Rahmen unsere Webseiten und/oder Online-Angebote erfolgt.
-      Personenbezogene Daten werden sobald wie möglich wieder gelöscht und niemals ohne Ihr Einverständnis zu
-      Werbezwecken verwendet oder weitergegeben.
-      Soweit die nachfolgenden Informationen nicht ausreichend oder nicht verständlich sein sollten, zögern Sie
-      nicht, unseren Datenschutzbeauftragten unter den in Ziffer II genannten Kontaktdetails zu kontaktieren.
+      Die gesammelten Daten werden streng vertraulich behandelt, keinesfalls an Dritte weitergegeben und gelöscht,
+      sobald sie für die Erreichung des Zweckes ihrer Erhebung nicht mehr erforderlich sind.<br>
+      <br>
+      Aufgrund der beschränkten Identifikationsmöglichkeit, ist die vorzeitige Löschung und Auskunft meiner Daten bei
+      Verlust meiner persönlichen Identifikationsnummer nicht möglich. Die Identifikationsnummer wird auf der Ergebnis
+      Seite nach absenden der Daten eingeblendet und per Email zugesandt.
     </p>
 
   </div>

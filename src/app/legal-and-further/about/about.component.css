@@ -7,6 +7,10 @@
     text-align: justify;
 }
 
+.section {
+    margin-top: 5%;
+}
+
 .card-title {
     margin-bottom: 2%;
     font-size: 30px;
@@ -23,4 +27,12 @@ div ul {
 .actions-home-contact {
     margin-top: 5%;
     text-align: center;
+}
+
+.paragraph-spacing {
+    margin-top: 5%;
+}
+
+li {
+    margin-top: 2.5%;
 }

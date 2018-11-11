@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngstack/translate';
 
 @Component({
   selector: 'legal-and-privacy',
@@ -18,7 +19,7 @@ export class LegalAndPrivacyComponent implements OnInit {
       { i: 5, isVisible: false }
     ]
 
-  constructor() { }
+  constructor(private translate: TranslateService) { }
 
   ngOnInit() { }
 
