@@ -369,7 +369,8 @@
     <p *ngIf="translate.activeLang === 'en' && chaptersVisible[3].isVisible" class="card-text">
       <strong>1. Extent of the processing of personal data </strong><br>
       We only collect and use personal data of our users to the extent that is necessary for the provision and use
-      of our web or online services (including mobile Apps), unless otherwise stated in the data protection declaration below.
+      of our web or online services (including mobile Apps), unless otherwise stated in the data protection declaration
+      below.
       Collection and use of personal data for other purposes regularly only occurs<br>
       (i) with the consent of the user,<br>
       (ii) if the processing is carried out for the purpose of fulfilling the contract, or<br>
@@ -819,7 +820,7 @@
       {{"PRIVACY_HEADING_CONSENT" | translate}}
     </button>
 
-    <p *ngIf="chaptersVisible[6].isVisible" class="card-text">
+    <p *ngIf="translate.activeLang === 'de' && chaptersVisible[6].isVisible" class="card-text">
       Ich bin damit einverstanden, dass die von mir bereitgestellten Daten zum Training eines neuronalen Netzwerks
       verwendet werden.<br>
       <br>
@@ -838,7 +839,29 @@
       <br>
       Aufgrund der beschränkten Identifikationsmöglichkeit, ist die vorzeitige Löschung und Auskunft meiner Daten bei
       Verlust meiner persönlichen Identifikationsnummer nicht möglich. Die Identifikationsnummer wird auf der Ergebnis
-      Seite nach absenden der Daten eingeblendet und per Email zugesandt.
+      Seite nach absenden der Daten eingeblendet und zusätzlich per Email zugesandt.<br>
+      <br>
+    </p>
+
+    <p *ngIf="translate.activeLang === 'en' && chaptersVisible[6].isVisible" class="card-text">
+      I agree that the data provided by me will be used to train a neural network.<br>
+      <br>
+      The collected data consists of email, age, gender, a personality questionnaire, the required time to fill out the
+      questionnaire
+      and four images with four facial expressions that are uploaded, or captured with the help of the webcam.<br>
+      Except for age and sex, all data are mandatory to continue with the application.<br>
+      <br>
+      As a result, the neuronal network provides a prediction of my personality traits.
+      The prediction made here serves an exclusively scientific purpose and investigates whether and how reliably
+      personality traits can be derived from facial features.<br>
+      <br>
+      The collected data will be treated strictly confidential, will not be passed on to third parties and will be
+      deleted
+      as soon as they are no longer necessary to achieve the purpose of the survey.<br>
+      <br>
+      Due to the limited identification possibility, the premature deletion and information of my data is not possible
+      without my personal identification number. The identification number will be printed on the
+      result page after submiting the data and additionaly sent by email.
     </p>
 
   </div>

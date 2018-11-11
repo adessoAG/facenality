@@ -1,4 +1,4 @@
-<div class="global-body-wrapper text-center">
+<div class="global-body-wrapper text-center" scrollToTop>
     <img id="logo" src="assets/images/logo.png">
     <h1 class="display-3">Facenality</h1>
     <p class="lead">{{"WELCOME_TEXT_1" | translate}}
@@ -17,7 +17,7 @@
     <div class="card-header text-white bg-info">
         <div class="form-group row" ngbRadioGroup name="radioBasic" [(ngModel)]="webcamUserPermission" style="margin-bottom: -2%;">
             <div class="custom-control my-auto">
-                <legend><i class="fa fa-camera"></i>&nbsp; Webcam:</legend>
+                <legend><i class="fa fa-video-camera"></i>&nbsp; Webcam:</legend>
             </div>
             <div class="custom-control custom-radio">
                 <label ngbButtonLabel>
@@ -35,16 +35,21 @@
     <div class="card-body">
         <div class="row" style=" white-space: nowrap;">
             <p class="col text-primary" style="white-space: nowrap;">
-                <i class="fa fa-3x fa-user-circle" style="vertical-align: middle;"></i>&nbsp; {{"WEBCAM_INSTRUCTION_1"
-                | translate}}
+                <i class="fa fa-3x fa-sun-o" style="vertical-align: middle;"></i>&nbsp;
+                {{"WEBCAM_INSTRUCTION1" | translate}}
             </p>
             <p class="col text-primary" style="white-space: nowrap;">
-                <i class="fa fa-3x fa-arrows-h" style=" vertical-align: middle;"></i>&nbsp; {{"WEBCAM_INSTRUCTION_2" |
-                translate}}
+                <i class="fa fa-3x fa-user-circle-o" style=" vertical-align: middle;"></i>&nbsp;
+                {{"WEBCAM_INSTRUCTION2" | translate}}
+
             </p>
             <p class="col text-primary">
-                <i class="fa fa-3x fa-lock" style=" vertical-align: middle;"></i>&nbsp; {{"WEBCAM_INSTRUCTION_3" |
-                translate}}
+                <i class="fa fa-3x fa-eye" style=" vertical-align: middle;"></i>&nbsp;
+                {{"WEBCAM_INSTRUCTION3" | translate}}
+            </p>
+            <p class="col text-primary">
+                <i class="fa fa-3x fa-camera" style=" vertical-align: middle;"></i>&nbsp;
+                {{"WEBCAM_INSTRUCTION4" | translate}}
             </p>
         </div>
     </div>
