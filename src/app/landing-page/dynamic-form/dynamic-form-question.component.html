@@ -40,10 +40,6 @@
       </div>
     </div>
 
-    <button class="btn btn-success col" style="margin: 0 15%; width: 100%;" (click)="loadLastPage(questionnaireStart)">
-      !Debug! Last page
-    </button>
-
     <!-- Next page -->
     <button *ngIf="!showResultButton" class="btn btn-success col" style="margin: 0 15%; width: 100%;" (click)="loadNextPage(questionnaireStart)">
       {{"BTN_NEXT_PAGE" | translate}}

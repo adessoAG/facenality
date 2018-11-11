@@ -26,22 +26,14 @@
 
   <h1 id="privacy-header" class="display-4">{{"PRIVACY" | translate}}</h1>
   <div class="row card-body text-block global-font">
-    <button class="col-12 btn btn-info btn-heading">I. Präambel</button>
-    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-      aria-controls="collapseExample">
-      Link with href
-    </a>
-    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
-      aria-controls="collapseExample">
-      Button with data-target
+    <!-- 1. -->
+
+
+    <button class="col-12 btn btn-info btn-heading" (click)="toggleChapterVisibility(0)">
+      {{"PRIVACY_HEADING1" | translate}}
     </button>
-    <div class="collapse" id="collapseExample">
-      <div class="card card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-      </div>
-    </div>
-    <p *ngIf="true" class="card-text">
+
+    <p *ngIf="chaptersVisible[0].isVisible" class="card-text">
       Verantwortlich für die Internetangebote ist die adesso AG, Stockholmer Allee 20, 44269 Dortmund,
       <br>
       kurz: adesso, (nachfolgend auch wir/uns).
@@ -54,6 +46,137 @@
       Soweit die nachfolgenden Informationen nicht ausreichend oder nicht verständlich sein sollten, zögern Sie
       nicht, unseren Datenschutzbeauftragten unter den in Ziffer II genannten Kontaktdetails zu kontaktieren.
     </p>
-  </div>
 
+    <!-- 2. -->
+    <button class="col-12 btn btn-info btn-heading" (click)="toggleChapterVisibility(1)">
+      {{"PRIVACY_HEADING2" | translate}}
+    </button>
+
+    <p *ngIf="chaptersVisible[1].isVisible" class="card-text">
+        <strong>Verantwortliche Stelle</strong><br>
+        <br>
+        adesso AG<br>
+        Adessoplatz 1<br>
+        44269 Dortmund<br>
+        Deutschland<br>
+        <br>
+        Tel.: +49 231 7000-7000<br>
+        E-Mail: info@adesso.de<br>
+        Website: www.adesso.de<br>
+        <br>
+        <strong>Datenschutzbeauftragter</strong><br>
+        Julius Hüttmann<br>
+        adesso AG<br>
+        Adessoplatz 1<br>
+        44269 Dortmund<br>
+        Deutschland<br>
+        <br>
+        Tel.: +49 231 7000-7000<br>
+        E-Mail: info@adesso.de<br>
+        Website: www.adesso.de<br>
+        <br>
+        Zuständige Aufsichtsbehörde<br> 
+        Landesbeauftragte für Datenschutz und Informationsfreiheit<br>
+        Nordrhein-Westfalen<br>
+        Kavalleriestr. 2-4<br>
+        40213 Düsseldorf <br>
+    </p>
+
+    <!-- 3. -->
+    <button class="col-12 btn btn-info btn-heading" (click)="toggleChapterVisibility(2)">
+      {{"PRIVACY_HEADING3" | translate}}
+    </button>
+
+    <p *ngIf="chaptersVisible[2].isVisible" class="card-text">
+      Verantwortlich für die Internetangebote ist die adesso AG, Stockholmer Allee 20, 44269 Dortmund,
+      <br>
+      kurz: adesso, (nachfolgend auch wir/uns).
+      <br>
+      <br>
+      Nachfolgend möchten wir Sie umfassend und im Detail informieren, wie wir Ihre Privatsphäre schützen und wie
+      eine Verarbeitung von personenbezogenen Daten im Rahmen unsere Webseiten und/oder Online-Angebote erfolgt.
+      Personenbezogene Daten werden sobald wie möglich wieder gelöscht und niemals ohne Ihr Einverständnis zu
+      Werbezwecken verwendet oder weitergegeben.
+      Soweit die nachfolgenden Informationen nicht ausreichend oder nicht verständlich sein sollten, zögern Sie
+      nicht, unseren Datenschutzbeauftragten unter den in Ziffer II genannten Kontaktdetails zu kontaktieren.
+    </p>
+
+    <!-- 4. -->
+    <button class="col-12 btn btn-info btn-heading" (click)="toggleChapterVisibility(3)">
+      {{"PRIVACY_HEADING4" | translate}}
+    </button>
+
+    <p *ngIf="chaptersVisible[3].isVisible" class="card-text">
+      Verantwortlich für die Internetangebote ist die adesso AG, Stockholmer Allee 20, 44269 Dortmund,
+      <br>
+      kurz: adesso, (nachfolgend auch wir/uns).
+      <br>
+      <br>
+      Nachfolgend möchten wir Sie umfassend und im Detail informieren, wie wir Ihre Privatsphäre schützen und wie
+      eine Verarbeitung von personenbezogenen Daten im Rahmen unsere Webseiten und/oder Online-Angebote erfolgt.
+      Personenbezogene Daten werden sobald wie möglich wieder gelöscht und niemals ohne Ihr Einverständnis zu
+      Werbezwecken verwendet oder weitergegeben.
+      Soweit die nachfolgenden Informationen nicht ausreichend oder nicht verständlich sein sollten, zögern Sie
+      nicht, unseren Datenschutzbeauftragten unter den in Ziffer II genannten Kontaktdetails zu kontaktieren.
+    </p>
+
+    <!-- 5. -->
+    <button class="col-12 btn btn-info btn-heading" (click)="toggleChapterVisibility(4)">
+      {{"PRIVACY_HEADING5" | translate}}
+    </button>
+
+    <p *ngIf="chaptersVisible[4].isVisible" class="card-text">
+      Verantwortlich für die Internetangebote ist die adesso AG, Stockholmer Allee 20, 44269 Dortmund,
+      <br>
+      kurz: adesso, (nachfolgend auch wir/uns).
+      <br>
+      <br>
+      Nachfolgend möchten wir Sie umfassend und im Detail informieren, wie wir Ihre Privatsphäre schützen und wie
+      eine Verarbeitung von personenbezogenen Daten im Rahmen unsere Webseiten und/oder Online-Angebote erfolgt.
+      Personenbezogene Daten werden sobald wie möglich wieder gelöscht und niemals ohne Ihr Einverständnis zu
+      Werbezwecken verwendet oder weitergegeben.
+      Soweit die nachfolgenden Informationen nicht ausreichend oder nicht verständlich sein sollten, zögern Sie
+      nicht, unseren Datenschutzbeauftragten unter den in Ziffer II genannten Kontaktdetails zu kontaktieren.
+    </p>
+
+
+    <!-- 6. -->
+    <button class="col-12 btn btn-info btn-heading" (click)="toggleChapterVisibility(5)">
+      {{"PRIVACY_HEADING6" | translate}}
+    </button>
+
+    <p *ngIf="chaptersVisible[5].isVisible" class="card-text">
+      Verantwortlich für die Internetangebote ist die adesso AG, Stockholmer Allee 20, 44269 Dortmund,
+      <br>
+      kurz: adesso, (nachfolgend auch wir/uns).
+      <br>
+      <br>
+      Nachfolgend möchten wir Sie umfassend und im Detail informieren, wie wir Ihre Privatsphäre schützen und wie
+      eine Verarbeitung von personenbezogenen Daten im Rahmen unsere Webseiten und/oder Online-Angebote erfolgt.
+      Personenbezogene Daten werden sobald wie möglich wieder gelöscht und niemals ohne Ihr Einverständnis zu
+      Werbezwecken verwendet oder weitergegeben.
+      Soweit die nachfolgenden Informationen nicht ausreichend oder nicht verständlich sein sollten, zögern Sie
+      nicht, unseren Datenschutzbeauftragten unter den in Ziffer II genannten Kontaktdetails zu kontaktieren.
+    </p>
+
+    <!-- Declaration of consent -->
+    <button class="col-12 btn btn-info btn-heading" (click)="toggleChapterVisibility(6)">
+      {{"PRIVACY_HEADING_CONSENT" | translate}}
+    </button>
+
+    <p *ngIf="chaptersVisible[6].isVisible" class="card-text">
+      Verantwortlich für die Internetangebote ist die adesso AG, Stockholmer Allee 20, 44269 Dortmund,
+      <br>
+      kurz: adesso, (nachfolgend auch wir/uns).
+      <br>
+      <br>
+      Nachfolgend möchten wir Sie umfassend und im Detail informieren, wie wir Ihre Privatsphäre schützen und wie
+      eine Verarbeitung von personenbezogenen Daten im Rahmen unsere Webseiten und/oder Online-Angebote erfolgt.
+      Personenbezogene Daten werden sobald wie möglich wieder gelöscht und niemals ohne Ihr Einverständnis zu
+      Werbezwecken verwendet oder weitergegeben.
+      Soweit die nachfolgenden Informationen nicht ausreichend oder nicht verständlich sein sollten, zögern Sie
+      nicht, unseren Datenschutzbeauftragten unter den in Ziffer II genannten Kontaktdetails zu kontaktieren.
+    </p>
+
+  </div>
 </div>

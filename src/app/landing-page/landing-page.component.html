@@ -1,4 +1,5 @@
-<div class="global-body-wrapper">
+<div class="global-body-wrapper text-center">
+    <img id="logo" src="assets/images/logo.png">
     <h1 class="display-3">Facenality</h1>
     <p class="lead">{{"WELCOME_TEXT_1" | translate}}
         <br>
@@ -89,14 +90,13 @@
 
 <div class="component-body-wrapper">
     <form [formGroup]="cattells16Form">
-        <landing-page-dynamic-form *ngIf="false" [form]="cattells16Form" [questions]="cattells16Questions"
+        <landing-page-dynamic-form *ngIf="!isCattells16FormComplete" [form]="cattells16Form" [questions]="cattells16Questions"
             (formResults)="onCattells16FormComplete()"></landing-page-dynamic-form>
     </form>
 </div>
 
 <div class="global-body-wrapper">
-    <!-- isCattells16FormComplete -->
-    <landing-page-general-info-form *ngIf="true" (formResults)="submitQuestionnaire($event)"></landing-page-general-info-form>
+    <landing-page-general-info-form *ngIf="isCattells16FormComplete" (formResults)="submitQuestionnaire($event)"></landing-page-general-info-form>
 </div>
 
 <!-- Webcam instance/preview in right corner -->
