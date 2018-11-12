@@ -85,7 +85,7 @@
       <!-- Main image -->
       <div class="col-9 text-center">
         <img class="img-fluid" src={{questionnaire.photos[0]}}>
-        <label><span class="badge badge-pill badge-info global-font">{{descriptionLabel | translate}}</span></label>
+        <label style="margin-top: 3%;"><span class="badge badge-pill badge-info global-font">{{descriptionLabel | translate}}</span></label>
         <small class="form-text text-muted">
           <i class="fa fa-hand-pointer-o text-primary" aria-hidden="true"></i>
           {{"RESULT_HINT_SWAP_IMAGE" | translate}}
@@ -137,22 +137,29 @@
       </div>
     </div> -->
 
-    <div *ngIf="false" class="row" style="margin-top: 5%;">
-      <h1 class="col-12" style="text-align: center; margin-top: 2%; margin-bottom: 6%;">
+    <div *ngIf="barChartDataDE !== undefined" class="row">
+      <h1 class="col-12" style="text-align: center; margin-top: 2%; margin-bottom: 2%;">
         {{"RESULT_QUESTIONNAIRE_EVALUATION" | translate}}
       </h1>
 
-      <div *ngIf="activeLanguage === 'de'" class="col-12" style="height: 50%;">
-        <canvas baseChart [datasets]="barChartDataDE" [labels]="barChartLabelsDE" [options]="barChartOptions"
-          [legend]="barChartLegend" [chartType]="barChartType"></canvas>
+      <div *ngIf="activeLanguage === 'de'" class="col-12">
+        <canvas baseChart [datasets]="barChartDataDE" [labels]="barChartLabelsDE" [options]="barChartOptions" [legend]="barChartLegend"
+          [chartType]="barChartType"></canvas>
       </div>
 
-      <div *ngIf="activeLanguage === 'en'" class="col-12" style="height: 50%;">
-          <canvas baseChart [datasets]="barChartDataEN" [labels]="barChartLabelsEN" [options]="barChartOptions"
-            [legend]="barChartLegend" [chartType]="barChartType"></canvas>
-        </div>
+      <div *ngIf="activeLanguage === 'en'" class="col-12">
+        <canvas baseChart [datasets]="barChartDataEN" [labels]="barChartLabelsEN" [options]="barChartOptions" [legend]="barChartLegend"
+          [chartType]="barChartType"></canvas>
+      </div>
     </div>
 
-    <!-- <button class="btn btn-success btn-block" (click)="printResultToPdf()">{{"BTN_PRINT_PDF" | translate}}</button> -->
+    <button class="btn btn-success btn-block" [disabled]="true" (click)="printResultToPdf()" style="margin-top: 5%;">
+      {{"BTN_PRINT_PDF" | translate}}
+    </button>
+    <ngb-alert class="text-center" [type]="'info'" [dismissible]="false" style="margin-top: 1%;">
+        {{"UNDER_CONSTRUCTION_NOTICE1" | translate}}<br>
+        {{"UNDER_CONSTRUCTION_NOTICE_PDF" | translate}}
+        {{"UNDER_CONSTRUCTION_NOTICE_APOLOGY" | translate}}
+      </ngb-alert>
   </div>
 </div>

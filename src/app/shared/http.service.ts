@@ -23,6 +23,10 @@ export class HttpService {
     );
   }
 
+  getTestAverage(id): Observable<number []> {
+    return this.http.get<number []>(`${this.apiUrl}/get-test-average/${id}`);
+  }
+
   /**
  * Handle Http operation that failed.
  * Let the app continue.
