@@ -9,7 +9,7 @@ export class Questionnaire {
     id: number;
     email: string;
     photos: string[];
-    cattells16Questions;
+    cattells16Questions: {key: string, value: number}[];
     age: number;
     gender: number;
     timeElapsedInSeconds: number;

@@ -24,8 +24,10 @@
     "@ngstack/translate": "^0.5.0",
     "adm-zip": "^0.4.11",
     "angular-font-awesome": "^3.1.2",
+    "chart.js": "^2.7.3",
     "core-js": "^2.5.4",
     "font-awesome": "^4.7.0",
+    "ng2-charts": "^1.6.0",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },

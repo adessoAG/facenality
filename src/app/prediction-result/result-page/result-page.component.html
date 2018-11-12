@@ -1,6 +1,6 @@
 <div id="pageTitle" #pageTitle class="global-body-wrapper" scrollToTop>
   <h1 class="display-3">{{"RESULT" | translate}}</h1>
-  <hr class="my-4" style="margin-left: 0%;">
+  <hr class="my-4" style="margin-left: 0%; margin-right: 0%;">
 
   <div *ngIf="questionnaire === undefined" class="container" style="margin-top: 4%;">
 
@@ -117,8 +117,8 @@
 
   <!-- Cattells' 16 questionnaire result-->
   <div *ngIf="questionnaire !== undefined" class="container" style="margin-top: 4%;">
-    <hr class="my-4" style="margin-left: -2%;">
-
+    <hr class="my-4" style="margin-left: -2%; margin-right: 0%;">
+    <!-- 
     <div class="row">
       <div class="col-md-12">
         <div class="content-unavailable-template">
@@ -135,24 +135,22 @@
           </p>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <div class="row">
-      <div class="col-md-12">
-        <div class="content-unavailable-template">
-          <h1 class="col-12" style="text-align: center; margin-top: 2%; margin-bottom: 6%;">
-            {{"RESULT_QUESTIONNAIRE_EVALUATION" | translate}}
-          </h1>
-          <i class="fa fa-5x fa-bar-chart text-warning" aria-hidden="true"></i>
+    <div *ngIf="false" class="row" style="margin-top: 5%;">
+      <h1 class="col-12" style="text-align: center; margin-top: 2%; margin-bottom: 6%;">
+        {{"RESULT_QUESTIONNAIRE_EVALUATION" | translate}}
+      </h1>
 
-          <h3 class="col-12" style="text-align: center; margin-top: 6%; margin-bottom: 1%;">
-            {{"UNDER_CONSTRUCTION_NOTICE1" | translate}}
-          </h3>
-          <p class="col-12 text-primary global-font" style="text-align: center; margin-bottom: 6%;">
-            {{"UNDER_CONSTRUCTION_NOTICE_APOLOGY" | translate}}
-          </p>
-        </div>
+      <div *ngIf="activeLanguage === 'de'" class="col-12" style="height: 50%;">
+        <canvas baseChart [datasets]="barChartDataDE" [labels]="barChartLabelsDE" [options]="barChartOptions"
+          [legend]="barChartLegend" [chartType]="barChartType"></canvas>
       </div>
+
+      <div *ngIf="activeLanguage === 'en'" class="col-12" style="height: 50%;">
+          <canvas baseChart [datasets]="barChartDataEN" [labels]="barChartLabelsEN" [options]="barChartOptions"
+            [legend]="barChartLegend" [chartType]="barChartType"></canvas>
+        </div>
     </div>
 
     <!-- <button class="btn btn-success btn-block" (click)="printResultToPdf()">{{"BTN_PRINT_PDF" | translate}}</button> -->

@@ -51,8 +51,6 @@ export class QuestionService {
       }
     }
     
-    // Remove last element, because the last category specifies only 9 questions
-    finalQuestionKeys.pop();
     return finalQuestionKeys;
   }
 
