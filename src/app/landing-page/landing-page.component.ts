@@ -9,6 +9,7 @@ import { QuestionBase } from './dynamic-form/types/question-base';
 import { Questionnaire } from './dynamic-form/types/questionnaire';
 import { ImageComponent } from '../shared/image/image.component';
 import { DataExchangeService } from '../shared/data-exchange.service';
+import { TranslateService } from '@ngstack/translate';
 
 @Component({
   selector: 'landing-page',
@@ -41,14 +42,22 @@ export class LandingPageComponent implements OnInit {
 
   @ViewChildren(ImageComponent) images: QueryList<ImageComponent>
 
+  activeLanguage: string;
+
+
   constructor(private qcs: QuestionControlService, private qs: QuestionService, private httpService: HttpService,
-    private router: Router, private dataExchangeService: DataExchangeService) { }
+    private router: Router, private dataExchangeService: DataExchangeService, private translate: TranslateService) { }
 
   ngOnInit() {
     this.cattells16Questions = this.qs.getQuestions();
     this.cattells16Form = this.qcs.toFormGroup(this.cattells16Questions);
 
     this.userStartTime = new Date().getSeconds();
+
+    this.activeLanguage = this.translate.activeLang;
+    this.translate.activeLangChanged.subscribe(lang => {
+      this.activeLanguage = lang.currentValue;
+    });
   }
 
   onCattells16FormComplete() {

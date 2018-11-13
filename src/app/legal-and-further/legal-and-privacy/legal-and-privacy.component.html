@@ -54,6 +54,57 @@
 
   <h1 id="privacy-header" class="display-4">{{"PRIVACY" | translate}}</h1>
   <div class="row card-body text-block global-font">
+    <!-- Declaration of consent -->
+    <button class="col-12 btn btn-success btn-heading" (click)="toggleChapterVisibility(6)">
+      {{"PRIVACY_HEADING_CONSENT" | translate}}
+    </button>
+
+    <p *ngIf="activeLanguage === 'de' && chaptersVisible[6].isVisible" class="card-text">
+      Ich bin damit einverstanden, dass die von mir bereitgestellten Daten zum Training eines neuronalen Netzwerks
+      verwendet werden.<br>
+      <br>
+      Die hierbei gesammelten Daten bestehen aus Email, Alter, Geschlecht, einem Fragenbogen zur Persönlichkeit, der,
+      zum Ausfüllen des Fragebogens, benötigen Zeit und vier Bildern mit vier Gesichtsausdrücken, die hochgeladen, oder
+      mit Hilfe der Webcam, aufgenommen wurden.<br>
+      Bis auf das Alter und Geschlecht sind alle Daten verpflichtend, um mit der Anwendung fortfahren zu können.<br>
+      <br>
+      Das neuronale Netzwerk liefert als Ergebnis, eine Vorhersage, welche die Ausprägung meiner
+      Persönlichkeitsmerkmale einschätzt. Die hierbei getroffene Vorhersage dient ausschließlich wissenschaftlichem
+      Zweck und erforscht ob und wie zuverlässig Persönlichkeitsmerkmale anhand von Gesichtsmerkmalen hergeleitet
+      werden können.<br>
+      Es besteht kein Anspruch auf Richtigkeit der Ergebnisse.<br>
+      <br>
+      Die gesammelten Daten werden streng vertraulich behandelt, keinesfalls an Dritte weitergegeben und gelöscht,
+      sobald sie für die Erreichung des Zweckes ihrer Erhebung nicht mehr erforderlich sind.<br>
+      <br>
+      Aufgrund der beschränkten Identifikationsmöglichkeit, ist die vorzeitige Löschung und Auskunft meiner Daten bei
+      Verlust meiner persönlichen Identifikationsnummer nicht möglich. Die Identifikationsnummer wird auf der
+      Ergebnisseite nach absenden der Daten eingeblendet und zusätzlich per Email zugesandt.<br>
+      <br>
+    </p>
+
+    <p *ngIf="activeLanguage === 'en' && chaptersVisible[6].isVisible" class="card-text">
+      I agree that the data provided by me will be used to train a neural network.<br>
+      <br>
+      The collected data consists of email, age, gender, a personality questionnaire, the required time to fill out the
+      questionnaire
+      and four images with four facial expressions that are uploaded, or captured with the help of the webcam.<br>
+      Except for age and sex, all data are mandatory to continue with the application.<br>
+      <br>
+      As a result, the neuronal network provides a prediction of my personality traits.
+      The prediction made here serves an exclusively scientific purpose and investigates whether and how reliably
+      personality traits can be derived from facial features.<br>
+      There is no claim for correctness of the results.<br>
+      <br>
+      The collected data will be treated strictly confidential, will not be passed on to third parties and will be
+      deleted
+      as soon as they are no longer necessary to achieve the purpose of the survey.<br>
+      <br>
+      Due to the limited identification possibility, the premature deletion and information of my data is not possible
+      without my personal identification number. The identification number will be printed on the
+      result page after submiting the data and additionaly sent by email.
+    </p>
+
     <!-- 1. -->
     <button class="col-12 btn btn-info btn-heading" (click)="toggleChapterVisibility(0)">
       {{"PRIVACY_HEADING1" | translate}}
@@ -838,57 +889,6 @@
       <strong>7. legal protection possibilities / right of appeal to a supervisory authority</strong><br>
       In the event of a complaint, you may at any time contact the competent supervisory authority of the Union or the
       Member States. The supervisory authority mentioned in section II is responsible for our company.
-    </p>
-
-    <!-- Declaration of consent -->
-    <button class="col-12 btn btn-info btn-heading" (click)="toggleChapterVisibility(6)">
-      {{"PRIVACY_HEADING_CONSENT" | translate}}
-    </button>
-
-    <p *ngIf="activeLanguage === 'de' && chaptersVisible[6].isVisible" class="card-text">
-      Ich bin damit einverstanden, dass die von mir bereitgestellten Daten zum Training eines neuronalen Netzwerks
-      verwendet werden.<br>
-      <br>
-      Die hierbei gesammelten Daten bestehen aus Email, Alter, Geschlecht, einem Fragenbogen zur Persönlichkeit, der,
-      zum Ausfüllen des Fragebogens, benötigen Zeit und vier Bildern mit vier Gesichtsausdrücken, die hochgeladen, oder
-      mit Hilfe der Webcam, aufgenommen wurden.<br>
-      Bis auf das Alter und Geschlecht sind alle Daten verpflichtend, um mit der Anwendung fortfahren zu können.<br>
-      <br>
-      Das neuronale Netzwerk liefert als Ergebnis, eine Vorhersage, welche die Ausprägung meiner
-      Persönlichkeitsmerkmale einschätzt. Die hierbei getroffene Vorhersage dient ausschließlich wissenschaftlichem
-      Zweck und erforscht ob und wie zuverlässig Persönlichkeitsmerkmale anhand von Gesichtsmerkmalen hergeleitet
-      werden können.<br>
-      Es besteht kein Anspruch auf Richtigkeit der Ergebnisse.<br>
-      <br>
-      Die gesammelten Daten werden streng vertraulich behandelt, keinesfalls an Dritte weitergegeben und gelöscht,
-      sobald sie für die Erreichung des Zweckes ihrer Erhebung nicht mehr erforderlich sind.<br>
-      <br>
-      Aufgrund der beschränkten Identifikationsmöglichkeit, ist die vorzeitige Löschung und Auskunft meiner Daten bei
-      Verlust meiner persönlichen Identifikationsnummer nicht möglich. Die Identifikationsnummer wird auf der Ergebnis
-      Seite nach absenden der Daten eingeblendet und zusätzlich per Email zugesandt.<br>
-      <br>
-    </p>
-
-    <p *ngIf="activeLanguage === 'en' && chaptersVisible[6].isVisible" class="card-text">
-      I agree that the data provided by me will be used to train a neural network.<br>
-      <br>
-      The collected data consists of email, age, gender, a personality questionnaire, the required time to fill out the
-      questionnaire
-      and four images with four facial expressions that are uploaded, or captured with the help of the webcam.<br>
-      Except for age and sex, all data are mandatory to continue with the application.<br>
-      <br>
-      As a result, the neuronal network provides a prediction of my personality traits.
-      The prediction made here serves an exclusively scientific purpose and investigates whether and how reliably
-      personality traits can be derived from facial features.<br>
-      There is no claim for correctness of the results.<br>
-      <br>
-      The collected data will be treated strictly confidential, will not be passed on to third parties and will be
-      deleted
-      as soon as they are no longer necessary to achieve the purpose of the survey.<br>
-      <br>
-      Due to the limited identification possibility, the premature deletion and information of my data is not possible
-      without my personal identification number. The identification number will be printed on the
-      result page after submiting the data and additionaly sent by email.
     </p>
 
   </div>

@@ -22,12 +22,12 @@
       </div>
       <hr class="my-4">
       <p #questionnaireStart class="col-12 badge-secondary" style="margin: 4% 0 -1% -1%;">{{"PROGRESS" | translate}}:
-        <ngb-progressbar class="col" type="success" showValue="true" [value]="page-1" [max]="maxPages+1" [striped]="true"></ngb-progressbar>
+        <ngb-progressbar class="col" type="success" showValue="true" [value]="page-1" [max]="maxPages" [striped]="true"></ngb-progressbar>
       </p>
     </div>
   </div>
 
-  <div *ngIf="page < maxPages" class="row">
+  <div class="row">
     <div class="col-12" *ngFor="let question of pagedItems">
       <p class="badge-primary global-font" style="text-align: center; margin: 0 15%;">{{question.key | translate}}</p>
 
@@ -51,7 +51,7 @@
 
     <!-- Submit -->
     <button *ngIf="showResultButton" class="btn btn-success col" type="submit" style="margin: 0 15%; width: 100%;"
-      (click)="submitResults()">{{"BTN_SUBMIT" | translate}}
+      (click)="submitResults()">{{"BTN_LAST_PAGE" | translate}}
     </button>
 
   </div>

@@ -4,6 +4,15 @@
     padding-left: 5%;
 }
 
+.intro-text {
+    font-size: 20px; 
+    text-align: justify;
+}
+
+li {
+    margin-top: 2.5%;
+}
+
 .row-margin {
     margin: 2% 2%
 }

@@ -1,11 +1,68 @@
 <div class="global-body-wrapper text-center" scrollToTop>
     <img id="logo" src="assets/images/logo.png">
     <h1 class="display-3">Facenality</h1>
-    <p class="lead">{{"WELCOME_TEXT_1" | translate}}
-        <br>
-        {{"WELCOME_TEXT_2" | translate}}
-    </p>
-    <h4> {{"SLOGAN" | translate}}</h4>
+    <br>
+    <ng-container *ngIf="activeLanguage === 'de'">
+        <p class="text-primary intro-text">
+            Laut einer verbreiteten <a class="text-danger" href="https://www.huffingtonpost.de/2015/04/16/suche-nach-dem-doppelgaenger_n_7078760.html"
+                target="_blank">Statistik</a>, hat jeder Mensch sieben
+            Doppelgänger auf der Welt. Das ist nicht überaschend. Im Laufe des Lebens haben wir viele Menschen
+            getroffen,
+            die Ähnlichkeit zu anderen haben.
+            Interessant wird es, wenn man beobachtet und feststellt, dass Menschen die sich ähnlich sehen, meist nicht
+            nur ähnliche <strong>Gesichtsmerkmale</strong>, sondern auch ähnliche <strong>Verhaltensmerkmale</strong>
+            aufweisen.
+            <br>
+            <br>
+        </p>
+        <p class="text-primary intro-text paragraph-spacing">Das möchte ich mit Facenality wissenschaftlich
+            untersuchen.
+            Hier die wichtigsten Informationen zur Seite:</p>
+        <ul class="intro-text text-primary">
+            <li><a class="text-danger" routerLink="/about">Mehr über das Projekt</a></li>
+            <li><a class="text-danger" routerLink="/legal-and-privacy">Deine Daten sind sicher: Mehr zum Datenschutz</a></li>
+        </ul>
+        <p class="text-primary intro-text paragraph-spacing" style="margin-top: 5%;">Die Ziele der Arbeit:</p>
+        <ul class="intro-text text-primary">
+            <li>{{"GOAL1" | translate}}</li>
+            <li>{{"GOAL2" | translate}}</li>
+            <li>{{"GOAL3" | translate}}</li>
+            <li><a class="text-danger" href="https://www.researchgate.net/publication/318159328_Physiognomy_Personality_traits_prediction_by_learning"
+                    target="_blank">Chinesiche Forscher haben bereits positive Ergbnisse erzielt.</a></li>
+        </ul>
+    </ng-container>
+
+    <ng-container *ngIf="activeLanguage === 'en'">
+        <p class="text-primary intro-text">
+            According to a widespread <a class="text-danger" href="https://www.huffingtonpost.de/2015/04/16/suche-nach-dem-doppelgaenger_n_7078760.html"
+                target="_blank">statistic</a>, every human being has seven
+            doppelgänger in the world. That's not surprising.
+            In the course of life we have met many people who are similar to others.
+            It becomes interesting when one observes and realizes that people who look similar, usually do not
+            only have similar <strong>facial features</strong>, but also similar <strong>behavioral features</strong>.
+            <br>
+            <br>
+        </p>
+        <p class="text-primary intro-text paragraph-spacing">I would like to investigate this scientifically with
+            Facenality.
+            Here is the most important information about the site:</p>
+        <ul class="intro-text text-primary">
+            <li><a class="text-danger" routerLink="/about">More about the project</a></li>
+            <li><a class="text-danger" routerLink="/legal-and-privacy">Your data is secure: More about privacy</a></li>
+        </ul>
+        <p class="text-primary intro-text paragraph-spacing" style="margin-top: 5%;">Die Ziele der Arbeit:</p>
+        <ul class="intro-text text-primary">
+            <li>{{"GOAL1" | translate}}</li>
+            <li>{{"GOAL2" | translate}}</li>
+            <li>{{"GOAL3" | translate}}</li>
+            <li><a class="text-danger" href="https://www.researchgate.net/publication/318159328_Physiognomy_Personality_traits_prediction_by_learning"
+                    target="_blank">Chinese researchers have already achieved positive results.</a></li>
+        </ul>
+    </ng-container>
+
+    <br>
+    <br>
+    <h4 style="font-size: 24px"> {{"SLOGAN" | translate}}</h4>
 </div>
 
 <hr class="my-4">
@@ -102,7 +159,7 @@
 </div>
 
 <div class="global-body-wrapper">
-    <landing-page-general-info-form *ngIf="true" (formResults)="submitQuestionnaire($event)"></landing-page-general-info-form>
+    <landing-page-general-info-form *ngIf="isCattells16FormComplete" (formResults)="submitQuestionnaire($event)"></landing-page-general-info-form>
 </div>
 
 <!-- Webcam instance/preview in right corner -->

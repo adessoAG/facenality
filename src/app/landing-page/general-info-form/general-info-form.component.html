@@ -31,7 +31,7 @@
     <div class="col">
       <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" type="email"
         [formControl]="form.controls['email']">
-      <small id="emailHelp" class="form-text text-muted">{{"GENERAL_INFO_FORM_HINT_VALUE_OPTIONAL" | translate}}</small>
+      <small id="emailHelp" class="form-text text-muted">{{"GENERAL_INFO_FORM_HINT_EMAIL" | translate}}</small>
     </div>
 
     <div class="w-100" style="margin-bottom: 2%;"></div>
@@ -49,5 +49,6 @@
 
     <button type="submit" class="btn btn-success" style="width: 100%;" (click)="onSubmit()" [disabled]="!form.valid">
       {{"BTN_SUBMIT" | translate}}</button>
+      <small id="emailHelp" class="form-text text-muted text-center" style="width: 100%;">{{"GENERAL_INFO_FORM_PRIVACY_HINT" | translate}}</small>
   </fieldset>
 </form>

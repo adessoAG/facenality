@@ -15,14 +15,15 @@ export class DynamicFormQuestionComponent {
   @Output() formResults = new EventEmitter<any>();
 
   page = 1;
-  itemsPerPage = 11;
+  itemsPerPage = 16;
   maxPages;
   pagedItems: any[];
 
   showResultButton = false;
 
   ngOnInit() {
-    this.maxPages = Math.round(this.questions.length / this.itemsPerPage) + 1;
+    this.maxPages = Math.round(this.questions.length / this.itemsPerPage);
+    
     // Initialize first page of questionnaire
     this.loadNextPage();
   }
@@ -39,7 +40,7 @@ export class DynamicFormQuestionComponent {
     }
 
     this.page++;
-    if (this.page > this.maxPages) { this.showResultButton = true; }
+    if (end === 160) { this.showResultButton = true; }
   }
 
   loadLastPage(scrollTarget) {
