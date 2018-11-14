@@ -34,11 +34,17 @@ export class ResultPageComponent implements OnInit {
   constructor(private dataExchangeService: DataExchangeService, private translate: TranslateService, private httpService: HttpService) { }
 
   ngOnInit() {
-    this.dataExchangeService.getData().subscribe((questionnaire) => {
-      setTimeout(() => {
-        this.questionnaire = questionnaire; this.prepareChart(), 1500; // Just for the "feeling". Evaluate if necessary, 1500
-      }); // Just for the "feeling". Evaluate if necessary
+    setTimeout(() => {
+      this.questionnaire = this.dataExchangeService.questionnaire;
+      this.prepareChart(), 1500; // Just for the "feeling". Evaluate if necessary, 1500
     });
+
+    // ERROR: There seems to be a loading problem when using Subject. Might be different with BehaviourSubject
+    /*  this.dataExchangeService.getData().subscribe((questionnaire) => {
+       setTimeout(() => {
+         this.questionnaire = questionnaire; this.prepareChart(), 1500; // Just for the "feeling". Evaluate if necessary, 1500
+       }); // Just for the "feeling". Evaluate if necessary
+     }); */
     //this.questionnaire.id = 1337; // DEV MODE 
     this.translate.activeLangChanged.subscribe(lang => this.activeLanguage = lang.currentValue);
   }

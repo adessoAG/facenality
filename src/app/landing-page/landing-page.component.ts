@@ -74,10 +74,11 @@ export class LandingPageComponent implements OnInit {
 
     this.httpService.sendQuestionnaire(questionnaireJSON).subscribe(id => {
       this.questionnaireFinal.id = id;
-      this.dataExchangeService.sendData(this.questionnaireFinal);
+      this.dataExchangeService.questionnaire = this.questionnaireFinal;
+      this.router.navigateByUrl("/result");
+      //this.dataExchangeService.sendData(this.questionnaireFinal);
     });
 
-    this.router.navigateByUrl("/result");
   }
 
   createfinalQuestionnaire(): Questionnaire {
