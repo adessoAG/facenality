@@ -64,6 +64,10 @@ export class ResultPageComponent implements OnInit {
 
   prepareChart() {
     this.httpService.getTestAverage(this.questionnaire.id).subscribe((resultArray) => {
+      // Workaround for setting min and max values on the graph
+      resultArray.push(0);
+      resultArray.push(5);
+
       this.barChartDataDE = [
         { data: resultArray, label: "Ergebnis" }
         /* { data: [], label: "Vorhersage"} */
