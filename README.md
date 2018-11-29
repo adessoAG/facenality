@@ -1,27 +1,22 @@
 # Facenality
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+According to a widespread [statistic](https://www.huffingtonpost.de/2015/04/16/suche-nach-dem-doppelgaenger_n_7078760.html), every human being has seven doppelgänger in the world. That's not surprising. 
+In the course of life we have met many people who are similar to others. It becomes interesting when one observes and realizes that people who look similar, usually do not only have **similar facial** features, but also **similar behavioral features**.
 
-## Development server
+Facenality is here to investigate this matter scientifically by collecting photos of faces and personality reports,
+to be evaluated by a Convolutional Neural Network(CNN).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+A team of [chinese scientists](https://www.researchgate.net/publication/318159328_Physiognomy_Personality_traits_prediction_by_learning) has been faster than I and achieved positive results in 06/17 - Nice work there!
 
-## Code scaffolding
+--
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This repository contains the Angular Frontend for aggregating data and allowing users to get predictions from images.
+Please mind that the official website is **not public available right now**. 
 
-## Build
+Stay tuned for further informations and checkout:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- [The Backend](https://github.com/adessoAG/facenality-backend)
+- [The Deep Learning Model](https://github.com/adessoAG/facenality-model)
 
-## Running unit tests
+Many thanks to every participant of the study! - Your data is handled securely and will never be shared.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
