@@ -27,6 +27,19 @@ export class HttpService {
     return this.http.get<number []>(`${this.apiUrl}/get-test-average/${id}`);
   }
 
+  requestPrediction(photo): Observable<any> {
+    return this.http.post<any>(this.apiUrl + "/get-prediction", photo, this.httpOptions).pipe(
+      catchError(this.handleError<number>('sendQuestionnaire'))
+    );
+  }
+
+  postPrediction(img): Observable<any> {
+    return this.http.post<any>("http://localhost:5000/predict", img);
+  }
+
+  postPrediction2(img): Observable<any> {
+    return this.http.post<any>("http://localhost:5000/predict2", img);
+  }
   /**
  * Handle Http operation that failed.
  * Let the app continue.

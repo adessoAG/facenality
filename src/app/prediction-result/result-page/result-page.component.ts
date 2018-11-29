@@ -36,7 +36,20 @@ export class ResultPageComponent implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       this.questionnaire = this.dataExchangeService.questionnaire;
-      this.prepareChart(), 1500; // Just for the "feeling". Evaluate if necessary, 1500
+      const prediction = this.dataExchangeService.prediction;
+
+      if (prediction !== undefined) {
+        this.questionnaire = new Questionnaire("?", this.dataExchangeService.photos, null, "?", "?", "?")
+        this.questionnaire.id = 0;
+        this.questionnaire.photos = this.dataExchangeService.photos;
+
+        this.prepareChart(prediction);
+      }
+      else {
+        this.httpService.getTestAverage(this.questionnaire.id).subscribe((resultArray) => {
+          this.prepareChart(resultArray);
+        }), 1500; // Just for the "feeling". Evaluate if necessary, 1500
+      }
     });
 
     // ERROR: There seems to be a loading problem when using Subject. Might be different with BehaviourSubject
@@ -62,21 +75,18 @@ export class ResultPageComponent implements OnInit {
 
   printResultToPdf() { }
 
-  prepareChart() {
-    this.httpService.getTestAverage(this.questionnaire.id).subscribe((resultArray) => {
-      // Workaround for setting min and max values on the graph
-      resultArray.push(0);
-      resultArray.push(5);
+  prepareChart(resultArray) {
+    // Workaround for setting min and max values on the graph
+    resultArray.push(0);
+    resultArray.push(5);
 
-      this.barChartDataDE = [
-        { data: resultArray, label: "Ergebnis" }
-        /* { data: [], label: "Vorhersage"} */
-      ];
-      this.barChartDataEN = [
-        { data: resultArray, label: "Result" }
-        /* { data: [], label: "Prediction"} */
-      ]
-    });
+    this.barChartDataDE = [
+      { data: resultArray, label: "Ergebnis" }
+      /* { data: [], label: "Vorhersage"} */
+    ];
+    this.barChartDataEN = [
+      { data: resultArray, label: "Result" }
+      /* { data: [], label: "Prediction"} */
+    ]
   }
-
 }

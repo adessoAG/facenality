@@ -6,12 +6,12 @@
 
   <!-- Button visbility depends on boolean parameter passed by parent component -->
   <div *ngIf="!buttonsNotVisible" class="row" style="margin-top: 2%;">
-    <button type="button" class="btn btn-primary col" (click)="onRequestWebcamCapture()">
+    <button type="button" class="btn btn-outline-primary col" (click)="onRequestWebcamCapture()">
       <i class="fa fa-camera container-fa"></i>&nbsp; Webcam
     </button>
 
     <input #fileInput type="file" (change)="onImageUpload($event)" style="display: none">
-    <button type="button" class="btn btn-primary col" (click)="fileInput.click()">
+    <button type="button" class="btn btn-outline-primary col" (click)="fileInput.click()">
       <i class="fa fa-upload"></i>&nbsp; Upload
     </button>
   </div>

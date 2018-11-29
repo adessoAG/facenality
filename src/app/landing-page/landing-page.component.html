@@ -66,101 +66,181 @@
 </div>
 
 <hr class="my-4">
+<ng-container *ngIf="dataCollectMode">
 
-<h2 class="display-4 col-12" style="text-align: center;">I. {{"CAPTION_PICTURES" | translate}}</h2>
+    <h2 class="display-4 col-12" style="text-align: center;">I. {{"CAPTION_PICTURES" | translate}}</h2>
 
-<div #webcam class="card border-primary mb-3" style="margin: 2% 15%;">
-    <!-- Webcam switch -->
-    <div class="card-header text-white bg-info">
-        <div class="form-group row" ngbRadioGroup name="radioBasic" [(ngModel)]="webcamUserPermission" style="margin-bottom: -2%;">
-            <div class="custom-control my-auto">
-                <legend><i class="fa fa-video-camera"></i>&nbsp; Webcam:</legend>
+    <div #webcam class="card border-primary mb-3" style="margin: 2% 15%;">
+        <!-- Webcam switch -->
+        <div class="card-header text-white bg-info">
+            <div class="form-group row" ngbRadioGroup name="radioBasic" [(ngModel)]="webcamUserPermission" style="margin-bottom: -2%;">
+                <div class="custom-control my-auto">
+                    <legend><i class="fa fa-video-camera"></i>&nbsp; Webcam:</legend>
+                </div>
+                <div class="custom-control custom-radio">
+                    <label ngbButtonLabel>
+                        <input ngbButton type="radio" [value]="1"> {{"WEBCAM_ON" | translate}}
+                    </label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <label ngbButtonLabel>
+                        <input ngbButton type="radio" [value]="0"> {{"WEBCAM_OFF" | translate}}
+                    </label>
+                </div>
             </div>
-            <div class="custom-control custom-radio">
-                <label ngbButtonLabel>
-                    <input ngbButton type="radio" [value]="1"> {{"WEBCAM_ON" | translate}}
-                </label>
-            </div>
-            <div class="custom-control custom-radio">
-                <label ngbButtonLabel>
-                    <input ngbButton type="radio" [value]="0"> {{"WEBCAM_OFF" | translate}}
-                </label>
+        </div>
+        <!-- Info icons and instructions -->
+        <div class="card-body">
+            <div class="row" style=" white-space: nowrap;">
+                <p class="col text-primary" style="white-space: nowrap;">
+                    <i class="fa fa-3x fa-sun-o" style="vertical-align: middle;"></i>&nbsp;
+                    {{"WEBCAM_INSTRUCTION1" | translate}}
+                </p>
+                <p class="col text-primary" style="white-space: nowrap;">
+                    <i class="fa fa-3x fa-user-circle-o" style=" vertical-align: middle;"></i>&nbsp;
+                    {{"WEBCAM_INSTRUCTION2" | translate}}
+
+                </p>
+                <p class="col text-primary">
+                    <i class="fa fa-3x fa-eye" style=" vertical-align: middle;"></i>&nbsp;
+                    {{"WEBCAM_INSTRUCTION3" | translate}}
+                </p>
+                <p class="col text-primary">
+                    <i class="fa fa-3x fa-camera" style=" vertical-align: middle;"></i>&nbsp;
+                    {{"WEBCAM_INSTRUCTION4" | translate}}
+                </p>
             </div>
         </div>
     </div>
-    <!-- Info icons and instructions -->
-    <div class="card-body">
-        <div class="row" style=" white-space: nowrap;">
-            <p class="col text-primary" style="white-space: nowrap;">
-                <i class="fa fa-3x fa-sun-o" style="vertical-align: middle;"></i>&nbsp;
-                {{"WEBCAM_INSTRUCTION1" | translate}}
-            </p>
-            <p class="col text-primary" style="white-space: nowrap;">
-                <i class="fa fa-3x fa-user-circle-o" style=" vertical-align: middle;"></i>&nbsp;
-                {{"WEBCAM_INSTRUCTION2" | translate}}
 
-            </p>
-            <p class="col text-primary">
-                <i class="fa fa-3x fa-eye" style=" vertical-align: middle;"></i>&nbsp;
-                {{"WEBCAM_INSTRUCTION3" | translate}}
-            </p>
-            <p class="col text-primary">
-                <i class="fa fa-3x fa-camera" style=" vertical-align: middle;"></i>&nbsp;
-                {{"WEBCAM_INSTRUCTION4" | translate}}
-            </p>
+    <!-- Webcam no hardware permission alert -->
+    <ngb-alert #permissionAlert *ngIf="showPermissionAlert" id="webcam-permission-alert" class="global-body-wrapper"
+        [type]="'danger'" (close)="showPermissionAlert = false">
+        It seems your Webcam is deactivated. Please click on the camera symbol next to the adressbar to check, then
+        reload
+        the page.<br>
+        If you still need help, please refer to <a href="https://support.ring.md/hc/en-us/articles/115008801608-Browser-settings-for-enabling-webcam-and-microphone-Mozilla-Firefox-"
+            target="_blank">this guide for Firefox</a>, or <a href="https://support.google.com/chrome/answer/2693767?hl=en"
+            target="_blank">this guide for Chrome</a>.
+    </ngb-alert>
+
+    <!-- Webcam no user permission warning -->
+    <ngb-alert #permissionWarning *ngIf="showPermissionWarning && !webcamUserPermission" id="webcam-permission-alert"
+        class="global-body-wrapper" [type]="'warning'" (close)="showPermissionWarning = false">
+        {{"WEBCAM_PERMISSION_WARNING" | translate}}
+    </ngb-alert>
+
+    <!-- TODO: Adapt to *ngFor? -->
+    <div class="row" style="margin-left: 15%; margin-right: 17%; margin-bottom: 8%;">
+        <div class="col">
+            <shared-image [imageSource]="'assets/images/face-neutral.svg'" [imageDescription]="'DESCRIPTION_NEUTRAL_FACE' | translate"
+                (webcamRequested)="checkWebcamPermission(webcam)"></shared-image>
+        </div>
+        <div class="col">
+            <shared-image [imageSource]="'assets/images/face-happy.svg'" [imageDescription]="'DESCRIPTION_HAPPY_FACE' | translate"
+                (webcamRequested)="checkWebcamPermission(webcam)"></shared-image>
+        </div>
+        <div class="w-100" style="margin-bottom: 2%;"></div>
+        <div class="col">
+            <shared-image [imageSource]="'assets/images/face-sad.svg'" [imageDescription]="'DESCRIPTION_SAD_FACE' | translate"
+                (webcamRequested)="checkWebcamPermission(webcam)"></shared-image>
+        </div>
+        <div class="col">
+            <shared-image [imageSource]="'assets/images/face-random.svg'" [imageDescription]="'DESCRIPTION_RANDOM_FACE' | translate"
+                (webcamRequested)="checkWebcamPermission(webcam)"></shared-image>
         </div>
     </div>
-</div>
 
-<!-- Webcam no hardware permission alert -->
-<ngb-alert #permissionAlert *ngIf="showPermissionAlert" id="webcam-permission-alert" class="global-body-wrapper" [type]="'danger'"
-    (close)="showPermissionAlert = false">
-    It seems your Webcam is deactivated. Please click on the camera symbol next to the adressbar to check, then reload
-    the page.<br>
-    If you still need help, please refer to <a href="https://support.ring.md/hc/en-us/articles/115008801608-Browser-settings-for-enabling-webcam-and-microphone-Mozilla-Firefox-"
-        target="_blank">this guide for Firefox</a>, or <a href="https://support.google.com/chrome/answer/2693767?hl=en"
-        target="_blank">this guide for Chrome</a>.
-</ngb-alert>
+    <h2 class="display-4 col-12" style="text-align: center;">II. {{"CAPTION_QUESTIONNAIRE" | translate}}</h2>
 
-<!-- Webcam no user permission warning -->
-<ngb-alert #permissionWarning *ngIf="showPermissionWarning && !webcamUserPermission" id="webcam-permission-alert" class="global-body-wrapper"
-    [type]="'warning'" (close)="showPermissionWarning = false">
-    {{"WEBCAM_PERMISSION_WARNING" | translate}}
-</ngb-alert>
-
-<!-- TODO: Adapt to *ngFor? -->
-<div class="row" style="margin-left: 15%; margin-right: 17%; margin-bottom: 8%;">
-    <div class="col">
-        <shared-image [imageSource]="'assets/images/face-neutral.svg'" [imageDescription]="'DESCRIPTION_NEUTRAL_FACE' | translate"
-            (webcamRequested)="checkWebcamPermission(webcam)"></shared-image>
+    <div class="component-body-wrapper">
+        <form [formGroup]="cattells16Form">
+            <landing-page-dynamic-form *ngIf="!isCattells16FormComplete" [form]="cattells16Form" [questions]="cattells16Questions"
+                (formResults)="onCattells16FormComplete()"></landing-page-dynamic-form>
+        </form>
     </div>
-    <div class="col">
-        <shared-image [imageSource]="'assets/images/face-happy.svg'" [imageDescription]="'DESCRIPTION_HAPPY_FACE' | translate"
-            (webcamRequested)="checkWebcamPermission(webcam)"></shared-image>
-    </div>
-    <div class="w-100" style="margin-bottom: 2%;"></div>
-    <div class="col">
-        <shared-image [imageSource]="'assets/images/face-sad.svg'" [imageDescription]="'DESCRIPTION_SAD_FACE' | translate"
-            (webcamRequested)="checkWebcamPermission(webcam)"></shared-image>
-    </div>
-    <div class="col">
-        <shared-image [imageSource]="'assets/images/face-random.svg'" [imageDescription]="'DESCRIPTION_RANDOM_FACE' | translate"
-            (webcamRequested)="checkWebcamPermission(webcam)"></shared-image>
-    </div>
-</div>
 
-<h2 class="display-4 col-12" style="text-align: center;">II. {{"CAPTION_QUESTIONNAIRE" | translate}}</h2>
+    <div class="global-body-wrapper">
+        <landing-page-general-info-form *ngIf="isCattells16FormComplete" (formResults)="submitQuestionnaire($event)"></landing-page-general-info-form>
+    </div>
+</ng-container>
 
-<div class="component-body-wrapper">
-    <form [formGroup]="cattells16Form">
-        <landing-page-dynamic-form *ngIf="!isCattells16FormComplete" [form]="cattells16Form" [questions]="cattells16Questions"
-            (formResults)="onCattells16FormComplete()"></landing-page-dynamic-form>
-    </form>
-</div>
+<ng-container *ngIf="!dataCollectMode">
+    <div #webcam class="card border-primary mb-3" style="margin: 2% 15%;">
+        <!-- Webcam switch -->
+        <div class="card-header text-white bg-info">
+            <div class="form-group row" ngbRadioGroup name="radioBasic" [(ngModel)]="webcamUserPermission" style="margin-bottom: -2%;">
+                <div class="custom-control my-auto">
+                    <legend><i class="fa fa-video-camera"></i>&nbsp; Webcam:</legend>
+                </div>
+                <div class="custom-control custom-radio">
+                    <label ngbButtonLabel>
+                        <input ngbButton type="radio" [value]="1"> {{"WEBCAM_ON" | translate}}
+                    </label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <label ngbButtonLabel>
+                        <input ngbButton type="radio" [value]="0"> {{"WEBCAM_OFF" | translate}}
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- Info icons and instructions -->
+        <div class="card-body">
+            <div class="row" style=" white-space: nowrap;">
+                <p class="col text-primary" style="white-space: nowrap;">
+                    <i class="fa fa-3x fa-sun-o" style="vertical-align: middle;"></i>&nbsp;
+                    {{"WEBCAM_INSTRUCTION1" | translate}}
+                </p>
+                <p class="col text-primary" style="white-space: nowrap;">
+                    <i class="fa fa-3x fa-user-circle-o" style=" vertical-align: middle;"></i>&nbsp;
+                    {{"WEBCAM_INSTRUCTION2" | translate}}
 
-<div class="global-body-wrapper">
-    <landing-page-general-info-form *ngIf="isCattells16FormComplete" (formResults)="submitQuestionnaire($event)"></landing-page-general-info-form>
-</div>
+                </p>
+                <p class="col text-primary">
+                    <i class="fa fa-3x fa-eye" style=" vertical-align: middle;"></i>&nbsp;
+                    {{"WEBCAM_INSTRUCTION3" | translate}}
+                </p>
+                <p class="col text-primary">
+                    <i class="fa fa-3x fa-camera" style=" vertical-align: middle;"></i>&nbsp;
+                    {{"WEBCAM_INSTRUCTION4" | translate}}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Webcam no hardware permission alert -->
+    <ngb-alert #permissionAlert *ngIf="showPermissionAlert" id="webcam-permission-alert" class="global-body-wrapper"
+        [type]="'danger'" (close)="showPermissionAlert = false">
+        It seems your Webcam is deactivated. Please click on the camera symbol next to the adressbar to check, then
+        reload
+        the page.<br>
+        If you still need help, please refer to <a href="https://support.ring.md/hc/en-us/articles/115008801608-Browser-settings-for-enabling-webcam-and-microphone-Mozilla-Firefox-"
+            target="_blank">this guide for Firefox</a>, or <a href="https://support.google.com/chrome/answer/2693767?hl=en"
+            target="_blank">this guide for Chrome</a>.
+    </ngb-alert>
+
+    <!-- Webcam no user permission warning -->
+    <ngb-alert #permissionWarning *ngIf="showPermissionWarning && !webcamUserPermission" id="webcam-permission-alert"
+        class="global-body-wrapper" [type]="'warning'" (close)="showPermissionWarning = false">
+        {{"WEBCAM_PERMISSION_WARNING" | translate}}
+    </ngb-alert>
+
+    <!-- TODO: Adapt to *ngFor? -->
+    <div class="row" style="margin-left: 30%; margin-right: 30%; margin-bottom: 5%;">
+        <div class="col">
+            <shared-image [imageSource]="'assets/images/face-neutral.svg'" [imageDescription]="'DESCRIPTION_NEUTRAL_FACE' | translate"
+                (webcamRequested)="checkWebcamPermission(webcam)"></shared-image>
+        </div>
+    </div>
+
+    <div class="global-body-wrapper">
+        <button class="btn btn-success btn-block" (click)="onSubmitForPrediction()">
+            {{ "BTN_SUBMIT_PREDICTION" | translate }}
+        </button>
+    </div>
+
+</ng-container>
 
 <!-- Webcam instance/preview in right corner -->
 <div *ngIf="webcamUserPermission" class="bottom-floating-container">
