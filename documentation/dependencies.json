@@ -1,0 +1,1988 @@
+[
+  {
+    "name": "AngularFontAwesomeModule",
+    "file": "lib/src/angular-font-awesome.module.ts",
+    "providers": [
+      {
+        "name": "AngularFontAwesomeService"
+      }
+    ],
+    "declarations": [
+      {
+        "name": "AngularFontAwesomeComponent"
+      }
+    ],
+    "imports": [
+      {
+        "name": "CommonModule"
+      }
+    ],
+    "exports": [
+      {
+        "name": "AngularFontAwesomeComponent"
+      }
+    ],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 277,
+        "end": 303,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 277,
+          "end": 287,
+          "flags": 0,
+          "escapedText": "imports"
+        },
+        "initializer": {
+          "pos": 288,
+          "end": 303,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 290,
+              "end": 302,
+              "flags": 0,
+              "escapedText": "CommonModule"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 304,
+        "end": 350,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 304,
+          "end": 319,
+          "flags": 0,
+          "escapedText": "declarations"
+        },
+        "initializer": {
+          "pos": 320,
+          "end": 350,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 322,
+              "end": 349,
+              "flags": 0,
+              "escapedText": "AngularFontAwesomeComponent"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 351,
+        "end": 392,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 351,
+          "end": 363,
+          "flags": 0,
+          "escapedText": "providers"
+        },
+        "initializer": {
+          "pos": 364,
+          "end": 392,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 366,
+              "end": 391,
+              "flags": 0,
+              "escapedText": "AngularFontAwesomeService"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 393,
+        "end": 434,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 393,
+          "end": 403,
+          "flags": 0,
+          "escapedText": "exports"
+        },
+        "initializer": {
+          "pos": 404,
+          "end": 434,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 406,
+              "end": 433,
+              "flags": 0,
+              "escapedText": "AngularFontAwesomeComponent"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "AppRoutingModule",
+    "file": "src/app/app-routing.module.ts",
+    "providers": [],
+    "declarations": [],
+    "imports": [
+      {
+        "ns": "RouterModule",
+        "name": "RouterModule.forRoot(args)"
+      }
+    ],
+    "exports": [
+      {
+        "name": "RouterModule"
+      }
+    ],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 820,
+        "end": 863,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 820,
+          "end": 831,
+          "flags": 0,
+          "escapedText": "imports"
+        },
+        "initializer": {
+          "pos": 832,
+          "end": 863,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 834,
+              "end": 862,
+              "flags": 0,
+              "kind": 186,
+              "expression": {
+                "pos": 834,
+                "end": 854,
+                "flags": 0,
+                "kind": 184,
+                "expression": {
+                  "pos": 834,
+                  "end": 846,
+                  "flags": 0,
+                  "escapedText": "RouterModule"
+                },
+                "name": {
+                  "pos": 847,
+                  "end": 854,
+                  "flags": 0,
+                  "escapedText": "forRoot"
+                }
+              },
+              "arguments": [
+                {
+                  "pos": 855,
+                  "end": 861,
+                  "flags": 0,
+                  "escapedText": "routes"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "pos": 864,
+        "end": 891,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 864,
+          "end": 875,
+          "flags": 0,
+          "escapedText": "exports"
+        },
+        "initializer": {
+          "pos": 876,
+          "end": 891,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 878,
+              "end": 890,
+              "flags": 0,
+              "escapedText": "RouterModule"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "AppModule",
+    "file": "src/app/app.module.ts",
+    "providers": [
+      {
+        "name": "{ provide: APP_INITIALIZER, useFactory: setupTranslateService, deps: [TranslateService], multi:  }"
+      }
+    ],
+    "declarations": [
+      {
+        "name": "AppComponent",
+        "file": "src/app/app.component.ts",
+        "selector": "app-root",
+        "providers": [],
+        "templateUrl": [
+          "app.component.html"
+        ],
+        "styleUrls": [
+          "app.component.css"
+        ],
+        "__raw": [
+          {
+            "pos": 111,
+            "end": 134,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 111,
+              "end": 122,
+              "flags": 0,
+              "escapedText": "selector"
+            },
+            "initializer": {
+              "pos": 123,
+              "end": 134,
+              "flags": 0,
+              "kind": 9,
+              "text": "app-root"
+            }
+          },
+          {
+            "pos": 135,
+            "end": 173,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 135,
+              "end": 149,
+              "flags": 0,
+              "escapedText": "templateUrl"
+            },
+            "initializer": {
+              "pos": 150,
+              "end": 173,
+              "flags": 0,
+              "kind": 9,
+              "text": "./app.component.html"
+            }
+          },
+          {
+            "pos": 174,
+            "end": 211,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 174,
+              "end": 186,
+              "flags": 0,
+              "escapedText": "styleUrls"
+            },
+            "initializer": {
+              "pos": 187,
+              "end": 211,
+              "flags": 0,
+              "kind": 182,
+              "elements": [
+                {
+                  "pos": 189,
+                  "end": 210,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./app.component.css"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "imports": [
+      {
+        "name": "BrowserModule"
+      },
+      {
+        "name": "AppRoutingModule"
+      },
+      {
+        "ns": "TranslateModule",
+        "name": "TranslateModule.forRoot(args)"
+      },
+      {
+        "name": "LandingPageModule"
+      },
+      {
+        "name": "SharedModule"
+      }
+    ],
+    "exports": [],
+    "bootstrap": [
+      {
+        "name": "AppComponent"
+      }
+    ],
+    "__raw": [
+      {
+        "pos": 612,
+        "end": 654,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 612,
+          "end": 628,
+          "flags": 0,
+          "escapedText": "declarations"
+        },
+        "initializer": {
+          "pos": 629,
+          "end": 654,
+          "flags": 0,
+          "kind": 182,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 631,
+              "end": 649,
+              "flags": 0,
+              "escapedText": "AppComponent"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 655,
+        "end": 823,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 655,
+          "end": 666,
+          "flags": 0,
+          "escapedText": "imports"
+        },
+        "initializer": {
+          "pos": 667,
+          "end": 823,
+          "flags": 0,
+          "kind": 182,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 669,
+              "end": 688,
+              "flags": 0,
+              "escapedText": "BrowserModule"
+            },
+            {
+              "pos": 689,
+              "end": 711,
+              "flags": 0,
+              "escapedText": "AppRoutingModule"
+            },
+            {
+              "pos": 712,
+              "end": 775,
+              "flags": 0,
+              "kind": 186,
+              "expression": {
+                "pos": 712,
+                "end": 741,
+                "flags": 0,
+                "kind": 184,
+                "expression": {
+                  "pos": 712,
+                  "end": 733,
+                  "flags": 0,
+                  "escapedText": "TranslateModule"
+                },
+                "name": {
+                  "pos": 734,
+                  "end": 741,
+                  "flags": 0,
+                  "escapedText": "forRoot"
+                }
+              },
+              "arguments": [
+                {
+                  "pos": 742,
+                  "end": 774,
+                  "flags": 0,
+                  "kind": 183,
+                  "multiLine": true,
+                  "properties": [
+                    {
+                      "pos": 743,
+                      "end": 767,
+                      "flags": 0,
+                      "kind": 269,
+                      "name": {
+                        "pos": 743,
+                        "end": 761,
+                        "flags": 0,
+                        "escapedText": "activeLang"
+                      },
+                      "initializer": {
+                        "pos": 762,
+                        "end": 767,
+                        "flags": 0,
+                        "kind": 9,
+                        "text": "de"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "pos": 776,
+              "end": 799,
+              "flags": 0,
+              "escapedText": "LandingPageModule"
+            },
+            {
+              "pos": 800,
+              "end": 818,
+              "flags": 0,
+              "escapedText": "SharedModule"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 824,
+        "end": 1047,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 824,
+          "end": 837,
+          "flags": 0,
+          "escapedText": "providers"
+        },
+        "initializer": {
+          "pos": 838,
+          "end": 1047,
+          "flags": 0,
+          "kind": 182,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 840,
+              "end": 1042,
+              "flags": 0,
+              "kind": 183,
+              "multiLine": true,
+              "properties": [
+                {
+                  "pos": 908,
+                  "end": 940,
+                  "flags": 0,
+                  "kind": 269,
+                  "name": {
+                    "pos": 908,
+                    "end": 923,
+                    "flags": 0,
+                    "escapedText": "provide"
+                  },
+                  "initializer": {
+                    "pos": 924,
+                    "end": 940,
+                    "flags": 0,
+                    "escapedText": "APP_INITIALIZER"
+                  }
+                },
+                {
+                  "pos": 941,
+                  "end": 982,
+                  "flags": 0,
+                  "kind": 269,
+                  "name": {
+                    "pos": 941,
+                    "end": 959,
+                    "flags": 0,
+                    "escapedText": "useFactory"
+                  },
+                  "initializer": {
+                    "pos": 960,
+                    "end": 982,
+                    "flags": 0,
+                    "escapedText": "setupTranslateService"
+                  }
+                },
+                {
+                  "pos": 983,
+                  "end": 1015,
+                  "flags": 0,
+                  "kind": 269,
+                  "name": {
+                    "pos": 983,
+                    "end": 995,
+                    "flags": 0,
+                    "escapedText": "deps"
+                  },
+                  "initializer": {
+                    "pos": 996,
+                    "end": 1015,
+                    "flags": 0,
+                    "kind": 182,
+                    "elements": [
+                      {
+                        "pos": 998,
+                        "end": 1014,
+                        "flags": 0,
+                        "escapedText": "TranslateService"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "pos": 1016,
+                  "end": 1035,
+                  "flags": 0,
+                  "kind": 269,
+                  "name": {
+                    "pos": 1016,
+                    "end": 1029,
+                    "flags": 0,
+                    "escapedText": "multi"
+                  },
+                  "initializer": {
+                    "pos": 1030,
+                    "end": 1035,
+                    "flags": 0,
+                    "kind": 101
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "pos": 1048,
+        "end": 1077,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 1048,
+          "end": 1061,
+          "flags": 0,
+          "escapedText": "bootstrap"
+        },
+        "initializer": {
+          "pos": 1062,
+          "end": 1077,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 1064,
+              "end": 1076,
+              "flags": 0,
+              "escapedText": "AppComponent"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "ErrorModule",
+    "file": "app/error/error.module.ts",
+    "providers": [],
+    "declarations": [
+      {
+        "name": "NotFoundComponent"
+      }
+    ],
+    "imports": [
+      {
+        "name": "SharedModule"
+      },
+      {
+        "name": "routing"
+      }
+    ],
+    "exports": [],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 229,
+        "end": 266,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 229,
+          "end": 245,
+          "flags": 0,
+          "escapedText": "declarations"
+        },
+        "initializer": {
+          "pos": 246,
+          "end": 266,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 248,
+              "end": 265,
+              "flags": 0,
+              "escapedText": "NotFoundComponent"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 267,
+        "end": 303,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 267,
+          "end": 278,
+          "flags": 0,
+          "escapedText": "imports"
+        },
+        "initializer": {
+          "pos": 279,
+          "end": 303,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 281,
+              "end": 293,
+              "flags": 0,
+              "escapedText": "SharedModule"
+            },
+            {
+              "pos": 294,
+              "end": 302,
+              "flags": 0,
+              "escapedText": "routing"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "LandingPageModule",
+    "file": "app/landing-page/landing-page.module.ts",
+    "providers": [],
+    "declarations": [
+      {
+        "name": "LandingPageComponent",
+        "file": "app/landing-page/landing-page.component.ts",
+        "selector": "landing-page",
+        "providers": [],
+        "templateUrl": [
+          "landing-page.component.html"
+        ],
+        "styleUrls": [
+          "landing-page.component.css"
+        ],
+        "__raw": [
+          {
+            "pos": 719,
+            "end": 747,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 719,
+              "end": 731,
+              "flags": 0,
+              "escapedText": "selector"
+            },
+            "initializer": {
+              "pos": 732,
+              "end": 747,
+              "flags": 0,
+              "kind": 9,
+              "text": "landing-page"
+            }
+          },
+          {
+            "pos": 748,
+            "end": 796,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 748,
+              "end": 763,
+              "flags": 0,
+              "escapedText": "templateUrl"
+            },
+            "initializer": {
+              "pos": 764,
+              "end": 796,
+              "flags": 0,
+              "kind": 9,
+              "text": "./landing-page.component.html"
+            }
+          },
+          {
+            "pos": 797,
+            "end": 844,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 797,
+              "end": 810,
+              "flags": 0,
+              "escapedText": "styleUrls"
+            },
+            "initializer": {
+              "pos": 811,
+              "end": 844,
+              "flags": 0,
+              "kind": 182,
+              "elements": [
+                {
+                  "pos": 813,
+                  "end": 843,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./landing-page.component.css"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "GeneralInfoFormComponent",
+        "file": "landing-page/general-info-form/general-info-form.component.ts",
+        "selector": "landing-page-general-info-form",
+        "providers": [],
+        "templateUrl": [
+          "general-info-form.component.html"
+        ],
+        "styleUrls": [
+          "general-info-form.component.css"
+        ],
+        "__raw": [
+          {
+            "pos": 171,
+            "end": 217,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 171,
+              "end": 183,
+              "flags": 0,
+              "escapedText": "selector"
+            },
+            "initializer": {
+              "pos": 184,
+              "end": 217,
+              "flags": 0,
+              "kind": 9,
+              "text": "landing-page-general-info-form"
+            }
+          },
+          {
+            "pos": 218,
+            "end": 271,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 218,
+              "end": 233,
+              "flags": 0,
+              "escapedText": "templateUrl"
+            },
+            "initializer": {
+              "pos": 234,
+              "end": 271,
+              "flags": 0,
+              "kind": 9,
+              "text": "./general-info-form.component.html"
+            }
+          },
+          {
+            "pos": 272,
+            "end": 324,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 272,
+              "end": 285,
+              "flags": 0,
+              "escapedText": "styleUrls"
+            },
+            "initializer": {
+              "pos": 286,
+              "end": 324,
+              "flags": 0,
+              "kind": 182,
+              "elements": [
+                {
+                  "pos": 288,
+                  "end": 323,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./general-info-form.component.css"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "QuestionnaireComponent"
+      },
+      {
+        "name": "DynamicFormQuestionComponent",
+        "file": "landing-page/dynamic-form/dynamic-form-question.component.ts",
+        "selector": "landing-page-dynamic-form",
+        "providers": [],
+        "templateUrl": [
+          "dynamic-form-question.component.html"
+        ],
+        "styleUrls": [
+          "dynamic-form-question.component.css"
+        ],
+        "__raw": [
+          {
+            "pos": 189,
+            "end": 230,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 189,
+              "end": 201,
+              "flags": 0,
+              "escapedText": "selector"
+            },
+            "initializer": {
+              "pos": 202,
+              "end": 230,
+              "flags": 0,
+              "kind": 9,
+              "text": "landing-page-dynamic-form"
+            }
+          },
+          {
+            "pos": 231,
+            "end": 288,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 231,
+              "end": 246,
+              "flags": 0,
+              "escapedText": "templateUrl"
+            },
+            "initializer": {
+              "pos": 247,
+              "end": 288,
+              "flags": 0,
+              "kind": 9,
+              "text": "./dynamic-form-question.component.html"
+            }
+          },
+          {
+            "pos": 289,
+            "end": 345,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 289,
+              "end": 302,
+              "flags": 0,
+              "escapedText": "styleUrls"
+            },
+            "initializer": {
+              "pos": 303,
+              "end": 345,
+              "flags": 0,
+              "kind": 182,
+              "elements": [
+                {
+                  "pos": 305,
+                  "end": 344,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./dynamic-form-question.component.css"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "imports": [
+      {
+        "name": "SharedModule"
+      }
+    ],
+    "exports": [],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 453,
+        "end": 490,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 453,
+          "end": 464,
+          "flags": 0,
+          "escapedText": "imports"
+        },
+        "initializer": {
+          "pos": 465,
+          "end": 490,
+          "flags": 0,
+          "kind": 182,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 467,
+              "end": 485,
+              "flags": 0,
+              "escapedText": "SharedModule"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 491,
+        "end": 611,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 491,
+          "end": 507,
+          "flags": 0,
+          "escapedText": "declarations"
+        },
+        "initializer": {
+          "pos": 508,
+          "end": 611,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 510,
+              "end": 530,
+              "flags": 0,
+              "escapedText": "LandingPageComponent"
+            },
+            {
+              "pos": 531,
+              "end": 556,
+              "flags": 0,
+              "escapedText": "GeneralInfoFormComponent"
+            },
+            {
+              "pos": 557,
+              "end": 580,
+              "flags": 0,
+              "escapedText": "QuestionnaireComponent"
+            },
+            {
+              "pos": 581,
+              "end": 610,
+              "flags": 0,
+              "escapedText": "DynamicFormQuestionComponent"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "LegalAndFurtherModule",
+    "file": "app/legal-and-further/legal-and-further.module.ts",
+    "providers": [],
+    "declarations": [
+      {
+        "name": "CentralRenderComponent",
+        "file": "app/legal-and-further/central-render.component.ts",
+        "selector": "legal-central-render",
+        "providers": [],
+        "templateUrl": [],
+        "styleUrls": [],
+        "__raw": [
+          {
+            "pos": 332,
+            "end": 368,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 332,
+              "end": 344,
+              "flags": 0,
+              "escapedText": "selector"
+            },
+            "initializer": {
+              "pos": 345,
+              "end": 368,
+              "flags": 0,
+              "kind": 9,
+              "text": "legal-central-render"
+            }
+          },
+          {
+            "pos": 369,
+            "end": 452,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 369,
+              "end": 381,
+              "flags": 0,
+              "escapedText": "template"
+            },
+            "initializer": {
+              "pos": 382,
+              "end": 452,
+              "flags": 0,
+              "kind": 13,
+              "text": "<ng-container *ngComponentOutlet=\"currentComponent\"></ng-container>"
+            }
+          }
+        ]
+      },
+      {
+        "name": "LegalAndPrivacyComponent"
+      },
+      {
+        "name": "AboutComponent",
+        "file": "legal-and-further/about/about.component.ts",
+        "selector": "legal-about",
+        "providers": [],
+        "templateUrl": [
+          "about.component.html"
+        ],
+        "styleUrls": [
+          "about.component.css"
+        ],
+        "__raw": [
+          {
+            "pos": 66,
+            "end": 93,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 66,
+              "end": 78,
+              "flags": 0,
+              "escapedText": "selector"
+            },
+            "initializer": {
+              "pos": 79,
+              "end": 93,
+              "flags": 0,
+              "kind": 9,
+              "text": "legal-about"
+            }
+          },
+          {
+            "pos": 94,
+            "end": 135,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 94,
+              "end": 109,
+              "flags": 0,
+              "escapedText": "templateUrl"
+            },
+            "initializer": {
+              "pos": 110,
+              "end": 135,
+              "flags": 0,
+              "kind": 9,
+              "text": "./about.component.html"
+            }
+          },
+          {
+            "pos": 136,
+            "end": 176,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 136,
+              "end": 149,
+              "flags": 0,
+              "escapedText": "styleUrls"
+            },
+            "initializer": {
+              "pos": 150,
+              "end": 176,
+              "flags": 0,
+              "kind": 182,
+              "elements": [
+                {
+                  "pos": 152,
+                  "end": 175,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./about.component.css"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FaqComponent",
+        "file": "legal-and-further/faq/faq.component.ts",
+        "selector": "legal-faq",
+        "providers": [],
+        "templateUrl": [
+          "faq.component.html"
+        ],
+        "styleUrls": [
+          "faq.component.css"
+        ],
+        "__raw": [
+          {
+            "pos": 64,
+            "end": 88,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 64,
+              "end": 75,
+              "flags": 0,
+              "escapedText": "selector"
+            },
+            "initializer": {
+              "pos": 76,
+              "end": 88,
+              "flags": 0,
+              "kind": 9,
+              "text": "legal-faq"
+            }
+          },
+          {
+            "pos": 89,
+            "end": 127,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 89,
+              "end": 103,
+              "flags": 0,
+              "escapedText": "templateUrl"
+            },
+            "initializer": {
+              "pos": 104,
+              "end": 127,
+              "flags": 0,
+              "kind": 9,
+              "text": "./faq.component.html"
+            }
+          },
+          {
+            "pos": 128,
+            "end": 165,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 128,
+              "end": 140,
+              "flags": 0,
+              "escapedText": "styleUrls"
+            },
+            "initializer": {
+              "pos": 141,
+              "end": 165,
+              "flags": 0,
+              "kind": 182,
+              "elements": [
+                {
+                  "pos": 143,
+                  "end": 164,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./faq.component.css"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "imports": [
+      {
+        "name": "routing"
+      },
+      {
+        "name": "SharedModule"
+      }
+    ],
+    "exports": [],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 446,
+        "end": 544,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 446,
+          "end": 462,
+          "flags": 0,
+          "escapedText": "declarations"
+        },
+        "initializer": {
+          "pos": 463,
+          "end": 544,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 465,
+              "end": 487,
+              "flags": 0,
+              "escapedText": "CentralRenderComponent"
+            },
+            {
+              "pos": 488,
+              "end": 513,
+              "flags": 0,
+              "escapedText": "LegalAndPrivacyComponent"
+            },
+            {
+              "pos": 514,
+              "end": 529,
+              "flags": 0,
+              "escapedText": "AboutComponent"
+            },
+            {
+              "pos": 530,
+              "end": 543,
+              "flags": 0,
+              "escapedText": "FaqComponent"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 545,
+        "end": 581,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 545,
+          "end": 556,
+          "flags": 0,
+          "escapedText": "imports"
+        },
+        "initializer": {
+          "pos": 557,
+          "end": 581,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 559,
+              "end": 566,
+              "flags": 0,
+              "escapedText": "routing"
+            },
+            {
+              "pos": 567,
+              "end": 580,
+              "flags": 0,
+              "escapedText": "SharedModule"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 582,
+        "end": 659,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 582,
+          "end": 601,
+          "flags": 0,
+          "escapedText": "entryComponents"
+        },
+        "initializer": {
+          "pos": 602,
+          "end": 659,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 604,
+              "end": 628,
+              "flags": 0,
+              "escapedText": "LegalAndPrivacyComponent"
+            },
+            {
+              "pos": 629,
+              "end": 644,
+              "flags": 0,
+              "escapedText": "AboutComponent"
+            },
+            {
+              "pos": 645,
+              "end": 658,
+              "flags": 0,
+              "escapedText": "FaqComponent"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "PredictionResultModule",
+    "file": "app/prediction-result/prediction-result.module.ts",
+    "providers": [],
+    "declarations": [
+      {
+        "name": "ResultPageComponent"
+      }
+    ],
+    "imports": [
+      {
+        "name": "routing"
+      },
+      {
+        "name": "SharedModule"
+      },
+      {
+        "name": "ChartsModule"
+      }
+    ],
+    "exports": [],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 291,
+        "end": 361,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 291,
+          "end": 302,
+          "flags": 0,
+          "escapedText": "imports"
+        },
+        "initializer": {
+          "pos": 303,
+          "end": 361,
+          "flags": 0,
+          "kind": 182,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 305,
+              "end": 318,
+              "flags": 0,
+              "escapedText": "routing"
+            },
+            {
+              "pos": 319,
+              "end": 337,
+              "flags": 0,
+              "escapedText": "SharedModule"
+            },
+            {
+              "pos": 338,
+              "end": 356,
+              "flags": 0,
+              "escapedText": "ChartsModule"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 362,
+        "end": 401,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 362,
+          "end": 378,
+          "flags": 0,
+          "escapedText": "declarations"
+        },
+        "initializer": {
+          "pos": 379,
+          "end": 401,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 381,
+              "end": 400,
+              "flags": 0,
+              "escapedText": "ResultPageComponent"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "SharedModule",
+    "file": "app/shared/shared.module.ts",
+    "providers": [],
+    "declarations": [
+      {
+        "name": "HeaderComponent",
+        "file": "shared/header/header.component.ts",
+        "selector": "shared-header",
+        "providers": [],
+        "templateUrl": [
+          "header.component.html"
+        ],
+        "styleUrls": [
+          "header.component.css"
+        ],
+        "__raw": [
+          {
+            "pos": 122,
+            "end": 151,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 122,
+              "end": 134,
+              "flags": 0,
+              "escapedText": "selector"
+            },
+            "initializer": {
+              "pos": 135,
+              "end": 151,
+              "flags": 0,
+              "kind": 9,
+              "text": "shared-header"
+            }
+          },
+          {
+            "pos": 152,
+            "end": 194,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 152,
+              "end": 167,
+              "flags": 0,
+              "escapedText": "templateUrl"
+            },
+            "initializer": {
+              "pos": 168,
+              "end": 194,
+              "flags": 0,
+              "kind": 9,
+              "text": "./header.component.html"
+            }
+          },
+          {
+            "pos": 195,
+            "end": 236,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 195,
+              "end": 208,
+              "flags": 0,
+              "escapedText": "styleUrls"
+            },
+            "initializer": {
+              "pos": 209,
+              "end": 236,
+              "flags": 0,
+              "kind": 182,
+              "elements": [
+                {
+                  "pos": 211,
+                  "end": 235,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./header.component.css"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FooterComponent",
+        "file": "shared/footer/footer.component.ts",
+        "selector": "shared-footer",
+        "providers": [],
+        "templateUrl": [
+          "footer.component.html"
+        ],
+        "styleUrls": [
+          "footer.component.css"
+        ],
+        "__raw": [
+          {
+            "pos": 64,
+            "end": 92,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 64,
+              "end": 75,
+              "flags": 0,
+              "escapedText": "selector"
+            },
+            "initializer": {
+              "pos": 76,
+              "end": 92,
+              "flags": 0,
+              "kind": 9,
+              "text": "shared-footer"
+            }
+          },
+          {
+            "pos": 93,
+            "end": 134,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 93,
+              "end": 107,
+              "flags": 0,
+              "escapedText": "templateUrl"
+            },
+            "initializer": {
+              "pos": 108,
+              "end": 134,
+              "flags": 0,
+              "kind": 9,
+              "text": "./footer.component.html"
+            }
+          },
+          {
+            "pos": 135,
+            "end": 175,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 135,
+              "end": 147,
+              "flags": 0,
+              "escapedText": "styleUrls"
+            },
+            "initializer": {
+              "pos": 148,
+              "end": 175,
+              "flags": 0,
+              "kind": 182,
+              "elements": [
+                {
+                  "pos": 150,
+                  "end": 174,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./footer.component.css"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "ImageComponent",
+        "file": "shared/image/image.component.ts",
+        "selector": "shared-image",
+        "providers": [],
+        "templateUrl": [
+          "image.component.html"
+        ],
+        "styleUrls": [
+          "image.component.css"
+        ],
+        "__raw": [
+          {
+            "pos": 224,
+            "end": 252,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 224,
+              "end": 236,
+              "flags": 0,
+              "escapedText": "selector"
+            },
+            "initializer": {
+              "pos": 237,
+              "end": 252,
+              "flags": 0,
+              "kind": 9,
+              "text": "shared-image"
+            }
+          },
+          {
+            "pos": 253,
+            "end": 294,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 253,
+              "end": 268,
+              "flags": 0,
+              "escapedText": "templateUrl"
+            },
+            "initializer": {
+              "pos": 269,
+              "end": 294,
+              "flags": 0,
+              "kind": 9,
+              "text": "./image.component.html"
+            }
+          },
+          {
+            "pos": 295,
+            "end": 335,
+            "flags": 0,
+            "kind": 269,
+            "name": {
+              "pos": 295,
+              "end": 308,
+              "flags": 0,
+              "escapedText": "styleUrls"
+            },
+            "initializer": {
+              "pos": 309,
+              "end": 335,
+              "flags": 0,
+              "kind": 182,
+              "elements": [
+                {
+                  "pos": 311,
+                  "end": 334,
+                  "flags": 0,
+                  "kind": 9,
+                  "text": "./image.component.css"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "WebcamComponent"
+      },
+      {
+        "name": "ScrollToTopDirective"
+      }
+    ],
+    "imports": [
+      {
+        "name": "CommonModule"
+      },
+      {
+        "name": "FormsModule"
+      },
+      {
+        "name": "ReactiveFormsModule"
+      },
+      {
+        "name": "RouterModule"
+      },
+      {
+        "name": "NgbModule"
+      },
+      {
+        "ns": "TranslateModule",
+        "name": "TranslateModule.forChild()"
+      },
+      {
+        "name": "AngularFontAwesomeModule"
+      }
+    ],
+    "exports": [
+      {
+        "name": "HeaderComponent"
+      },
+      {
+        "name": "FooterComponent"
+      },
+      {
+        "name": "ImageComponent"
+      },
+      {
+        "name": "WebcamComponent"
+      },
+      {
+        "name": "ScrollToTopDirective"
+      },
+      {
+        "name": "CommonModule"
+      },
+      {
+        "name": "FormsModule"
+      },
+      {
+        "name": "ReactiveFormsModule"
+      },
+      {
+        "name": "RouterModule"
+      },
+      {
+        "name": "NgbModule"
+      },
+      {
+        "name": "TranslateModule"
+      },
+      {
+        "name": "AngularFontAwesomeModule"
+      }
+    ],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "pos": 720,
+        "end": 827,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 720,
+          "end": 736,
+          "flags": 0,
+          "escapedText": "declarations"
+        },
+        "initializer": {
+          "pos": 737,
+          "end": 827,
+          "flags": 0,
+          "kind": 182,
+          "elements": [
+            {
+              "pos": 739,
+              "end": 754,
+              "flags": 0,
+              "escapedText": "HeaderComponent"
+            },
+            {
+              "pos": 755,
+              "end": 771,
+              "flags": 0,
+              "escapedText": "FooterComponent"
+            },
+            {
+              "pos": 772,
+              "end": 787,
+              "flags": 0,
+              "escapedText": "ImageComponent"
+            },
+            {
+              "pos": 788,
+              "end": 804,
+              "flags": 0,
+              "escapedText": "WebcamComponent"
+            },
+            {
+              "pos": 805,
+              "end": 826,
+              "flags": 0,
+              "escapedText": "ScrollToTopDirective"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 828,
+        "end": 983,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 828,
+          "end": 839,
+          "flags": 0,
+          "escapedText": "imports"
+        },
+        "initializer": {
+          "pos": 840,
+          "end": 983,
+          "flags": 0,
+          "kind": 182,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 842,
+              "end": 860,
+              "flags": 0,
+              "escapedText": "CommonModule"
+            },
+            {
+              "pos": 861,
+              "end": 873,
+              "flags": 0,
+              "escapedText": "FormsModule"
+            },
+            {
+              "pos": 874,
+              "end": 894,
+              "flags": 0,
+              "escapedText": "ReactiveFormsModule"
+            },
+            {
+              "pos": 895,
+              "end": 908,
+              "flags": 0,
+              "escapedText": "RouterModule"
+            },
+            {
+              "pos": 909,
+              "end": 919,
+              "flags": 0,
+              "escapedText": "NgbModule"
+            },
+            {
+              "pos": 920,
+              "end": 947,
+              "flags": 0,
+              "kind": 186,
+              "expression": {
+                "pos": 920,
+                "end": 945,
+                "flags": 0,
+                "kind": 184,
+                "expression": {
+                  "pos": 920,
+                  "end": 936,
+                  "flags": 0,
+                  "escapedText": "TranslateModule"
+                },
+                "name": {
+                  "pos": 937,
+                  "end": 945,
+                  "flags": 0,
+                  "escapedText": "forChild"
+                }
+              },
+              "arguments": []
+            },
+            {
+              "pos": 948,
+              "end": 978,
+              "flags": 0,
+              "escapedText": "AngularFontAwesomeModule"
+            }
+          ]
+        }
+      },
+      {
+        "pos": 984,
+        "end": 1223,
+        "flags": 0,
+        "kind": 269,
+        "name": {
+          "pos": 984,
+          "end": 995,
+          "flags": 0,
+          "escapedText": "exports"
+        },
+        "initializer": {
+          "pos": 996,
+          "end": 1223,
+          "flags": 0,
+          "kind": 182,
+          "multiLine": true,
+          "elements": [
+            {
+              "pos": 998,
+              "end": 1019,
+              "flags": 0,
+              "escapedText": "HeaderComponent"
+            },
+            {
+              "pos": 1020,
+              "end": 1036,
+              "flags": 0,
+              "escapedText": "FooterComponent"
+            },
+            {
+              "pos": 1037,
+              "end": 1052,
+              "flags": 0,
+              "escapedText": "ImageComponent"
+            },
+            {
+              "pos": 1053,
+              "end": 1069,
+              "flags": 0,
+              "escapedText": "WebcamComponent"
+            },
+            {
+              "pos": 1070,
+              "end": 1091,
+              "flags": 0,
+              "escapedText": "ScrollToTopDirective"
+            },
+            {
+              "pos": 1092,
+              "end": 1110,
+              "flags": 0,
+              "escapedText": "CommonModule"
+            },
+            {
+              "pos": 1111,
+              "end": 1123,
+              "flags": 0,
+              "escapedText": "FormsModule"
+            },
+            {
+              "pos": 1124,
+              "end": 1144,
+              "flags": 0,
+              "escapedText": "ReactiveFormsModule"
+            },
+            {
+              "pos": 1145,
+              "end": 1158,
+              "flags": 0,
+              "escapedText": "RouterModule"
+            },
+            {
+              "pos": 1159,
+              "end": 1174,
+              "flags": 0,
+              "escapedText": "NgbModule"
+            },
+            {
+              "pos": 1175,
+              "end": 1191,
+              "flags": 0,
+              "escapedText": "TranslateModule"
+            },
+            {
+              "pos": 1192,
+              "end": 1217,
+              "flags": 0,
+              "escapedText": "AngularFontAwesomeModule"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]
