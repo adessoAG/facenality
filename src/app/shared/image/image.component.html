@@ -10,7 +10,7 @@
       <i class="fa fa-camera container-fa"></i>&nbsp; Webcam
     </button>
 
-    <input #fileInput type="file" (change)="onImageUpload($event)" style="display: none">
+    <input #fileInput type="file" (change)="onImageUpload($event)" accept=".png, .jpg, .jpeg" style="display: none">
     <button type="button" class="btn btn-outline-primary col" (click)="fileInput.click()">
       <i class="fa fa-upload"></i>&nbsp; Upload
     </button>

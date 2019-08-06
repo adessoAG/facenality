@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { WebcamService } from '../webcam/webcam.service';
 import { Subscription, Subject } from 'rxjs';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'shared-image',
@@ -32,7 +33,7 @@ export class ImageComponent implements OnInit {
   webcamServiceSubject: Subject<string>;
   webcamServiceEmitter: EventEmitter<Subject<string>>;
 
-  constructor(private webcamService: WebcamService) { }
+  constructor(private webcamService: WebcamService, private httpService: HttpService) { }
 
   /**
    * Calls @function updateImageSizeResponsively on window resizing.
@@ -60,6 +61,12 @@ export class ImageComponent implements OnInit {
   onImageUpload(selectedImage) {
     const reader = new FileReader();
     reader.readAsDataURL(selectedImage.target.files[0]);
+
+    let form_img = new FormData();
+    form_img.append("file", selectedImage.target.files[0], "blob.jpg");
+    
+    this.httpService.ajaxPrediction(form_img);
+    //this.httpService.postPrediction(selectedImage.target.files[0]).subscribe((response) => console.log("1: " + response));
 
     reader.onload = (resource: any) => {
       this.imageSource = resource.target.result; // base64 format

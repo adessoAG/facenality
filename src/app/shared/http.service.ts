@@ -5,12 +5,16 @@ import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
+import * as $ from 'jquery';
+
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
 
   httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+  httpHeaderHtml = { headers: new HttpHeaders({ 'Content-Type': 'text/html' }) };
+  httpHeaderForm = { headers: new HttpHeaders({ 'Content-Type': 'multipart/form-data' }) };
   apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
@@ -34,13 +38,33 @@ export class HttpService {
   }
 
   postPrediction(img): Observable<any> {
-    return this.http.post<any>("http://localhost:5000/predict", img);
+    return this.http.post<any>("http://localhost:5000/predict", img).pipe(
+      catchError(this.handleError<number>('postPrediction'))
+    );
   }
 
-  postPrediction2(img): Observable<any> {
-    return this.http.post<any>("http://localhost:5000/predict2", img);
+  ajaxPrediction(img) {
+    $.ajax({
+      type: 'POST',
+      url: '/predict',
+      data: img,
+      contentType: false,
+      cache: false,
+      processData: false,
+      async: true,
+      success: function (data) {
+          // Get and display the result
+
+          console.log('Success!\n' + data);
+      },
+  });
   }
-  /**
+
+  getTest(): Observable<any> {
+    return this.http.get<any>("http://localhost:5000/predict");
+  }
+
+ /**
  * Handle Http operation that failed.
  * Let the app continue.
  * @param operation - name of the operation that failed
