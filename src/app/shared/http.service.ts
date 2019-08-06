@@ -5,8 +5,6 @@ import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
-import * as $ from 'jquery';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -31,9 +29,9 @@ export class HttpService {
     return this.http.get<number []>(`${this.apiUrl}/get-test-average/${id}`);
   }
 
-  requestPrediction(photo): Observable<any> {
-    return this.http.post<any>(this.apiUrl + "/get-prediction", photo, this.httpOptions).pipe(
-      catchError(this.handleError<number>('sendQuestionnaire'))
+  requestPrediction(imageForm): Observable<any> {
+    return this.http.post<any>(this.apiUrl + "/predict", imageForm).pipe(
+      catchError(this.handleError<number>('requestPrediction'))
     );
   }
 
@@ -41,27 +39,6 @@ export class HttpService {
     return this.http.post<any>("http://localhost:5000/predict", img).pipe(
       catchError(this.handleError<number>('postPrediction'))
     );
-  }
-
-  ajaxPrediction(img) {
-    $.ajax({
-      type: 'POST',
-      url: '/predict',
-      data: img,
-      contentType: false,
-      cache: false,
-      processData: false,
-      async: true,
-      success: function (data) {
-          // Get and display the result
-
-          console.log('Success!\n' + data);
-      },
-  });
-  }
-
-  getTest(): Observable<any> {
-    return this.http.get<any>("http://localhost:5000/predict");
   }
 
  /**

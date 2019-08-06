@@ -35,22 +35,11 @@ export class ResultPageComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => {
-      this.questionnaire = this.dataExchangeService.questionnaire;
       const prediction = this.dataExchangeService.prediction;
-
-      if (prediction !== undefined) {
-        this.questionnaire = new Questionnaire("?", this.dataExchangeService.photos, null, "?", "?", "?")
-        this.questionnaire.id = 0;
-        this.questionnaire.photos = this.dataExchangeService.photos;
-
-        this.prepareChart(prediction);
-      }
-      else {
-        this.httpService.getTestAverage(this.questionnaire.id).subscribe((resultArray) => {
-          this.prepareChart(resultArray);
-        }), 1500; // Just for the "feeling". Evaluate if necessary, 1500
-      }
-    });
+      console.log("prediction:" + prediction);
+      
+      this.prepareChart(prediction);
+    }, 0);
 
     // ERROR: There seems to be a loading problem when using Subject. Might be different with BehaviourSubject
     /*  this.dataExchangeService.getData().subscribe((questionnaire) => {
