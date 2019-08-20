@@ -45,6 +45,8 @@ export class LandingPageComponent implements OnInit {
 
   activeLanguage: string;
 
+  showResultGraph = false;
+  predictionResult = [];
 
   constructor(private qcs: QuestionControlService, private qs: QuestionService, private httpService: HttpService,
     private router: Router, private dataExchangeService: DataExchangeService, private translate: TranslateService) { }
@@ -107,9 +109,11 @@ export class LandingPageComponent implements OnInit {
     //this.httpService.requestPrediction(form_img).subscribe((response) => console.log("prediction: " + response.results));
 
     this.httpService.requestPrediction(form_img).subscribe((prediction) => {
-      this.dataExchangeService.prediction = prediction.result;
+      this.dataExchangeService.prediction = prediction.results;
       this.dataExchangeService.photos = photos;
       this.router.navigateByUrl("/result");
+      //this.showResultGraph = true;
+      //this.predictionResult = prediction.results;
     });
   }
 

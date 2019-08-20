@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataExchangeService } from 'src/app/shared/data-exchange.service';
 import { Questionnaire, PHOTO_DESCRIPTIONS } from 'src/app/landing-page/dynamic-form/types/questionnaire';
 import { TranslateService } from '@ngstack/translate';
@@ -10,6 +10,8 @@ import { HttpService } from 'src/app/shared/http.service';
   styleUrls: ['./result-page.component.css']
 })
 export class ResultPageComponent implements OnInit {
+
+  @Input() predictionResult;
 
   activeLanguage = "de";
   barChartOptions = {
@@ -35,10 +37,12 @@ export class ResultPageComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => {
+      this.questionnaire = new Questionnaire("", "", "", "", "", "");
+      this.questionnaire.id = 1337
+
       const prediction = this.dataExchangeService.prediction;
-      console.log("prediction:" + prediction);
       
-      this.prepareChart(prediction);
+      this.prepareChart(prediction[0]);
     }, 0);
 
     // ERROR: There seems to be a loading problem when using Subject. Might be different with BehaviourSubject
@@ -48,6 +52,24 @@ export class ResultPageComponent implements OnInit {
        }); // Just for the "feeling". Evaluate if necessary
      }); */
     //this.questionnaire.id = 1337; // DEV MODE 
+    /* this.questionnaire = new Questionnaire("", "", "", "", "", "");
+    this.questionnaire.id = 1337
+    this.prepareChart([ 0.6600033640861511,
+      0.6938076615333557,
+      0.7020295858383179,
+      0.6263592839241028,
+      0.5825415253639221,
+      0.48875004053115845,
+      0.5882847309112549,
+      0.5691942572593689,
+      0.49007928371429443,
+      0.558911919593811,
+      0.5334506630897522,
+      0.5519747734069824,
+      0.656363308429718,
+      0.6141988039016724,
+      0.5420305728912354,
+      0.43828970193862915]); */
     this.translate.activeLangChanged.subscribe(lang => this.activeLanguage = lang.currentValue);
   }
 
