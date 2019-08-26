@@ -29,6 +29,7 @@
         </div>
         <!-- Info icons and instructions -->
         <div class="card-body">
+            <!--
             <div class="row" style=" white-space: nowrap;">
                 <p class="col text-primary" style="white-space: nowrap;">
                     <i class="fa fa-3x fa-sun-o" style="vertical-align: middle;"></i>&nbsp;
@@ -44,6 +45,7 @@
                     {{"WEBCAM_INSTRUCTION3" | translate}}
                 </p>
             </div>
+            -->
         </div>
     </div>
 
@@ -100,10 +102,10 @@
 </ng-container>
 
 <ng-container *ngIf="!dataCollectMode">
-    <div #webcam class="card border-primary mb-3" style="margin: 2% 15%;">
+    <div #webcam class="card border-primary mb-3 " style="margin: 2% 25%;">
         <!-- Webcam switch -->
         <div class="card-header text-white bg-info">
-            <div class="form-group row" ngbRadioGroup name="radioBasic" [(ngModel)]="webcamUserPermission" style="margin-bottom: -2%;">
+            <div class="form-group row" ngbRadioGroup name="radioBasic" [(ngModel)]="webcamUserPermission" style="margin: -2% 15% -2% 15%;">
                 <div class="custom-control my-auto">
                     <legend><i class="fa fa-video-camera"></i>&nbsp; Webcam:</legend>
                 </div>
@@ -120,6 +122,7 @@
             </div>
         </div>
         <!-- Info icons and instructions -->
+        <!--
         <div class="card-body">
             <div class="row" style=" white-space: nowrap;">
                 <p class="col text-primary" style="white-space: nowrap;">
@@ -135,8 +138,9 @@
                     <i class="fa fa-3x fa-eye" style=" vertical-align: middle;"></i>&nbsp;
                     {{"WEBCAM_INSTRUCTION3" | translate}}
                 </p>
-            </div>
+            </div> 
         </div>
+        -->
     </div>
 
     <!-- Webcam no hardware permission alert -->
