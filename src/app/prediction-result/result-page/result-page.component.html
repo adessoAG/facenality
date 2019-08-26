@@ -2,7 +2,7 @@
   <h1 class="display-3">{{"RESULT" | translate}}</h1>
   <hr class="my-4" style="margin-left: 0%; margin-right: 0%;">
 
-  <div *ngIf="questionnaire === undefined" class="container" style="margin-top: 4%;">
+  <div *ngIf="classificationResults === undefined" class="container" style="margin-top: 4%;">
     <div class="row">
       <div class="col-md-12">
         <div class="content-unavailable-template">
@@ -20,11 +20,11 @@
   </div>
 
 
-  <div *ngIf="questionnaire !== undefined" class="row" style="margin-bottom: 5%;">
+  <div *ngIf="classificationResults !== undefined" class="row" style="margin-bottom: 5%;">
     <div class="row">
       <div class="col-6">
-        <p *ngFor="let label of barChartLabelsDE; let i = index">
-          {{label}}
+        <p *ngFor="let traitLabel of traitCharacteristicsDE; let i = index" style="color: black">
+          {{i + 1}}. {{traitLabel[classificationResults[i]]}}
         </p>
       </div>
       <!-- <img class="img-fluid" src={{questionnaire.photos[0]}}> -->
@@ -32,9 +32,7 @@
         <img class="img-fluid img-round" src='assets/images/face-neutral.svg' width="75%">
       </div>
     </div>
-  </div>
 
-  <div class="row">
     <ngb-alert class="col-12" [type]="'info'" [dismissible]="false" style="margin-top: 1%;">
       Disclaimer! Diese Anwendung dient zu Unterhaltungszwecken und als Showcase.
       <br>
