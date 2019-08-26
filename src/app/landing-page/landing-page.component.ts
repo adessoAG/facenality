@@ -106,14 +106,17 @@ export class LandingPageComponent implements OnInit {
     form_img.append("file", this.b64toBlob(photos[0], "image/jpeg"), "predict.jpg");
     //form_img.append("file", this.images[0], "predict.jpg");
     
-    //this.httpService.requestPrediction(form_img).subscribe((response) => console.log("prediction: " + response.results));
+    //this.httpService.requestPrediction(form_img).subscribe((response) => console.log("prediction: " + response));
 
     this.httpService.requestPrediction(form_img).subscribe((prediction) => {
-      this.dataExchangeService.prediction = prediction.results;
+      this.dataExchangeService.prediction = prediction;
       this.dataExchangeService.photos = photos;
+
+      this.dataExchangeService.sendClassification(prediction);
+      this.dataExchangeService.sendImage(photos[0]);
       this.router.navigateByUrl("/result");
 
-      this.classificationResults = prediction.results;
+      this.classificationResults = prediction;
     });
 
     // Unsure if displaying results on second page

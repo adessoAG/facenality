@@ -28,10 +28,13 @@ export class ResultPageComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => {
-      this.classificationResults = this.dataExchangeService.prediction;
-      this.imageSourceToClassify = this.dataExchangeService.photos[0];
+   /*    this.classificationResults = this.dataExchangeService.prediction;
+      this.imageSourceToClassify = this.dataExchangeService.photos[0]; */
        //this.classificationResults = [1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0];
-    }, 2000);
+    }, 0);
+
+    this.dataExchangeService.classificationSubject.subscribe(classification => this.classificationResults = classification);
+    this.dataExchangeService.imageSubject.subscribe(imageSource => this.imageSourceToClassify = imageSource);
 
     this.translate.activeLangChanged.subscribe(lang => this.activeLanguage = lang.currentValue);
   }
