@@ -102,10 +102,36 @@
 </ng-container>
 
 <ng-container *ngIf="!dataCollectMode">
-    <div #webcam class="card border-primary mb-3 small-margin-body" style="margin-top: 2%;">
+    
+    <!-- Webcam no hardware permission alert -->
+    <ngb-alert #permissionAlert *ngIf="showPermissionAlert" id="webcam-permission-alert" class="global-body-wrapper"
+        [type]="'danger'" (close)="showPermissionAlert = false">
+        It seems your Webcam is deactivated. Please click on the camera symbol next to the adressbar to check, then
+        reload
+        the page.<br>
+        If you still need help, please refer to <a href="https://support.ring.md/hc/en-us/articles/115008801608-Browser-settings-for-enabling-webcam-and-microphone-Mozilla-Firefox-"
+            target="_blank">this guide for Firefox</a>, or <a href="https://support.google.com/chrome/answer/2693767?hl=en"
+            target="_blank">this guide for Chrome</a>.
+    </ngb-alert>
+
+    <!-- Webcam no user permission warning -->
+    <ngb-alert #permissionWarning *ngIf="showPermissionWarning && !webcamUserPermission" id="webcam-permission-alert"
+        class="global-body-wrapper" [type]="'warning'" (close)="showPermissionWarning = false">
+        {{"WEBCAM_PERMISSION_WARNING" | translate}}
+    </ngb-alert>
+
+    <!-- TODO: Adapt to *ngFor? -->
+    <div class="row" style="margin-left: 30%; margin-right: 30%; margin-bottom: 5%;">
+        <div class="col">
+            <shared-image [imageSource]="'assets/images/face-neutral.svg'" [imageDescription]="'DESCRIPTION_NEUTRAL_FACE' | translate"
+                (webcamRequested)="checkWebcamPermission(webcam)"></shared-image>
+        </div>
+    </div>
+
+    <div #webcam class="card border-primary mb-3 small-margin-body" style="margin-top: -4%;">
         <!-- Webcam switch -->
         <div class="card-header text-white bg-info">
-            <div class="form-group row" ngbRadioGroup name="radioBasic" [(ngModel)]="webcamUserPermission" style="margin: -2% 0;">
+            <div class="form-group row" ngbRadioGroup name="radioBasic" [(ngModel)]="webcamUserPermission" style="margin: -3% 0; padding: 0 5%;">
                 <div class="custom-control my-auto">
                     <legend><i class="fa fa-video-camera"></i>&nbsp; Webcam:</legend>
                 </div>
@@ -143,32 +169,7 @@
         -->
     </div>
 
-    <!-- Webcam no hardware permission alert -->
-    <ngb-alert #permissionAlert *ngIf="showPermissionAlert" id="webcam-permission-alert" class="global-body-wrapper"
-        [type]="'danger'" (close)="showPermissionAlert = false">
-        It seems your Webcam is deactivated. Please click on the camera symbol next to the adressbar to check, then
-        reload
-        the page.<br>
-        If you still need help, please refer to <a href="https://support.ring.md/hc/en-us/articles/115008801608-Browser-settings-for-enabling-webcam-and-microphone-Mozilla-Firefox-"
-            target="_blank">this guide for Firefox</a>, or <a href="https://support.google.com/chrome/answer/2693767?hl=en"
-            target="_blank">this guide for Chrome</a>.
-    </ngb-alert>
-
-    <!-- Webcam no user permission warning -->
-    <ngb-alert #permissionWarning *ngIf="showPermissionWarning && !webcamUserPermission" id="webcam-permission-alert"
-        class="global-body-wrapper" [type]="'warning'" (close)="showPermissionWarning = false">
-        {{"WEBCAM_PERMISSION_WARNING" | translate}}
-    </ngb-alert>
-
-    <!-- TODO: Adapt to *ngFor? -->
-    <div class="row" style="margin-left: 30%; margin-right: 30%; margin-bottom: 5%;">
-        <div class="col">
-            <shared-image [imageSource]="'assets/images/face-neutral.svg'" [imageDescription]="'DESCRIPTION_NEUTRAL_FACE' | translate"
-                (webcamRequested)="checkWebcamPermission(webcam)"></shared-image>
-        </div>
-    </div>
-
-    <div class="small-margin-body" style="margin-bottom: 5%;">
+    <div class="small-margin-body" style="margin-top: 1%; margin-bottom: 5%;">
         <button class="btn btn-success btn-block" (click)="onSubmitForPrediction()">
             {{ "BTN_SUBMIT_PREDICTION" | translate }}
         </button>
