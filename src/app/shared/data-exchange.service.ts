@@ -8,8 +8,8 @@ import { Questionnaire } from '../landing-page/dynamic-form/types/questionnaire'
 export class DataExchangeService {
 
   questionnaire: Questionnaire;
-  prediction: string [];
-  photos: string [];
+  prediction: number [] = [];
+  photos: string [] = [];
   
   // ERROR: There seems to be a loading problem when using Subject. Might be different with BehaviourSubject
   private data = new Subject<any>();

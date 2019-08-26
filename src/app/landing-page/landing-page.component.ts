@@ -45,8 +45,8 @@ export class LandingPageComponent implements OnInit {
 
   activeLanguage: string;
 
-  showResultGraph = false;
-  predictionResult = [];
+  classificationResults: number[];
+  imageSourceToClassify: string;
 
   constructor(private qcs: QuestionControlService, private qs: QuestionService, private httpService: HttpService,
     private router: Router, private dataExchangeService: DataExchangeService, private translate: TranslateService) { }
@@ -112,9 +112,17 @@ export class LandingPageComponent implements OnInit {
       this.dataExchangeService.prediction = prediction.results;
       this.dataExchangeService.photos = photos;
       this.router.navigateByUrl("/result");
-      //this.showResultGraph = true;
-      //this.predictionResult = prediction.results;
+
+      this.classificationResults = prediction.results;
     });
+
+    // Unsure if displaying results on second page
+/*     this.dataExchangeService.prediction = [1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0];
+    this.dataExchangeService.photos.push(photos[0]); */
+
+    // Unsure if displaying results on same page
+/*     this.imageSourceToClassify = photos[0];
+    this.classificationResults = [1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0]; */
   }
 
   /**

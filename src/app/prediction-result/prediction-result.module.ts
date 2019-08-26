@@ -9,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
     routing,
     SharedModule
   ],
-  declarations: [ResultPageComponent]
+  declarations: [ResultPageComponent],
+  exports: [ResultPageComponent]
 })
 export class PredictionResultModule { }

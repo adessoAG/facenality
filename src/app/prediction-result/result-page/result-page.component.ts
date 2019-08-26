@@ -21,15 +21,16 @@ export class ResultPageComponent implements OnInit {
   photoDescriptions = PHOTO_DESCRIPTIONS;
   descriptionLabel = this.photoDescriptions[0].label;
 
-  @Input() classificationResults;
-  @Input() image;
+  @Input() classificationResults: number[];
+  @Input() imageSourceToClassify: string;
 
   constructor(private dataExchangeService: DataExchangeService, private translate: TranslateService, private httpService: HttpService) { }
 
   ngOnInit() {
     setTimeout(() => {
-       const prediction = this.dataExchangeService.prediction;
-       this.classificationResults = [1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0];
+      this.classificationResults = this.dataExchangeService.prediction;
+      this.imageSourceToClassify = this.dataExchangeService.photos[0];
+       //this.classificationResults = [1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0];
     }, 2000);
 
     this.translate.activeLangChanged.subscribe(lang => this.activeLanguage = lang.currentValue);
