@@ -1,8 +1,8 @@
-<div class="global-body-wrapper text-center" scrollToTop>
+<!-- <div class="global-body-wrapper text-center" scrollToTop style="margin-top: 1%;">
   <h1 class="display-3">Facenality</h1>
   <br>
   <h4 style="font-size: 24px"> {{"SLOGAN" | translate}}</h4>
-</div>
+</div> -->
 
 <ng-container *ngIf="dataCollectMode">
 
@@ -102,20 +102,20 @@
 </ng-container>
 
 <ng-container *ngIf="!dataCollectMode">
-    <div #webcam class="card border-primary mb-3 " style="margin: 2% 25%;">
+    <div #webcam class="card border-primary mb-3 small-margin-body" style="margin-top: 2%;">
         <!-- Webcam switch -->
         <div class="card-header text-white bg-info">
-            <div class="form-group row" ngbRadioGroup name="radioBasic" [(ngModel)]="webcamUserPermission" style="margin: -2% 15% -2% 15%;">
+            <div class="form-group row" ngbRadioGroup name="radioBasic" [(ngModel)]="webcamUserPermission" style="margin: -2% 0;">
                 <div class="custom-control my-auto">
                     <legend><i class="fa fa-video-camera"></i>&nbsp; Webcam:</legend>
                 </div>
                 <div class="custom-control custom-radio">
-            <label ngbButtonLabel style="color: white">
+                    <label ngbButtonLabel style="color: white">
                         <input ngbButton type="radio" [value]="1"> {{"WEBCAM_ON" | translate}}
                     </label>
                 </div>
                 <div class="custom-control custom-radio">
-            <label ngbButtonLabel style="color: white">
+                    <label ngbButtonLabel style="color: white">
                         <input ngbButton type="radio" [value]="0"> {{"WEBCAM_OFF" | translate}}
                     </label>
                 </div>
@@ -168,7 +168,7 @@
         </div>
     </div>
 
-    <div class="global-body-wrapper">
+    <div class="small-margin-body" style="margin-bottom: 5%;">
         <button class="btn btn-success btn-block" (click)="onSubmitForPrediction()">
             {{ "BTN_SUBMIT_PREDICTION" | translate }}
         </button>
