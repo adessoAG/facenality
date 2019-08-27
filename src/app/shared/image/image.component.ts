@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { WebcamService } from '../webcam/webcam.service';
 import { Subscription, Subject } from 'rxjs';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'shared-image',
@@ -60,6 +61,11 @@ export class ImageComponent implements OnInit {
   onImageUpload(selectedImage) {
     const reader = new FileReader();
     reader.readAsDataURL(selectedImage.target.files[0]);
+
+    // let form_img = new FormData();
+    // form_img.append("file", selectedImage.target.files[0], "blob.jpg");
+    
+    // this.httpService.postPrediction(selectedImage.target.files[0]).subscribe((response) => console.log("1: " + response));
 
     reader.onload = (resource: any) => {
       this.imageSource = resource.target.result; // base64 format

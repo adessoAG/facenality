@@ -18,6 +18,7 @@ import { TranslateService } from '@ngstack/translate';
 })
 export class LandingPageComponent implements OnInit {
 
+  dataCollectMode = false;
   /**
    * @property webcamUserPermission : Underlying modell for webcam permission
    * @property showPermissionWarning : Displays warning alert if user didn't set @webcamUserPermission to true 
@@ -44,6 +45,8 @@ export class LandingPageComponent implements OnInit {
 
   activeLanguage: string;
 
+  classificationResults: number[];
+  imageSourceToClassify: string;
 
   constructor(private qcs: QuestionControlService, private qs: QuestionService, private httpService: HttpService,
     private router: Router, private dataExchangeService: DataExchangeService, private translate: TranslateService) { }
@@ -58,10 +61,71 @@ export class LandingPageComponent implements OnInit {
     this.translate.activeLangChanged.subscribe(lang => {
       this.activeLanguage = lang.currentValue;
     });
+    
+/*  // How to correctly send a POST prediction request
+    let form_img = new FormData();
+    form_img.append("file", this.b64toBlob(img, "image/jpeg"), "blob.jpg");
+    
+    this.httpService.postPrediction(form_img).subscribe((response) => console.log("1: " + response.results)); */
+    }
+
+  purifyBase64String(b64: string): string {
+    return b64.substring(b64.indexOf(",") + 1);
   }
+
+  b64toBlob (b64Data, contentType='', sliceSize=512) {
+      const byteCharacters = atob(this.purifyBase64String(b64Data));
+      const byteArrays = [];
+    
+      for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+        const slice = byteCharacters.slice(offset, offset + sliceSize);
+    
+        const byteNumbers = new Array(slice.length);
+        for (let i = 0; i < slice.length; i++) {
+          byteNumbers[i] = slice.charCodeAt(i);
+        }
+    
+        const byteArray = new Uint8Array(byteNumbers);
+        byteArrays.push(byteArray);
+      }
+    
+      const blob = new Blob(byteArrays, {type: contentType});
+      return blob;
+    }
 
   onCattells16FormComplete() {
     this.isCattells16FormComplete = true;
+  }
+
+  onSubmitForPrediction() {
+    let photos: string[] = [];
+    this.images.forEach(img => { photos.push(img.imageSource) });
+    // let photo = JSON.stringify({ "photo" : photos[0] });
+    
+    let form_img = new FormData();
+    form_img.append("file", this.b64toBlob(photos[0], "image/jpeg"), "predict.jpg");
+    //form_img.append("file", this.images[0], "predict.jpg");
+    
+    //this.httpService.requestPrediction(form_img).subscribe((response) => console.log("prediction: " + response));
+
+    this.httpService.requestPrediction(form_img).subscribe((prediction) => {
+      this.dataExchangeService.prediction = prediction;
+      this.dataExchangeService.photos = photos;
+
+      this.dataExchangeService.sendClassification(prediction);
+      this.dataExchangeService.sendImage(photos[0]);
+      this.router.navigateByUrl("/result");
+
+      this.classificationResults = prediction;
+    });
+
+    // Unsure if displaying results on second page
+/*     this.dataExchangeService.prediction = [1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0];
+    this.dataExchangeService.photos.push(photos[0]); */
+
+    // Unsure if displaying results on same page
+/*     this.imageSourceToClassify = photos[0];
+    this.classificationResults = [1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0]; */
   }
 
   /**

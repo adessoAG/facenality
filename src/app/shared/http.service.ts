@@ -11,6 +11,8 @@ import { environment } from 'src/environments/environment';
 export class HttpService {
 
   httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+  httpHeaderHtml = { headers: new HttpHeaders({ 'Content-Type': 'text/html' }) };
+  httpHeaderForm = { headers: new HttpHeaders({ 'Content-Type': 'multipart/form-data' }) };
   apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
@@ -27,7 +29,19 @@ export class HttpService {
     return this.http.get<number []>(`${this.apiUrl}/get-test-average/${id}`);
   }
 
-  /**
+  requestPrediction(imageForm): Observable<any> {
+    return this.http.post<any>(this.apiUrl + "/predict", imageForm).pipe(
+      catchError(this.handleError<number>('requestPrediction'))
+    );
+  }
+
+  postPrediction(img): Observable<any> {
+    return this.http.post<any>("http://localhost:5000/predict", img).pipe(
+      catchError(this.handleError<number>('postPrediction'))
+    );
+  }
+
+ /**
  * Handle Http operation that failed.
  * Let the app continue.
  * @param operation - name of the operation that failed

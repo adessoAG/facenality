@@ -1,166 +1,184 @@
-<div class="global-body-wrapper text-center" scrollToTop>
-    <img id="logo" src="assets/images/logo.png">
-    <h1 class="display-3">Facenality</h1>
-    <br>
-    <ng-container *ngIf="activeLanguage === 'de'">
-        <p class="text-primary intro-text">
-            Laut einer verbreiteten <a class="text-danger" href="https://www.huffingtonpost.de/2015/04/16/suche-nach-dem-doppelgaenger_n_7078760.html"
-                target="_blank">Statistik</a>, hat jeder Mensch sieben
-            Doppelgänger auf der Welt. Das ist nicht überaschend. Im Laufe des Lebens haben wir viele Menschen
-            getroffen,
-            die Ähnlichkeit zu anderen haben.
-            Interessant wird es, wenn man beobachtet und feststellt, dass Menschen die sich ähnlich sehen, meist nicht
-            nur ähnliche <strong>Gesichtsmerkmale</strong>, sondern auch ähnliche <strong>Verhaltensmerkmale</strong>
-            aufweisen.
-            <br>
-            <br>
-        </p>
-        <p class="text-primary intro-text paragraph-spacing">Das möchte ich mit Facenality wissenschaftlich
-            untersuchen.
-            Hier die wichtigsten Informationen zur Seite:</p>
-        <ul class="intro-text text-primary">
-            <li><a class="text-danger" routerLink="/about">Mehr über das Projekt</a></li>
-            <li><a class="text-danger" routerLink="/legal-and-privacy">Deine Daten sind sicher: Mehr zum Datenschutz</a></li>
-        </ul>
-        <p class="text-primary intro-text paragraph-spacing" style="margin-top: 5%;">Die Ziele der Arbeit:</p>
-        <ul class="intro-text text-primary">
-            <li>{{"GOAL1" | translate}}</li>
-            <li>{{"GOAL2" | translate}}</li>
-            <li>{{"GOAL3" | translate}}</li>
-            <li><a class="text-danger" href="https://www.researchgate.net/publication/318159328_Physiognomy_Personality_traits_prediction_by_learning"
-                    target="_blank">Chinesiche Forscher haben bereits positive Ergbnisse erzielt.</a></li>
-        </ul>
-    </ng-container>
+<!-- <div class="global-body-wrapper text-center" scrollToTop style="margin-top: 1%;">
+  <h1 class="display-3">Facenality</h1>
+  <br>
+  <h4 style="font-size: 24px"> {{"SLOGAN" | translate}}</h4>
+</div> -->
+<h1 class="display-4 text-center" style="margin-top: 1%;">I. Bild bereitstellen</h1>
 
-    <ng-container *ngIf="activeLanguage === 'en'">
-        <p class="text-primary intro-text">
-            According to a widespread <a class="text-danger" href="https://www.huffingtonpost.de/2015/04/16/suche-nach-dem-doppelgaenger_n_7078760.html"
-                target="_blank">statistic</a>, every human being has seven
-            doppelgänger in the world. That's not surprising.
-            In the course of life we have met many people who are similar to others.
-            It becomes interesting when one observes and realizes that people who look similar, usually do not
-            only have similar <strong>facial features</strong>, but also similar <strong>behavioral features</strong>.
-            <br>
-            <br>
-        </p>
-        <p class="text-primary intro-text paragraph-spacing">I would like to investigate this scientifically with
-            Facenality.
-            Here is the most important information about the site:</p>
-        <ul class="intro-text text-primary">
-            <li><a class="text-danger" routerLink="/about">More about the project</a></li>
-            <li><a class="text-danger" routerLink="/legal-and-privacy">Your data is secure: More about privacy</a></li>
-        </ul>
-        <p class="text-primary intro-text paragraph-spacing" style="margin-top: 5%;">Die Ziele der Arbeit:</p>
-        <ul class="intro-text text-primary">
-            <li>{{"GOAL1" | translate}}</li>
-            <li>{{"GOAL2" | translate}}</li>
-            <li>{{"GOAL3" | translate}}</li>
-            <li><a class="text-danger" href="https://www.researchgate.net/publication/318159328_Physiognomy_Personality_traits_prediction_by_learning"
-                    target="_blank">Chinese researchers have already achieved positive results.</a></li>
-        </ul>
-    </ng-container>
+<ng-container *ngIf="dataCollectMode">
 
-    <br>
-    <br>
-    <h4 style="font-size: 24px"> {{"SLOGAN" | translate}}</h4>
-</div>
+  <h2 class="display-4 col-12" style="text-align: center;">I. {{"CAPTION_PICTURES" | translate}}</h2>
 
-<hr class="my-4">
-
-<h2 class="display-4 col-12" style="text-align: center;">I. {{"CAPTION_PICTURES" | translate}}</h2>
-
-<div #webcam class="card border-primary mb-3" style="margin: 2% 15%;">
-    <!-- Webcam switch -->
-    <div class="card-header text-white bg-info">
-        <div class="form-group row" ngbRadioGroup name="radioBasic" [(ngModel)]="webcamUserPermission" style="margin-bottom: -2%;">
-            <div class="custom-control my-auto">
-                <legend><i class="fa fa-video-camera"></i>&nbsp; Webcam:</legend>
-            </div>
-            <div class="custom-control custom-radio">
-                <label ngbButtonLabel>
-                    <input ngbButton type="radio" [value]="1"> {{"WEBCAM_ON" | translate}}
-                </label>
-            </div>
-            <div class="custom-control custom-radio">
-                <label ngbButtonLabel>
-                    <input ngbButton type="radio" [value]="0"> {{"WEBCAM_OFF" | translate}}
-                </label>
+    <div #webcam class="card border-primary mb-3" style="margin: 2% 15%;">
+        <!-- Webcam switch -->
+        <div class="card-header text-white bg-info">
+            <div class="form-group row" ngbRadioGroup name="radioBasic" [(ngModel)]="webcamUserPermission" style="margin-bottom: -2%;">
+                <div class="custom-control my-auto">
+                    <legend><i class="fa fa-video-camera"></i>&nbsp; Webcam:</legend>
+                </div>
+                <div class="custom-control custom-radio">
+          <label ngbButtonLabel style="color: white">
+                        <input ngbButton type="radio" [value]="1"> {{"WEBCAM_ON" | translate}}
+                    </label>
+                </div>
+                <div class="custom-control custom-radio">
+          <label ngbButtonLabel style="color: white">
+                        <input ngbButton type="radio" [value]="0"> {{"WEBCAM_OFF" | translate}}
+                    </label>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- Info icons and instructions -->
-    <div class="card-body">
-        <div class="row" style=" white-space: nowrap;">
-            <p class="col text-primary" style="white-space: nowrap;">
-                <i class="fa fa-3x fa-sun-o" style="vertical-align: middle;"></i>&nbsp;
-                {{"WEBCAM_INSTRUCTION1" | translate}}
-            </p>
-            <p class="col text-primary" style="white-space: nowrap;">
-                <i class="fa fa-3x fa-user-circle-o" style=" vertical-align: middle;"></i>&nbsp;
-                {{"WEBCAM_INSTRUCTION2" | translate}}
+        <!-- Info icons and instructions -->
+        <div class="card-body">
+            <!--
+            <div class="row" style=" white-space: nowrap;">
+                <p class="col text-primary" style="white-space: nowrap;">
+                    <i class="fa fa-3x fa-sun-o" style="vertical-align: middle;"></i>&nbsp;
+                    {{"WEBCAM_INSTRUCTION1" | translate}}
+                </p>
+                <p class="col text-primary" style="white-space: nowrap;">
+                    <i class="fa fa-3x fa-user-circle-o" style=" vertical-align: middle;"></i>&nbsp;
+                    {{"WEBCAM_INSTRUCTION2" | translate}}
 
-            </p>
-            <p class="col text-primary">
-                <i class="fa fa-3x fa-eye" style=" vertical-align: middle;"></i>&nbsp;
-                {{"WEBCAM_INSTRUCTION3" | translate}}
-            </p>
-            <p class="col text-primary">
-                <i class="fa fa-3x fa-camera" style=" vertical-align: middle;"></i>&nbsp;
-                {{"WEBCAM_INSTRUCTION4" | translate}}
-            </p>
+                </p>
+                <p class="col text-primary">
+                    <i class="fa fa-3x fa-eye" style=" vertical-align: middle;"></i>&nbsp;
+                    {{"WEBCAM_INSTRUCTION3" | translate}}
+                </p>
+            </div>
+            -->
         </div>
     </div>
-</div>
 
-<!-- Webcam no hardware permission alert -->
-<ngb-alert #permissionAlert *ngIf="showPermissionAlert" id="webcam-permission-alert" class="global-body-wrapper" [type]="'danger'"
-    (close)="showPermissionAlert = false">
-    It seems your Webcam is deactivated. Please click on the camera symbol next to the adressbar to check, then reload
-    the page.<br>
-    If you still need help, please refer to <a href="https://support.ring.md/hc/en-us/articles/115008801608-Browser-settings-for-enabling-webcam-and-microphone-Mozilla-Firefox-"
-        target="_blank">this guide for Firefox</a>, or <a href="https://support.google.com/chrome/answer/2693767?hl=en"
-        target="_blank">this guide for Chrome</a>.
-</ngb-alert>
+    <!-- Webcam no hardware permission alert -->
+    <ngb-alert #permissionAlert *ngIf="showPermissionAlert" id="webcam-permission-alert" class="global-body-wrapper"
+        [type]="'danger'" (close)="showPermissionAlert = false">
+        It seems your Webcam is deactivated. Please click on the camera symbol next to the adressbar to check, then
+        reload
+        the page.<br>
+        If you still need help, please refer to <a href="https://support.ring.md/hc/en-us/articles/115008801608-Browser-settings-for-enabling-webcam-and-microphone-Mozilla-Firefox-"
+            target="_blank">this guide for Firefox</a>, or <a href="https://support.google.com/chrome/answer/2693767?hl=en"
+            target="_blank">this guide for Chrome</a>.
+    </ngb-alert>
 
-<!-- Webcam no user permission warning -->
-<ngb-alert #permissionWarning *ngIf="showPermissionWarning && !webcamUserPermission" id="webcam-permission-alert" class="global-body-wrapper"
-    [type]="'warning'" (close)="showPermissionWarning = false">
-    {{"WEBCAM_PERMISSION_WARNING" | translate}}
-</ngb-alert>
+    <!-- Webcam no user permission warning -->
+    <ngb-alert #permissionWarning *ngIf="showPermissionWarning && !webcamUserPermission" id="webcam-permission-alert"
+        class="global-body-wrapper" [type]="'warning'" (close)="showPermissionWarning = false">
+        {{"WEBCAM_PERMISSION_WARNING" | translate}}
+    </ngb-alert>
 
-<!-- TODO: Adapt to *ngFor? -->
-<div class="row" style="margin-left: 15%; margin-right: 17%; margin-bottom: 8%;">
-    <div class="col">
-        <shared-image [imageSource]="'assets/images/face-neutral.svg'" [imageDescription]="'DESCRIPTION_NEUTRAL_FACE' | translate"
-            (webcamRequested)="checkWebcamPermission(webcam)"></shared-image>
+    <!-- TODO: Adapt to *ngFor? -->
+    <div class="row" style="margin-left: 15%; margin-right: 17%; margin-bottom: 8%;">
+        <div class="col">
+            <shared-image [imageSource]="'assets/images/face-neutral.svg'" [imageDescription]="'DESCRIPTION_NEUTRAL_FACE' | translate"
+                (webcamRequested)="checkWebcamPermission(webcam)"></shared-image>
+        </div>
+        <div class="col">
+            <shared-image [imageSource]="'assets/images/face-happy.svg'" [imageDescription]="'DESCRIPTION_HAPPY_FACE' | translate"
+                (webcamRequested)="checkWebcamPermission(webcam)"></shared-image>
+        </div>
+        <div class="w-100" style="margin-bottom: 2%;"></div>
+        <div class="col">
+            <shared-image [imageSource]="'assets/images/face-sad.svg'" [imageDescription]="'DESCRIPTION_SAD_FACE' | translate"
+                (webcamRequested)="checkWebcamPermission(webcam)"></shared-image>
+        </div>
+        <div class="col">
+            <shared-image [imageSource]="'assets/images/face-random.svg'" [imageDescription]="'DESCRIPTION_RANDOM_FACE' | translate"
+                (webcamRequested)="checkWebcamPermission(webcam)"></shared-image>
+        </div>
     </div>
-    <div class="col">
-        <shared-image [imageSource]="'assets/images/face-happy.svg'" [imageDescription]="'DESCRIPTION_HAPPY_FACE' | translate"
-            (webcamRequested)="checkWebcamPermission(webcam)"></shared-image>
-    </div>
-    <div class="w-100" style="margin-bottom: 2%;"></div>
-    <div class="col">
-        <shared-image [imageSource]="'assets/images/face-sad.svg'" [imageDescription]="'DESCRIPTION_SAD_FACE' | translate"
-            (webcamRequested)="checkWebcamPermission(webcam)"></shared-image>
-    </div>
-    <div class="col">
-        <shared-image [imageSource]="'assets/images/face-random.svg'" [imageDescription]="'DESCRIPTION_RANDOM_FACE' | translate"
-            (webcamRequested)="checkWebcamPermission(webcam)"></shared-image>
-    </div>
-</div>
 
-<h2 class="display-4 col-12" style="text-align: center;">II. {{"CAPTION_QUESTIONNAIRE" | translate}}</h2>
+    <h2 class="display-4 col-12" style="text-align: center;">II. {{"CAPTION_QUESTIONNAIRE" | translate}}</h2>
 
-<div class="component-body-wrapper">
-    <form [formGroup]="cattells16Form">
-        <landing-page-dynamic-form *ngIf="!isCattells16FormComplete" [form]="cattells16Form" [questions]="cattells16Questions"
-            (formResults)="onCattells16FormComplete()"></landing-page-dynamic-form>
-    </form>
-</div>
+    <div class="component-body-wrapper">
+        <form [formGroup]="cattells16Form">
+            <landing-page-dynamic-form *ngIf="!isCattells16FormComplete" [form]="cattells16Form" [questions]="cattells16Questions"
+                (formResults)="onCattells16FormComplete()"></landing-page-dynamic-form>
+        </form>
+    </div>
 
-<div class="global-body-wrapper">
-    <landing-page-general-info-form *ngIf="isCattells16FormComplete" (formResults)="submitQuestionnaire($event)"></landing-page-general-info-form>
-</div>
+    <div class="global-body-wrapper">
+        <landing-page-general-info-form *ngIf="isCattells16FormComplete" (formResults)="submitQuestionnaire($event)"></landing-page-general-info-form>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="!dataCollectMode">
+    
+    <!-- Webcam no hardware permission alert -->
+    <ngb-alert #permissionAlert *ngIf="showPermissionAlert" id="webcam-permission-alert" class="global-body-wrapper"
+        [type]="'danger'" (close)="showPermissionAlert = false">
+        It seems your Webcam is deactivated. Please click on the camera symbol next to the adressbar to check, then
+        reload
+        the page.<br>
+        If you still need help, please refer to <a href="https://support.ring.md/hc/en-us/articles/115008801608-Browser-settings-for-enabling-webcam-and-microphone-Mozilla-Firefox-"
+            target="_blank">this guide for Firefox</a>, or <a href="https://support.google.com/chrome/answer/2693767?hl=en"
+            target="_blank">this guide for Chrome</a>.
+    </ngb-alert>
+
+    <!-- Webcam no user permission warning -->
+    <ngb-alert #permissionWarning *ngIf="showPermissionWarning && !webcamUserPermission" id="webcam-permission-alert"
+        class="global-body-wrapper" [type]="'warning'" (close)="showPermissionWarning = false">
+        {{"WEBCAM_PERMISSION_WARNING" | translate}}
+    </ngb-alert>
+
+    <!-- TODO: Adapt to *ngFor? -->
+    <div class="row" style="margin-left: 30%; margin-right: 30%; margin-bottom: 5%;">
+        <div class="col">
+            <shared-image [imageSource]="'assets/images/face-neutral.svg'" [imageDescription]="'DESCRIPTION_NEUTRAL_FACE' | translate"
+                (webcamRequested)="checkWebcamPermission(webcam)"></shared-image>
+        </div>
+    </div>
+
+    <div #webcam class="card border-primary mb-3 small-margin-body" style="margin-top: -4%;">
+        <!-- Webcam switch -->
+        <div class="card-header text-white bg-info">
+            <div class="form-group row" ngbRadioGroup name="radioBasic" [(ngModel)]="webcamUserPermission" style="margin: -3% 0; padding: 0 5%;">
+                <div class="custom-control my-auto">
+                    <legend><i class="fa fa-video-camera"></i>&nbsp; Webcam:</legend>
+                </div>
+                <div class="custom-control custom-radio">
+                    <label ngbButtonLabel style="color: white">
+                        <input ngbButton type="radio" [value]="1"> {{"WEBCAM_ON" | translate}}
+                    </label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <label ngbButtonLabel style="color: white">
+                        <input ngbButton type="radio" [value]="0"> {{"WEBCAM_OFF" | translate}}
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- Info icons and instructions -->
+        <!--
+        <div class="card-body">
+            <div class="row" style=" white-space: nowrap;">
+                <p class="col text-primary" style="white-space: nowrap;">
+                    <i class="fa fa-3x fa-sun-o" style="vertical-align: middle;"></i>&nbsp;
+                    {{"WEBCAM_INSTRUCTION1" | translate}}
+                </p>
+                <p class="col text-primary" style="white-space: nowrap;">
+                    <i class="fa fa-3x fa-user-circle-o" style=" vertical-align: middle;"></i>&nbsp;
+                    {{"WEBCAM_INSTRUCTION2" | translate}}
+
+                </p>
+                <p class="col text-primary">
+                    <i class="fa fa-3x fa-eye" style=" vertical-align: middle;"></i>&nbsp;
+                    {{"WEBCAM_INSTRUCTION3" | translate}}
+                </p>
+            </div> 
+        </div>
+        -->
+    </div>
+
+    <div class="small-margin-body" style="margin-top: 1%; margin-bottom: 5%;">
+        <button class="btn btn-success btn-block" (click)="onSubmitForPrediction()">
+            {{ "BTN_SUBMIT_PREDICTION" | translate }}
+        </button>
+    </div>
+
+    <!-- <app-result-page *ngIf="classificationResults !== undefined" [classificationResults]="classificationResults" [imageSourceToClassify]="imageSourceToClassify"></app-result-page> -->
+
+</ng-container>
 
 <!-- Webcam instance/preview in right corner -->
 <div *ngIf="webcamUserPermission" class="bottom-floating-container">
